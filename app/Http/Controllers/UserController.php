@@ -29,7 +29,27 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6',
+            'gender' => 'required',
+            'birthday' => 'required|date',
+            'role' => 'required'
+        ]);
+        $isAdmin = $request->input('role') === 'admin' ? true : false;
+
+        User::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => bcrypt($request->input('password')),
+            'gender' => $request->input('gender'),
+            'birthday' => $request->input('birthday'),
+            'is_admin' => $isAdmin,
+        ]);
+
+        return redirect()->route('users.index')->with('success', 'User created successfully');
     }
 
     /**

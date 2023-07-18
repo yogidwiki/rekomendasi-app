@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="{{asset("sneat/assets")}}/vendor/css/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="{{asset("sneat/assets")}}/vendor/css/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="{{asset("sneat/assets")}}/css/demo.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="{{asset("sneat/assets")}}/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
@@ -323,17 +324,15 @@
     </div>
     <!-- / Layout wrapper -->
 
-    <div class="buy-now">
-      <a
-        href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/"
-        target="_blank"
-        class="btn btn-danger btn-buy-now"
-        >buttons
-    </div>
-
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
     <script src="{{asset("sneat/assets")}}/vendor/libs/jquery/jquery.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script>
+      $(document).ready(function() {
+          $('#dataTables').DataTable();
+      });
+      </script>
     <script src="{{asset("sneat/assets")}}/vendor/libs/popper/popper.js"></script>
     <script src="{{asset("sneat/assets")}}/vendor/js/bootstrap.js"></script>
     <script src="{{asset("sneat/assets")}}/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
