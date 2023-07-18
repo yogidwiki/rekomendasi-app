@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MemberController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -20,6 +21,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'admin'], function () {
     Route::resource('users', UserController::class);
+    Route::resource('member',MemberController::class);
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
 
