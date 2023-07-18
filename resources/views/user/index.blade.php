@@ -1,6 +1,12 @@
 @extends('layouts.dashboard')
 
 @section('content')
+@if(Session::has('success'))
+        <div class="alert alert-primary alert-dismissible" role="alert">
+            {{ Session::get('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+    @endif
 <h4 class="fw-bold py-3 mb-4">Tabel Users</h4>
     <div class="row">
         <div class="col-md-12">
@@ -45,11 +51,80 @@
                                         {{ $item->gender }}
                                     </td>
                                     <td>
-                                        <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalCenter">Edit</button>
-                                        <button class="btn btn-danger btn-sm">Hapus</button>
-                                        <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modalReset">Reset Password</button>
+                                        <div class="d-flex gap-2">
+                                            <a href="{{ route('users.edit', $item->id) }}"
+                                                class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEdit{{ $item->id }}">Edit</a>
+                                            <form method="POST" action="{{ route('users.destroy', $item->id) }}">
+                                                @csrf
+                                                @method('delete')
+                                                <button type="submit" class="btn btn-danger delete-button btn-sm"
+                                                    data-name="{{ $item->name }}"
+                                                    data-id="{{ $item->id }}">Hapus</button>
+                                            </form>
+                                            <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modalReset">Reset Password</button>
+                                        </div>
                                     </td>
                                 </tr>
+                                <!-- Modal Update -->
+                                <div class="modal fade" id="modalEdit{{ $item->id }}" tabindex="-1" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="modalCenterTitle">Update item</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <form action="{{ route('users.update', $item->id) }}" method="POST">
+                                                @csrf
+                                                @method('PUT')
+                                                <div class="modal-body">
+                                                    <div class="row">
+                                                        <div class="col mb-3">
+                                                            <label for="nameWithTitle" class="form-label">Name</label>
+                                                            <input type="text" id="nameWithTitle" name="name" class="form-control" value="{{ $item->name }}" required />
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    <div class="row g-2 mb-3">
+                                                        <div class="col mb-0">
+                                                            <label for="emailWithTitle" class="form-label">Email</label>
+                                                            <input type="email" id="emailWithTitle" name="email" class="form-control" value="{{ $item->email }}" required />
+                                                        </div>
+                                                        <div class="col mb-0">
+                                                            <label for="html5-date-input" class="form-label">Tanggal Lahir</label>
+                                                            <input class="form-control" name="birthday" type="date" value="{{ $item->birthday }}" id="html5-date-input" required />
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlSelect1" class="form-label">Jenis Kelamin</label>
+                                                        <select class="form-select" id="exampleFormControlSelect1" name="gender" aria-label="Default select example" required>
+                                                            <option disabled selected>Pilih jenis kelamin</option>
+                                                            <option value="laki-laki" {{ $item->gender === 'laki-laki' ? 'selected' : '' }}>Laki-Laki</option>
+                                                            <option value="perempuan" {{ $item->gender === 'perempuan' ? 'selected' : '' }}>Perempuan</option>
+                                                        </select>
+                                                    </div>
+                                                    
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlSelect1" class="form-label">Role</label>
+                                                        <div class="d-flex gap-3">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="role" id="adminRadio" value="admin" {{ $item->is_admin ? 'checked' : '' }}>
+                                                                <label class="form-check-label" for="adminRadio">Admin</label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="role" id="userRadio" value="user" {{ !$item->is_admin ? 'checked' : '' }}>
+                                                                <label class="form-check-label" for="userRadio">User</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                             @endforeach
 
                         </tbody>
@@ -175,4 +250,8 @@
             </div>
         </div>
     </div>
+
+    {{-- modal update --}}
+    
+    
     @endsection

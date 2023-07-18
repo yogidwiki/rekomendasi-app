@@ -13,8 +13,9 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+  <title>@yield('title') &mdash; Dashboard</title>
 
-    <title>@yield('','Dashboard')</title>
 
     <meta name="description" content="" />
 
@@ -324,6 +325,8 @@
     </div>
     <!-- / Layout wrapper -->
 
+
+
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
     <script src="{{asset("sneat/assets")}}/vendor/libs/jquery/jquery.js"></script>
@@ -333,6 +336,34 @@
           $('#dataTables').DataTable();
       });
       </script>
+      <script>
+        $('button.delete-button').click(function(event) {
+        event.preventDefault();
+
+        const form = $(this).closest('form');
+        const name = $(this).data('name');
+
+        Swal.fire({
+            title: 'Yakin mau hapus ' + name + '?',
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonText: 'cancel',
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#868e96',
+            confirmButtonText: 'Hapus'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                form.submit();
+            } else {
+                Swal.fire('Batal', name + ' gajadi dihapus.', 'error');
+            }
+        });
+    });
+      </script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+      
+      
     <script src="{{asset("sneat/assets")}}/vendor/libs/popper/popper.js"></script>
     <script src="{{asset("sneat/assets")}}/vendor/js/bootstrap.js"></script>
     <script src="{{asset("sneat/assets")}}/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
