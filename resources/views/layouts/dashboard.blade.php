@@ -38,6 +38,7 @@
     <link rel="stylesheet" href="{{asset("sneat/assets")}}/vendor/css/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="{{asset("sneat/assets")}}/css/demo.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="{{asset("sneat/assets")}}/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
@@ -360,8 +361,9 @@
         });
     });
       </script>
+      @yield('script')
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
       
       
     <script src="{{asset("sneat/assets")}}/vendor/libs/popper/popper.js"></script>
