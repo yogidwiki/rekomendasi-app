@@ -49,7 +49,7 @@ class UserController extends Controller
             'is_admin' => $isAdmin,
         ]);
 
-        return redirect()->route('users.index')->with('success', 'User created successfully');
+        return redirect()->route('users.index')->with('success', 'Berhasil menambahkan user');
     }
 
     /**
@@ -71,16 +71,40 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+    public function update(Request $request, $id)
+{
+    $request->validate([
+        'name' => 'required',
+        'email' => 'required|email|unique:users,email,'.$id,
+        'gender' => 'required',
+        'birthday' => 'required|date',
+        'role' => 'required'
+    ]);
+
+    $isAdmin = $request->input('role') === 'admin' ? true : false;
+
+    $user = User::findOrFail($id);
+
+    $user->name = $request->input('name');
+    $user->email = $request->input('email');
+    $user->gender = $request->input('gender');
+    $user->birthday = $request->input('birthday');
+    $user->is_admin = $isAdmin;
+
+    $user->save();
+
+    return redirect()->route('users.index')->with('success', 'Berhasil mengupdate user');
+}
+
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect()->route('users.index')->with('success', 'Berhasil hapus user');
     }
 }
