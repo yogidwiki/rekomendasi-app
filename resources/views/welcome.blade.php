@@ -36,7 +36,7 @@
     </nav>
 
     <div class="container mt-5 text-center">
-        <h1 class="font-weight-bold">INI LANDINGPAGE</h1>
+        <h1 class="font-weight-bold">INI LANDINGPAGE WOII</h1>
     </div>
 
     <!-- Bootstrap JS (Place this at the end of the body) -->
