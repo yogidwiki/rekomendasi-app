@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'admin'], function () {
     Route::resource('users', UserController::class);
+    Route::post('users/{id}/reset-password', [UserController::class, 'resetPassword'])->name('reset-password');
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
 
