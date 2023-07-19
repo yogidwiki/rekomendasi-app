@@ -11,7 +11,7 @@
     @yield('css')
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #f0a999">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #4d32e2">
         <div class="container">
             <a class="navbar-brand" href="{{route('welcome')}}">PARENT</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
