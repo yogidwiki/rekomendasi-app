@@ -1,5 +1,4 @@
 @extends('layouts.landingpage')
-
 @section('content')
-    <h1>landingpage</h1>
+    <h1>ini Artikel</h1>
 @endsection
