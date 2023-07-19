@@ -15,4 +15,10 @@ class LandingpageController extends Controller
     public function artikel(){
         return view('landingpage.artikel');
     }
+    public function test(){
+        return view('landingpage.test');
+    }
+    public function diskusi(){
+        return view('landingpage.diskusi');
+    }
 }

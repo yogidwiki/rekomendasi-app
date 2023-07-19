@@ -20,6 +20,8 @@ use App\Http\Controllers\LandingpageController;
 Route::get('/', [LandingpageController::class, 'index'])->name('welcome');
 Route::get('/about', [LandingpageController::class, 'about'])->name('about');
 Route::get('/artikel', [LandingpageController::class, 'artikel'])->name('artikel');
+Route::get('/test', [LandingpageController::class, 'test'])->name('test');
+Route::get('/diskusi', [LandingpageController::class, 'diskusi'])->name('diskusi');
 
 
 Route::group(['middleware' => 'admin'], function () {
