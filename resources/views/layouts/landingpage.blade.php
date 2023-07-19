@@ -8,6 +8,7 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    @yield('css')
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #f0a999">
