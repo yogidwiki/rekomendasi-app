@@ -1,11 +1,14 @@
 @extends('layouts.landingpage')
-@section('css')
-    <style>
-
-    </style>
-@endsection
-
 
 @section('content')
-<h1 class="text-center mt-5">halaman about</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+
+            </div>
+            <div class="col-md-6">
+                
+            </div>
+        </div>
+    </div>
 @endsection
