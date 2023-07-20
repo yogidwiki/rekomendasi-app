@@ -2,8 +2,8 @@
 
 @section('content')
 
+<h4 class="fw-bold py-3 mb-4">Tabel Members</h4>
 <div class="row">
-
   <div class="col-md-12">
     <div class="card p-4">
       <div class="col-md-2">
@@ -51,10 +51,7 @@
                 {{$member->linkedin}}
               </td>
               <td>
-
-                <img src="/storage/images/'.$member->image" class="w-50">
-
-
+              <img src="{{ asset('/public/images/' . $member->image) }}" class="w-50">
               </td>
               <td>
                 <div class="d-flex gap-2">
@@ -65,7 +62,7 @@
                     <button type="submit" class="btn btn-danger delete-button btn-sm" data-name="{{$member->name}}" data-id="{{$member->id}}">Hapus</button>
                   </form>
 
-                  <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="">View</button>
+                  
                 </div>
               </td>
             </tr>
@@ -78,7 +75,7 @@
                     <h5 class="modal-title" id="modalCenterTitle">Update item</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <form action="{{ route('member.update', $member->id) }}" method="POST" enctype="multipart/form-data">
+                  <form action="{{ route('member.update', $member->id) }}" method="POST" enctype="multipart/form-data" >
                     @csrf
                     @method('PUT')
                     <div class="modal-body">
@@ -102,35 +99,37 @@
                           <option value="laki-laki" {{ $member->jenis_kelamin === 'laki-laki' ? 'selected' : '' }}>Laki-Laki</option>
                           <option value="perempuan" {{ $member->jenis_kelamin === 'perempuan' ? 'selected' : '' }}>Perempuan</option>
                         </select>
-                      </div>
-                      <div class="row g-2 mb-3">
-                        <div class="col mb-0">
+                        <div class="mb-3">
                           <label for="instagramWithTitle" class="form-label">Instagram</label>
-                          <input type="text" id="instagramWithTitle" name="instagram" class="form-control" value="{{ $member->instagram }}" required />
+                          <div class="input-group">
+                            <span class="input-group-text" id="instagram">https://instagram.com/</span>
+                            <input type="text" class="form-control" id="instagram" name="instagram" placeholder="username" aria-describedby="basic-addon3 basic-addon4" value="{{ $member->instagram }}" required>
+                          </div>
                         </div>
-                      </div>
-                      <div class="row g-2 mb-3">
-                        <div class="col mb-0">
-                          <label for="githubWithTitle" class="form-label">Github</label>
-                          <input type="text" id="githubWithTitle" name="github" class="form-control" value="{{ $member->github }}" required />
+                        <div class="col mb-3">
+                          <label for="githubWithTitle" class="form-label">github</label>
+                          <div class="input-group">
+                            <span class="input-group-text" id="github">https://github.com/ </span>
+                            <input type="text" class="form-control" id="github" name="github" placeholder="username" aria-describedby="basic-addon3 basic-addon4" value="{{ $member->github }}" required>
+                          </div>
                         </div>
-                      </div>
-                      <div class="row g-2 mb-3">
-                        <div class="col mb-0">
-                          <label for="linkedinWithTitle" class="form-label">Linkedin</label>
-                          <input type="text" id="linkedinWithTitle" name="linkedin" class="form-control" value="{{ $member->linkedin }}" required />
+                        <div class="col mb-3">
+                          <label for="linkedinWithTitle" class="form-label">linkedin</label>
+                          <div class="input-group">
+                            <span class="input-group-text" id="linkedin">https://linkedin.com/</span>
+                            <input type="text" class="form-control" id="linkedin" name="linkedin" placeholder="username" aria-describedby="basic-addon3 basic-addon4" value="{{ $member->linkedin }}" required>
+                          </div>
                         </div>
-                      </div>
-                      <div class="mb-3">
-                        <label for="formFile" class="form-label">Foto</label>
-                        <input type="file" id="formFile" name="image" class="form-control">
-                      </div>
+                        <div class="mb-3">
+                          <label for="formFile" class="form-label">Foto</label>
+                          <input type="file" id="formFile" name="image" class="form-control" value="{{ $member->image }}" required>
+                        </div>
 
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="submit" class="btn btn-primary">Save changes</button>
-                    </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                      </div>
                   </form>
                 </div>
               </div>
@@ -144,6 +143,7 @@
 </div>
 
 <!-- Modal add-->
+
 <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -176,27 +176,30 @@
               </select>
             </div>
           </div>
-          <div class="row">
-            <div class="col mb-3">
-              <label for="instagramWithTitle" class="form-label">instagram</label>
-              <input type="text" id="instagramWithTitle" name="instagram" class="form-control" placeholder="Instagram" required />
+          <div class="mb-3">
+            <label for="instagramWithTitle" class="form-label">Instagram</label>
+            <div class="input-group">
+              <span class="input-group-text" id="instagram">https://instagram.com/</span>
+              <input type="text" class="form-control" id="instagram" name="instagram" placeholder="username" aria-describedby="basic-addon3 basic-addon4" required>
             </div>
           </div>
-          <div class="row">
-            <div class="col mb-3">
-              <label for="githubWithTitle" class="form-label">github</label>
-              <input type="text" id="githubWithTitle" name="github" class="form-control" placeholder="git" required />
+          <div class="col mb-3">
+            <label for="githubWithTitle" class="form-label">github</label>
+            <div class="input-group">
+              <span class="input-group-text" id="github">https://github.com/ </span>
+              <input type="text" class="form-control" id="github" name="github" placeholder="username" aria-describedby="basic-addon3 basic-addon4" required>
             </div>
           </div>
-          <div class="row">
-            <div class="col mb-3">
-              <label for="linkedinWithTitle" class="form-label">linkedin</label>
-              <input type="text" id="linkedinWithTitle" name="linkedin" class="form-control" placeholder="linkedin" required />
+          <div class="col mb-3">
+            <label for="linkedinWithTitle" class="form-label">linkedin</label>
+            <div class="input-group">
+              <span class="input-group-text" id="linkedin">https://linkedin.com/</span>
+              <input type="text" class="form-control" id="linkedin" name="linkedin" placeholder="username" aria-describedby="basic-addon3 basic-addon4" required>
             </div>
           </div>
           <div class="mb-3">
-              <label for="formFile" class="form-label">Foto</label>
-              <input class="form-control" type="file" id="formFile" name="image">
+            <label for="formFile" class="form-label">Foto</label>
+            <input class="form-control" type="file" id="formFile" name="image">
           </div>
         </div>
         <div class="modal-footer">
@@ -207,6 +210,13 @@
     </div>
   </div>
 </div>
+<style>
+  .modal-body {
+    max-height: 400px;
+    overflow: auto;
+  }
+</style>
+
 </div>
 
 @endsection

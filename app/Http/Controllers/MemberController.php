@@ -29,18 +29,14 @@ class MemberController extends Controller
      */
     public function store(Request $request)
 {
+    
     $data = $request->all();
-
     // Check if a file is uploaded
-    if ($request->hasFile('image')) {
-        // Change the file name
-        $imageName = time() . '_' . $request->file('image')->getClientOriginalName();
-    
-        // Move the file to the storage folder with the new name
-        $imagePath = $request->file('image')->storeAs('public/images', $imageName);
-    
-        // Assign the image path to the data
-        $data['image'] = $imagePath;
+    if($image = $request->file('image')){
+        $path = 'public/images';
+        $namaGambar = date('YmdHis') . "." . $image->getClientOriginalExtension();
+        $image->move($path, $namaGambar);
+        $data['image'] = $namaGambar;
     }
 
     // Create a new member
@@ -71,14 +67,17 @@ class MemberController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        // dd($request);
-    //     $request->validate([
-    //     'name' => 'required',
-    //     'email' => 'required|email|unique:users,email,'.$id,
-    //     'jenis_kelamin' => 'required',
-    //     'image' => 'required'
+         dd($request);
+         $request->validate([
+         'name' => 'required',
+         'email' => 'required|email|unique:users,email,'.$id,
+         'instagram' => 'required',
+         'github' => 'required',
+         'linkedin' => 'required',
+         'jenis_kelamin' => 'required',
+         'image' => 'required'
         
-    // ]);
+        ]);
 
     $members = Member::findOrFail($id);
 
@@ -88,6 +87,7 @@ class MemberController extends Controller
     $members->github = $request->input('github');
     $members->linkedin = $request->input('linkedin');
     $members->jenis_kelamin = $request->input('jenis_kelamin');
+    $members->image = $request->input('image');
 
     $members->save();
 
