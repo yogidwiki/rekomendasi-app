@@ -19,6 +19,9 @@
               <th>Nama</th>
               <th>Email</th>
               <th>Jenis Kelamin</th>
+              <th>instagram</th>
+              <th>github</th>
+              <th>linked</th>
               <th>Image</th>
               <th>Aksi</th>
             </tr>
@@ -37,6 +40,15 @@
               </td>
               <td>
                 {{$member->jenis_kelamin}}
+              </td>
+              <td>
+                {{$member->instagram}}
+              </td>
+              <td>
+                {{$member->github}}
+              </td>
+              <td>
+                {{$member->linkedin}}
               </td>
               <td>
 
@@ -90,6 +102,24 @@
                           <option value="laki-laki" {{ $member->jenis_kelamin === 'laki-laki' ? 'selected' : '' }}>Laki-Laki</option>
                           <option value="perempuan" {{ $member->jenis_kelamin === 'perempuan' ? 'selected' : '' }}>Perempuan</option>
                         </select>
+                      </div>
+                      <div class="row g-2 mb-3">
+                        <div class="col mb-0">
+                          <label for="instagramWithTitle" class="form-label">Instagram</label>
+                          <input type="text" id="instagramWithTitle" name="instagram" class="form-control" value="{{ $member->instagram }}" required />
+                        </div>
+                      </div>
+                      <div class="row g-2 mb-3">
+                        <div class="col mb-0">
+                          <label for="githubWithTitle" class="form-label">Github</label>
+                          <input type="text" id="githubWithTitle" name="github" class="form-control" value="{{ $member->github }}" required />
+                        </div>
+                      </div>
+                      <div class="row g-2 mb-3">
+                        <div class="col mb-0">
+                          <label for="linkedinWithTitle" class="form-label">Linkedin</label>
+                          <input type="text" id="linkedinWithTitle" name="linkedin" class="form-control" value="{{ $member->linkedin }}" required />
+                        </div>
                       </div>
                       <div class="mb-3">
                         <label for="formFile" class="form-label">Foto</label>
@@ -145,13 +175,29 @@
                 <option value="perempuan">Perempuan</option>
               </select>
             </div>
-            <div class="mb-3">
+          </div>
+          <div class="row">
+            <div class="col mb-3">
+              <label for="instagramWithTitle" class="form-label">instagram</label>
+              <input type="text" id="instagramWithTitle" name="instagram" class="form-control" placeholder="Instagram" required />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col mb-3">
+              <label for="githubWithTitle" class="form-label">github</label>
+              <input type="text" id="githubWithTitle" name="github" class="form-control" placeholder="git" required />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col mb-3">
+              <label for="linkedinWithTitle" class="form-label">linkedin</label>
+              <input type="text" id="linkedinWithTitle" name="linkedin" class="form-control" placeholder="linkedin" required />
+            </div>
+          </div>
+          <div class="mb-3">
               <label for="formFile" class="form-label">Foto</label>
               <input class="form-control" type="file" id="formFile" name="image">
-            </div>
-
           </div>
-
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>

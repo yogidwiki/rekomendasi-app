@@ -84,6 +84,9 @@ class MemberController extends Controller
 
     $members->nama = $request->input('nama');
     $members->email = $request->input('email');
+    $members->instagram = $request->input('instagram');
+    $members->github = $request->input('github');
+    $members->linkedin = $request->input('linkedin');
     $members->jenis_kelamin = $request->input('jenis_kelamin');
 
     $members->save();
