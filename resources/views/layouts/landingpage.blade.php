@@ -21,19 +21,19 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto ">
                     <li class="nav-item">
-                        <a class="nav-link nav-menu" href="{{route('welcome')}}">Home</a>
+                        <a class="nav-link nav-menu  {{ request()->is('/') ? 'menu-active' : ''}}" href="{{route('welcome')}}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-menu" href="{{route('diskusi')}}">Forum Diskusi</a>
+                        <a class="nav-link nav-menu {{ request()->is('diskusi') ? 'menu-active' : ''}}" href="{{route('diskusi')}}">Forum Diskusi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-menu" href="{{route('test')}}">Parenting Test</a>
+                        <a class="nav-link nav-menu {{ request()->is('test') ? 'menu-active' : ''}}" href="{{route('test')}}">Parenting Test</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-menu" href="{{route('artikel')}}">Artikel</a>
+                        <a class="nav-link nav-menu {{ request()->is('artikel') ? 'menu-active' : ''}}" href="{{route('artikel')}}">Artikel</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-menu" href="{{route('about')}}">About Us</a>
+                        <a class="nav-link nav-menu {{ request()->is('about') ? 'menu-active' : ''}}" href="{{route('about')}}">About Us</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav">
