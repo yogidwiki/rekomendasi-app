@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\MemberController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LandingpageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,15 +17,19 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', [LandingpageController::class, 'index'])->name('welcome');
+Route::get('/about', [LandingpageController::class, 'about'])->name('about');
+Route::get('/artikel', [LandingpageController::class, 'artikel'])->name('artikel');
+Route::get('/test', [LandingpageController::class, 'test'])->name('test');
+Route::get('/diskusi', [LandingpageController::class, 'diskusi'])->name('diskusi');
+
 
 Route::group(['middleware' => 'admin'], function () {
     Route::resource('users', UserController::class);
     Route::resource('member',MemberController::class);
     Route::post('users/{id}/reset-password', [UserController::class, 'resetPassword'])->name('reset-password');
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
 
 
