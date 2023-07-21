@@ -45,7 +45,7 @@
                 <h1 style="font-size:50px;" class="fw-bold text-success">Parenting Path: Nurturing Futures, One Step at a Time</h1>
                 <p class="lh-base">Creating Stronger Bonds, Raising Exceptional Children . Lorem ipsum dolor sit amet consectetur
                     adipisicing elit. Qui fuga commodi quibusdam quo. Culpa nobis placeat quia, velit maxime iure!</p>
-                <a href="#" class="btn mt-3 btn-login px-5">About us</a>
+                <a href="{{route('about')}}" class="btn mt-3 btn-login px-5">About us</a>
             </div>
             <div class="col-md-4 ">
                 <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded" width="100%">

@@ -22,6 +22,7 @@ Route::get('/about', [LandingpageController::class, 'about'])->name('about');
 Route::get('/artikel', [LandingpageController::class, 'artikel'])->name('artikel');
 Route::get('/test', [LandingpageController::class, 'test'])->name('test');
 Route::get('/diskusi', [LandingpageController::class, 'diskusi'])->name('diskusi');
+Route::get('/detail-artikel', [LandingpageController::class, 'detailArtikel'])->name('detail-artikel');
 
 
 Route::group(['middleware' => 'admin'], function () {
