@@ -8,6 +8,7 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{asset('./css/app.css')}}">
     @yield('css')
 </head>
@@ -64,8 +65,36 @@
         <div class="spinner"></div>
       </div>
 
+      <footer class="border-top mt-5" >
+        <div class="container">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-md-8 text-center">
+                    <img src="{{asset('image/parenting-logo.jpeg')}}" class="mt-4" style="max-width: 300px; height: auto;" alt="">
+                    
+                    
+                    <ul class="list-inline text-success">
+                        <li class="list-inline-item ">
+                            <a href="#" class="nav-link" target="_blank"><i class="bi bi-facebook"></i></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" class="nav-link" target="_blank"><i class="bi bi-twitter"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" class="nav-link" target="_blank"><i class="bi bi-instagram"></i></a>
+                        </li>
+                        <!-- Add more social media icons here -->
+                    </ul>
+                    <hr>
+                    <a href="#" class="nav-link mb-3 text-success">www.parenting.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <!-- Bootstrap JS (Place this at the end of the body) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.15.0/bootstrap-icons.min.js"></script>
     <script>
         // Tampilkan loading spinner saat halaman dimuat
       window.addEventListener('beforeunload', function() {
