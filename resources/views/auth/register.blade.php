@@ -1,6 +1,9 @@
 @extends('layouts.landingpage')
 @section('css')
 <style>
+    .bg-biru-muda {
+        background-color: #C2D2C5; /* Kode warna untuk biru muda */
+    }
     .form-group input {
         border: none;
         border-bottom: 2px solid #aeaeae;
@@ -13,8 +16,8 @@
 @section('content')
 <div>
     <div class="row">
-        <div class="col-md-4 bg-info" style="height: 100vh;">
-            <img src="path/to/your/image.jpg" alt="Gambar Anda" style="max-width: 100%; height: auto;">
+        <div class="col-md-4 bg-biru-muda d-flex align-items-center justify-content-center" style="height: 100vh;">
+            <img src="{{asset('image/fam.png')}}" alt="Gambar Anda" style="max-width: 100%; height: auto;">
             <!-- Konten sebelah kiri dengan background biru -->
         </div>
         <div class="col-md-8 px-5">
