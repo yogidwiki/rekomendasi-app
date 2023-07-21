@@ -1,6 +1,12 @@
 @extends('layouts.dashboard')
 
 @section('content')
+@if(Session::has('succes'))
+<div class="alert alert-primary alert-dismissible" role="alert">
+  {{ Session::get('succes') }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endif
 
 <h4 class="fw-bold py-3 mb-4">Tabel Members</h4>
 <div class="row">
@@ -21,7 +27,7 @@
               <th>Jenis Kelamin</th>
               <th>instagram</th>
               <th>github</th>
-              <th>linked</th>
+              <th>linkedin</th>
               <th>Image</th>
               <th>Aksi</th>
             </tr>
@@ -51,7 +57,7 @@
                 {{$member->linkedin}}
               </td>
               <td>
-              <img src="{{ asset('/public/images/' . $member->image) }}" class="w-50">
+                <img src="{{ asset('/public/images/' . $member->image) }}" class="w-50">
               </td>
               <td>
                 <div class="d-flex gap-2">
@@ -62,7 +68,7 @@
                     <button type="submit" class="btn btn-danger delete-button btn-sm" data-name="{{$member->name}}" data-id="{{$member->id}}">Hapus</button>
                   </form>
 
-                  
+
                 </div>
               </td>
             </tr>
@@ -75,7 +81,7 @@
                     <h5 class="modal-title" id="modalCenterTitle">Update item</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <form action="{{ route('member.update', $member->id) }}" method="POST" enctype="multipart/form-data" >
+                  <form action="{{ route('member.update', $member->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="modal-body">
@@ -122,8 +128,14 @@
                         </div>
                         <div class="mb-3">
                           <label for="formFile" class="form-label">Foto</label>
-                          <input type="file" id="formFile" name="image" class="form-control" value="{{ $member->image }}" required>
+                          <!-- Input file untuk memilih gambar -->
+                          <input type="file" id="imageInput" name="image" class="form-control mb-3">
+                          <!-- Gambar pratinjau -->
+                          <img id="imagePreview" src="{{ asset('public/images/' . $member->image) }}" alt="Preview" style="max-width: 200px; max-height: 200px;">
+
+
                         </div>
+
 
                       </div>
                       <div class="modal-footer">
@@ -199,13 +211,14 @@
           </div>
           <div class="mb-3">
             <label for="formFile" class="form-label">Foto</label>
-            <input class="form-control" type="file" id="formFile" name="image">
+            <input type="file" id="gambar" name="image" onchange="previewImage()" class="form-control mb-3">
+            <img id="preview" src="" class="img-preview img-fluid mb-4 col-sm-8">
+
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save changes</button>
-        </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
       </form>
     </div>
   </div>
@@ -219,4 +232,17 @@
 
 </div>
 
+@endsection
+
+@section('script')
+<script>
+  function previewImage(event) {
+    var ofReader = new FileReader();
+    ofReader.readAsDataURL(document.getElementById("gambar").files[0]);
+
+    ofReader.onload = function(oFREvent) {
+      document.getElementById("preview").src = oFREvent.target.result;
+    };
+  }
+</script>
 @endsection
