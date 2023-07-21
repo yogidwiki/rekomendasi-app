@@ -164,7 +164,7 @@
             <button class="btn btn-warning">
                 More Info
             </button>
-    </div>
+    </div>  
         
     </div>
 @endsection
