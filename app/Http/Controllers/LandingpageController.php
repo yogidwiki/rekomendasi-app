@@ -21,4 +21,12 @@ class LandingpageController extends Controller
     public function diskusi(){
         return view('landingpage.diskusi');
     }
+    public function pageTest()
+    {
+        return view('landingpage.page-test');
+    }
+    public function quizOne() 
+     {
+        return view('landingpage.quiz-one');
+    }
 }

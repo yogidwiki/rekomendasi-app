@@ -52,7 +52,7 @@
 
     <div class="row d-flex justify-content-center ">
         <div class="col-md-8 ">
-            <p><i class="bi bi-chat-square-quote-fill text-danger fs-3 mx-3"></i>Test parenting juga membantu kita memahami cara merespons situasi dan tantangan dalam mengasuh anak . Dengan bijaksana dan penuh empati karena setiap anak memiliki cara berfikir yang berbeda-beda.<i class="bi bi-chat-square-quote-fill mx-3 fs-3 text-danger"></i><span class="fw-bold text-secondary">~ Hifni Sadboy</span></p>
+            <p><i class="bi bi-chat-square-quote-fill text-danger fs-3 mx-3"></i>Test parenting juga membantu kita memahami cara merespons situasi dan tantangan dalam mengasuh anak . Dengan bijaksana dan penuh empati karena setiap anak memiliki cara berfikir yang berbeda-beda.<i class="bi bi-chat-square-quote-fill mx-3 fs-3 text-danger"></i><span class="fw-bold text-secondary">~ Hifni Pemo</span></p>
             
 
         </div>
@@ -139,15 +139,12 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-md-6 mt-5 ">
                     <div class="text-center"> 
-                        <button class="btn btn-login btn-success">
+                        <a href="{{ route('page-test') }}" class="btn btn-login btn-success">
                             Mulai Test  <i class="bi bi-play-fill"></i>
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
-            
-            
-            
         </div>
     </div>
     
