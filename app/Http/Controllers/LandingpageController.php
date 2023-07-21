@@ -21,4 +21,7 @@ class LandingpageController extends Controller
     public function diskusi(){
         return view('landingpage.diskusi');
     }
+    public function detailArtikel(){
+        return view('landingpage.detail-artikel');
+    }
 }
