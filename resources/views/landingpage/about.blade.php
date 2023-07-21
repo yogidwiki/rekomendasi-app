@@ -6,32 +6,19 @@
 
   <!-- Demo styles -->
   <style>
-    html,
-    body {
-      position: relative;
-      height: 100%;
-    }
-
-    body {
-
-      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      color: #000;
-      margin: 0;
-      padding: 0;
-    }
 
     .swiper {
       width: 100%;
       height: 100%;
+      
+      background: #99f0a4;
+      border-radius: 32px;
     }
 
     .swiper-slide {
       text-align: center;
       font-size: 18px;
-      background: #99f0a4;
       display: flex;
-      border-radius: 32px;
       justify-content: center;
       align-items: center;
     }
@@ -42,14 +29,12 @@
       height: 100%;
       object-fit: cover;
     }
-    .btn-about{
-      background-color: #659384;
-    }
     .swiper-pagination-bullet-active{
       background-color: #659384;
     }
     .swiper-button-next, .swiper-button-prev{
       color: #659384;
+      font-size: 10px;
     }
   </style>
 @endsection
@@ -87,23 +72,7 @@
                         <div class="swiper mySwiper">
                           <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <div class="card mx-5 my-5 p-3" style="width: 15rem; border-top:15px solid #659384">
-                                    <img src="{{asset('/image/cipung.png')}}" class="card-img-top" alt="..." >
-                                    <div class="card-body">
-                                      <h5 class="card-title">Cipung</h5>
-                                      <p>Full Stack</p>
-                                      <a href="#" class="btn btn-secondary btn-about">Go somewhere</a>
-                                    </div>
-                                  </div>
-                                  <div class="card mx-5 my-5 p-3" style="width: 15rem; border-top:15px solid #659384">
-                                    <img src="{{asset('/image/cipung.png')}}" class="card-img-top" alt="..." >
-                                    <div class="card-body">
-                                      <h5 class="card-title">Cipung</h5>
-                                      <p>Full Stack</p>
-                                      <a href="#" class="btn btn-secondary btn-about">Go somewhere</a>
-                                    </div>
-                                  </div>
-                                  <div class="card mx-5 my-5 p-3" style="width: 15rem; border-top:15px solid #659384">
+                                <div class="card my-5 p-3" style="width: 15rem; border-top:15px solid #659384">
                                     <img src="{{asset('/image/cipung.png')}}" class="card-img-top" alt="..." >
                                     <div class="card-body">
                                       <h5 class="card-title">Cipung</h5>
@@ -113,57 +82,55 @@
                                   </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="card mx-5 my-5 p-3" style="width: 15rem; border-top:15px solid #659384">
-                                    <img src="{{asset('/image/cipung.png')}}" class="card-img-top" alt="..." >
-                                    <div class="card-body">
-                                      <h5 class="card-title">Cipung</h5>
-                                      <p>Full Stack</p>
-                                      <a href="#" class="btn btn-secondary btn-about">Go somewhere</a>
-                                    </div>
+                              <div class="card my-5 p-3" style="width: 15rem; border-top:15px solid #659384">
+                                  <img src="{{asset('/image/cipung.png')}}" class="card-img-top" alt="..." >
+                                  <div class="card-body">
+                                    <h5 class="card-title">Cipung</h5>
+                                    <p>Full Stack</p>
+                                    <a href="#" class="btn btn-secondary btn-about">Go somewhere</a>
                                   </div>
-                                  <div class="card mx-5 my-5 p-3" style="width: 15rem; border-top:15px solid #659384">
-                                    <img src="{{asset('/image/cipung.png')}}" class="card-img-top" alt="..." >
-                                    <div class="card-body">
-                                      <h5 class="card-title">Cipung</h5>
-                                      <p>Full Stack</p>
-                                      <a href="#" class="btn btn-secondary btn-about">Go somewhere</a>
-                                    </div>
-                                  </div>
-                                  <div class="card mx-5 my-5 p-3" style="width: 15rem; border-top:15px solid #659384">
-                                    <img src="{{asset('/image/cipung.png')}}" class="card-img-top" alt="..." >
-                                    <div class="card-body">
-                                      <h5 class="card-title">Cipung</h5>
-                                      <p>Full Stack</p>
-                                      <a href="#" class="btn btn-secondary btn-about">Go somewhere</a>
-                                    </div>
-                                  </div>
+                                </div>
+                          </div>
+                          <div class="swiper-slide">
+                            <div class="card my-5 p-3" style="width: 15rem; border-top:15px solid #659384">
+                                <img src="{{asset('/image/cipung.png')}}" class="card-img-top" alt="..." >
+                                <div class="card-body">
+                                  <h5 class="card-title">Cipung</h5>
+                                  <p>Full Stack</p>
+                                  <a href="#" class="btn btn-secondary btn-about">Go somewhere</a>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="swiper-slide">
+                          <div class="card my-5 p-3" style="width: 15rem; border-top:15px solid #659384">
+                              <img src="{{asset('/image/cipung.png')}}" class="card-img-top" alt="..." >
+                              <div class="card-body">
+                                <h5 class="card-title">Cipung</h5>
+                                <p>Full Stack</p>
+                                <a href="#" class="btn btn-secondary btn-about">Go somewhere</a>
+                              </div>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="card mx-5 my-5 p-3" style="width: 15rem; border-top:15px solid #659384">
-                                    <img src="{{asset('/image/cipung.png')}}" class="card-img-top" alt="..." >
-                                    <div class="card-body">
-                                      <h5 class="card-title">Cipung</h5>
-                                      <p>Full Stack</p>
-                                      <a href="#" class="btn btn-secondary btn-about">Go somewhere</a>
-                                    </div>
-                                  </div>
-                                  <div class="card mx-5 my-5 p-3" style="width: 15rem; border-top:15px solid #659384">
-                                    <img src="{{asset('/image/cipung.png')}}" class="card-img-top" alt="..." >
-                                    <div class="card-body">
-                                      <h5 class="card-title">Cipung</h5>
-                                      <p>Full Stack</p>
-                                      <a href="#" class="btn btn-secondary btn-about">Go somewhere</a>
-                                    </div>
-                                  </div>
-                                  <div class="card mx-5 my-5 p-3" style="width: 15rem; border-top:15px solid #659384">
-                                    <img src="{{asset('/image/cipung.png')}}" class="card-img-top" alt="..." >
-                                    <div class="card-body">
-                                      <h5 class="card-title">Cipung</h5>
-                                      <p>Full Stack</p>
-                                      <a href="#" class="btn btn-secondary btn-about">Go somewhere</a>
-                                    </div>
-                                  </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="card my-5 p-3" style="width: 15rem; border-top:15px solid #659384">
+                            <img src="{{asset('/image/cipung.png')}}" class="card-img-top" alt="..." >
+                            <div class="card-body">
+                              <h5 class="card-title">Cipung</h5>
+                              <p>Full Stack</p>
+                              <a href="#" class="btn btn-secondary btn-about">Go somewhere</a>
                             </div>
+                          </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="card my-5 p-3" style="width: 15rem; border-top:15px solid #659384">
+                          <img src="{{asset('/image/cipung.png')}}" class="card-img-top" alt="..." >
+                          <div class="card-body">
+                            <h5 class="card-title">Cipung</h5>
+                            <p>Full Stack</p>
+                            <a href="#" class="btn btn-secondary btn-about">Go somewhere</a>
+                          </div>
+                        </div>
+                  </div>
                           </div>
                           <div class="swiper-button-next"></div>
                           <div class="swiper-button-prev"></div>
@@ -182,13 +149,23 @@
     <!-- Initialize Swiper -->
     <script>
       var swiper = new Swiper(".mySwiper", {
-        pagination: {
-          el: ".swiper-pagination",
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-      });
+            slidesPerView: 1,
+            loop:true, // Menampilkan 1 kartu pada tampilan awal
+            breakpoints: {
+                768: {
+                    slidesPerView: 3 // Menampilkan 3 kartu ketika lebar layar >= 768px
+                }
+            },
+            autoplay: {
+                delay: 1000, // Menentukan durasi antara perpindahan slide dalam milidetik (misalnya, 3000ms = 3 detik)
+            },
+            pagination: {
+                el: ".swiper-pagination",
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
     </script>
 @endsection
