@@ -88,52 +88,70 @@
                       <div class="row">
                         <div class="col mb-3">
                           <label for="nameWithTitle" class="form-label">Name</label>
-                          <input type="text" id="nameWithTitle" name="nama" class="form-control" value="{{ $member->nama }}" required />
-
+                          <input type="text" id="nameWithTitle" name="nama" class="form-control @error('nama') is-invalid @enderror" value="{{ $member->nama }}">
+                          @error('nama')
+                          <span class="invalid-feedback">{{ $message }}</span>
+                          @enderror
                         </div>
                       </div>
                       <div class="row g-2 mb-3">
                         <div class="col mb-0">
                           <label for="emailWithTitle" class="form-label">Email</label>
-                          <input type="email" id="emailWithTitle" name="email" class="form-control" value="{{ $member->email }}" required />
+                          <input type="email" id="emailWithTitle" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ $member->email }}">
+                          @error('email')
+                          <span class="invalid-feedback">{{ $message }}</span>
+                          @enderror
                         </div>
                       </div>
                       <div class="mb-3">
                         <label for="exampleFormControlSelect1" class="form-label">Jenis Kelamin</label>
-                        <select class="form-select" id="exampleFormControlSelect1" name="jenis_kelamin" aria-label="Default select example" required>
+                        <select class="form-select @error('jenis_kelamin') is-invalid @enderror" id="exampleFormControlSelect1" name="jenis_kelamin" aria-label="Default select example" required>
                           <option disabled selected>Pilih jenis kelamin</option>
                           <option value="laki-laki" {{ $member->jenis_kelamin === 'laki-laki' ? 'selected' : '' }}>Laki-Laki</option>
                           <option value="perempuan" {{ $member->jenis_kelamin === 'perempuan' ? 'selected' : '' }}>Perempuan</option>
                         </select>
+                        @error('jenis_kelamin')
+                        <span class="invalid-feedback">{{ $message }}</span>
+                        @enderror
                         <div class="mb-3">
                           <label for="instagramWithTitle" class="form-label">Instagram</label>
                           <div class="input-group">
                             <span class="input-group-text" id="instagram">https://instagram.com/</span>
-                            <input type="text" class="form-control" id="instagram" name="instagram" placeholder="username" aria-describedby="basic-addon3 basic-addon4" value="{{ $member->instagram }}" required>
+                            <input type="text" class="form-control @error('instagram') is-invalid @enderror" id="instagram" name="instagram" placeholder="username" aria-describedby="basic-addon3 basic-addon4" value="{{ $member->instagram }}">
+                            @error('instagram')
+                            <span class="invalid-feedback">{{ $message }}</span>
+                            @enderror
                           </div>
                         </div>
                         <div class="col mb-3">
                           <label for="githubWithTitle" class="form-label">github</label>
                           <div class="input-group">
                             <span class="input-group-text" id="github">https://github.com/ </span>
-                            <input type="text" class="form-control" id="github" name="github" placeholder="username" aria-describedby="basic-addon3 basic-addon4" value="{{ $member->github }}" required>
+                            <input type="text" class="form-control @error('github') is-invalid @enderror" id="github" name="github" placeholder="username" aria-describedby="basic-addon3 basic-addon4" value="{{ $member->github }}">
+                            @error('github')
+                            <span class="invalid-feedback">{{ $message }}</span>
+                            @enderror
                           </div>
                         </div>
                         <div class="col mb-3">
                           <label for="linkedinWithTitle" class="form-label">linkedin</label>
                           <div class="input-group">
                             <span class="input-group-text" id="linkedin">https://linkedin.com/</span>
-                            <input type="text" class="form-control" id="linkedin" name="linkedin" placeholder="username" aria-describedby="basic-addon3 basic-addon4" value="{{ $member->linkedin }}" required>
+                            <input type="text" class="form-control @error('linkedin') is-invalid @enderror" id="linkedin" name="linkedin" placeholder="username" aria-describedby="basic-addon3 basic-addon4" value="{{ $member->linkedin }}">
+                            @error('linkedin')
+                            <span class="invalid-feedback">{{ $message }}</span>
+                            @enderror
                           </div>
                         </div>
                         <div class="mb-3">
                           <label for="formFile" class="form-label">Foto</label>
                           <!-- Input file untuk memilih gambar -->
-                          <input type="file" id="imageInput" name="image" class="form-control mb-3">
+                          <input type="file" id="imageInput" name="image" class="form-control mb-3 @error('image') is-invalid @enderror">
                           <!-- Gambar pratinjau -->
                           <img id="imagePreview" src="{{ asset('public/images/' . $member->image) }}" alt="Preview" style="max-width: 200px; max-height: 200px;">
-
-
+                          @error('image ')
+                          <span class="invalid-feedback">{{ $message }}</span>
+                          @enderror
                         </div>
 
 
@@ -142,6 +160,7 @@
                         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Save changes</button>
                       </div>
+                    </div>
                   </form>
                 </div>
               </div>
@@ -163,66 +182,88 @@
         <h5 class="modal-title" id="modalCenterTitle">Tambah Member</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form action="{{route('member.store')}}" method="POST" enctype="multipart/form-data">
+      <form action="{{ route('member.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="modal-body">
           <div class="row">
             <div class="col mb-3">
               <label for="nameWithTitle" class="form-label">Name</label>
-              <input type="text" id="nameWithTitle" name="nama" class="form-control" placeholder="Enter Name" required />
+              <input type="text" id="nameWithTitle" name="nama" class="form-control @error('nama') is-invalid @enderror" placeholder="Enter Name">
+              @error('nama')
+              <span class="invalid-feedback">{{ $message }}</span>
+              @enderror
             </div>
           </div>
           <div class="row g-2 mb-3">
             <div class="col mb-0">
               <label for="emailWithTitle" class="form-label">Email</label>
-              <input type="email" id="emailWithTitle" name="email" class="form-control" placeholder="email@example.com" required />
+              <input type="email" id="emailWithTitle" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="email@example.com">
+              @error('email')
+              <span class="invalid-feedback">{{ $message }}</span>
+              @enderror
             </div>
           </div>
           <div class="row g-2 mb-3">
             <div class="col mb-0">
               <label for="exampleFormControlSelect1" class="form-label">Jenis Kelamin</label>
-              <select class="form-select" id="exampleFormControlSelect1" name="jenis_kelamin" aria-label="Default select example" required>
+              <select class="form-select @error('jenis_kelamin') is-invalid @enderror" id="exampleFormControlSelect1" name="jenis_kelamin" aria-label="Default select example">
                 <option disabled selected>Pilih jenis kelamin</option>
                 <option value="laki-laki">Laki-Laki</option>
                 <option value="perempuan">Perempuan</option>
               </select>
+              @error('jenis_kelamin')
+              <span class="invalid-feedback">{{ $message }}</span>
+              @enderror
             </div>
           </div>
           <div class="mb-3">
             <label for="instagramWithTitle" class="form-label">Instagram</label>
             <div class="input-group">
-              <span class="input-group-text" id="instagram">https://instagram.com/</span>
-              <input type="text" class="form-control" id="instagram" name="instagram" placeholder="username" aria-describedby="basic-addon3 basic-addon4" required>
+              <span class="input-group-text" id="instagramLabel">https://instagram.com/</span>
+              <input type="text" class="form-control @error('instagram') is-invalid @enderror" id="instagram" name="instagram" placeholder="username" aria-describedby="instagramLabel">
+              @error('instagram')
+              <span class="invalid-feedback">{{ $message }}</span>
+              @enderror
             </div>
           </div>
           <div class="col mb-3">
-            <label for="githubWithTitle" class="form-label">github</label>
+            <label for="githubWithTitle" class="form-label">GitHub</label>
             <div class="input-group">
-              <span class="input-group-text" id="github">https://github.com/ </span>
-              <input type="text" class="form-control" id="github" name="github" placeholder="username" aria-describedby="basic-addon3 basic-addon4" required>
+              <span class="input-group-text" id="githubLabel">https://github.com/ </span>
+              <input type="text" class="form-control @error('github') is-invalid @enderror" id="github" name="github" placeholder="username" aria-describedby="githubLabel">
+              @error('github')
+              <span class="invalid-feedback">{{ $message }}</span>
+              @enderror
             </div>
           </div>
           <div class="col mb-3">
-            <label for="linkedinWithTitle" class="form-label">linkedin</label>
+            <label for="linkedinWithTitle" class="form-label">LinkedIn</label>
             <div class="input-group">
-              <span class="input-group-text" id="linkedin">https://linkedin.com/</span>
-              <input type="text" class="form-control" id="linkedin" name="linkedin" placeholder="username" aria-describedby="basic-addon3 basic-addon4" required>
+              <span class="input-group-text" id="linkedinLabel">https://linkedin.com/</span>
+              <input type="text" class="form-control @error('linkedin') is-invalid @enderror" id="linkedin" name="linkedin" placeholder="username" aria-describedby="linkedinLabel">
+              @error('linkedin')
+              <span class="invalid-feedback">{{ $message }}</span>
+              @enderror
             </div>
           </div>
           <div class="mb-3">
-            <label for="formFile" class="form-label">Foto</label>
-            <input type="file" id="gambar" name="image" onchange="previewImage()" class="form-control mb-3">
+            <label for="gambar" class="form-label">Foto</label>
+            <input type="file" id="gambar" name="image" onchange="previewImage()" class="form-control mb-3 @error('image') is-invalid @enderror">
             <img id="preview" src="" class="img-preview img-fluid mb-4 col-sm-8">
-
+            @error('image')
+            <span class="invalid-feedback">{{ $message }}</span>
+            @enderror
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Save changes</button>
-          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
       </form>
     </div>
   </div>
 </div>
+
 <style>
   .modal-body {
     max-height: 400px;

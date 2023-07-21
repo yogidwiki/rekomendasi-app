@@ -30,7 +30,63 @@ class MemberController extends Controller
      */
     public function store(Request $request)
 {
-    $data = $request->all();
+    // Aturan validasi untuk input form
+    $rules = [
+        'nama' => 'required',
+        'email' => 'required',
+        'jenis_kelamin' => 'required|in:laki-laki,perempuan', 
+        'image' => 'image|mimes:jpeg,png,jpg', // Menambahkan validasi untuk jenis file gambar
+        'instagram' => 'required|url',
+        'github' => 'required|url',
+        'linkedin' => 'required|url',
+    ];
+
+    // Pesan validasi kustom
+    $messages = [
+        'required' => 'Kolom :attribute harus diisi.',
+        'email' => 'Kolom :attribute harus berupa alamat email yang valid.',
+        'jenis_kelamin.required' => 'Kolom Jenis Kelamin harus dipilih.',
+        'jenis_kelamin.in' => 'Kolom Jenis Kelamin harus dipilih dari opsi yang tersedia.',
+        'image' => 'File :attribute harus berupa gambar.',
+        'mimes' => 'File :attribute harus memiliki format JPG, PNG, atau JPEG.',
+        'url' => 'Kolom :attribute harus berupa URL.',
+    ];
+
+    // Melakukan validasi
+    $validatedData = $request->validate($rules, $messages);
+
+    // Mengambil data dari input form untuk Instagram
+    $instagramUsername = $request->input('instagram');
+
+    // Pastikan URL dimulai dengan "https://instagram.com/"
+    if (strpos($instagramUsername, 'https://instagram.com/') !== 0) {
+        $instagramUsername = 'https://instagram.com/' . $instagramUsername;
+    }
+
+    // Mengambil data dari input form untuk github
+    $githubUsername = $request->input('github');
+
+    // Pastikan URL dimulai dengan "https://github.com/"
+    if (strpos($githubUsername, 'https://github.com/') !== 0) {
+        $githubUsername = 'https://github.com/' . $githubUsername;
+    }
+
+    // Mengambil data dari input form untuk linkedin
+    $linkedinUsername = $request->input('linkedin');
+
+    // Pastikan URL dimulai dengan "https://linkedin.com/"
+    if (strpos($linkedinUsername, 'https://linkedin.com/') !== 0) {
+        $linkedinUsername = 'https://linkedin.com/' . $linkedinUsername;
+    }
+
+    // Menyiapkan data untuk disimpan ke dalam database
+    $data = [
+        'nama' => $validatedData['nama'],
+        'image' => null,
+        'instagram' => $instagramUsername,
+        'github' => $githubUsername,
+        'linkedin' => $linkedinUsername,
+    ];
 
     // Check if a file is uploaded
     if ($image = $request->file('image')) {
@@ -40,36 +96,11 @@ class MemberController extends Controller
         $data['image'] = $namaGambar;
     }
 
-    // Ambil data dari input form untuk Instagram
-    $instagramUsername = $request->input('instagram');
-
-    // Pastikan URL dimulai dengan "https://instagram.com/"
-    if (strpos($instagramUsername, 'https://instagram.com/') !== 0) {
-        $instagramUsername = 'https://instagram.com/' . $instagramUsername;
-    }
-
-    // Ambil data dari input form untuk github
-    $githubUsername = $request->input('github');
-
-    // Pastikan URL dimulai dengan "https://github.com/"
-    if (strpos($githubUsername, 'https://github.com/') !== 0) {
-        $githubUsername = 'https://github.com/' . $githubUsername;
-    }
-    // Ambil data dari input form untuk linkedin
-    $linkedinUsername = $request->input('linkedin');
-
-    // Pastikan URL dimulai dengan "https://linkedin.com/"
-    if (strpos($linkedinUsername, 'https://linkedin.com/') !== 0) {
-        $linkedinUsername = 'https://linkedin.com/' . $linkedinUsername;
-    }
-    $data['instagram'] = $instagramUsername;
-    $data['github'] = $githubUsername;
-    $data['linkedin'] = $linkedinUsername;
-
     // Simpan data ke dalam database
     Member::create($data);
 
-    return redirect()->route('member.index')->with('succes', 'Berhasil menambahkan member baru');
+    // Redirect ke halaman daftar member dengan pesan kesuksesan
+    return redirect()->route('member.index')->with('success', 'Berhasil menambahkan member baru.');
 }
 
 
@@ -95,7 +126,12 @@ class MemberController extends Controller
      */
     public function update(Request $request, string $id)
 {
-    
+    $messages = [
+        'required' => 'Kolom :attribute harus di isi',
+        'image' => 'File :attribute harus berupa gambar',
+        'mimes' => 'File :attribute harus memiliki format JPG, PNG, atau JPEG',
+    ];
+
     $request->validate([
         'nama' => 'required',
         'email' => 'required|email|unique:members,email,' . $id,
@@ -103,8 +139,8 @@ class MemberController extends Controller
         'github' => 'required',
         'linkedin' => 'required',
         'jenis_kelamin' => 'required',
-        'image' => 'image' // Tambahkan validasi bahwa input 'image' harus berupa file gambar
-    ]);
+        'image' => 'image|mimes:png,jpg,jpeg' // Tambahkan validasi bahwa input 'image' harus berupa file gambar
+    ], $messages);
 
     $members = Member::findOrFail($id);
 
