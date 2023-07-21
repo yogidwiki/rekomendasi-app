@@ -1,8 +1,60 @@
 @extends('layouts.landingpage')
 
+@section('css')
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
+  <!-- Demo styles -->
+  <style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #99f0a4;
+      display: flex;
+      border-radius: 32px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .btn-about{
+      background-color: #659384;
+    }
+    .swiper-pagination-bullet-active{
+      background-color: #659384;
+    }
+    .swiper-button-next, .swiper-button-prev{
+      color: #659384;
+    }
+  </style>
+@endsection
 @section('content')
-    <div class="container py-5" style="background-color: #FCF7F1" >
+    <div class="container py-5" >
         <div class="row d-flex justify-content-center align-items-center gap-5">
             <div class="col-md-5 p-4 shadow rounded text-start ">
                 <h2 class="fw-bold">Our Vision</h2>
@@ -30,55 +82,7 @@
         <div class="container">
             <div class="row">
                 <div class="col d-flex justify-content-center align-items-center h-100">
-                    
-                    <head>
-                        <meta charset="utf-8" />
-                        <title>Swiper demo</title>
-                        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
-                        <!-- Link Swiper's CSS -->
-                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
                       
-                        <!-- Demo styles -->
-                        <style>
-                          html,
-                          body {
-                            position: relative;
-                            height: 100%;
-                          }
-                      
-                          body {
-                            background: #F0A999;
-                            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-                            font-size: 14px;
-                            color: #000;
-                            margin: 0;
-                            padding: 0;
-                          }
-                      
-                          .swiper {
-                            width: 100%;
-                            height: 100%;
-                          }
-                      
-                          .swiper-slide {
-                            text-align: center;
-                            font-size: 18px;
-                            background: #F0A999;
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                          }
-                      
-                          .swiper-slide img {
-                            display: block;
-                            width: 100%;
-                            height: 100%;
-                            object-fit: cover;
-                          }
-                        </style>
-                      </head>
-                      
-                      <body>
                         <!-- Swiper -->
                         <div class="swiper mySwiper">
                           <div class="swiper-wrapper">
@@ -88,7 +92,7 @@
                                     <div class="card-body">
                                       <h5 class="card-title">Cipung</h5>
                                       <p>Full Stack</p>
-                                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                                      <a href="#" class="btn btn-secondary btn-about">Go somewhere</a>
                                     </div>
                                   </div>
                                   <div class="card mx-5 my-5 p-3" style="width: 15rem; border-top:15px solid #659384">
@@ -96,7 +100,7 @@
                                     <div class="card-body">
                                       <h5 class="card-title">Cipung</h5>
                                       <p>Full Stack</p>
-                                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                                      <a href="#" class="btn btn-secondary btn-about">Go somewhere</a>
                                     </div>
                                   </div>
                                   <div class="card mx-5 my-5 p-3" style="width: 15rem; border-top:15px solid #659384">
@@ -104,7 +108,7 @@
                                     <div class="card-body">
                                       <h5 class="card-title">Cipung</h5>
                                       <p>Full Stack</p>
-                                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                                      <a href="#" class="btn btn-secondary btn-about">Go somewhere</a>
                                     </div>
                                   </div>
                             </div>
@@ -114,7 +118,7 @@
                                     <div class="card-body">
                                       <h5 class="card-title">Cipung</h5>
                                       <p>Full Stack</p>
-                                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                                      <a href="#" class="btn btn-secondary btn-about">Go somewhere</a>
                                     </div>
                                   </div>
                                   <div class="card mx-5 my-5 p-3" style="width: 15rem; border-top:15px solid #659384">
@@ -122,7 +126,7 @@
                                     <div class="card-body">
                                       <h5 class="card-title">Cipung</h5>
                                       <p>Full Stack</p>
-                                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                                      <a href="#" class="btn btn-secondary btn-about">Go somewhere</a>
                                     </div>
                                   </div>
                                   <div class="card mx-5 my-5 p-3" style="width: 15rem; border-top:15px solid #659384">
@@ -130,7 +134,7 @@
                                     <div class="card-body">
                                       <h5 class="card-title">Cipung</h5>
                                       <p>Full Stack</p>
-                                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                                      <a href="#" class="btn btn-secondary btn-about">Go somewhere</a>
                                     </div>
                                   </div>
                             </div>
@@ -140,7 +144,7 @@
                                     <div class="card-body">
                                       <h5 class="card-title">Cipung</h5>
                                       <p>Full Stack</p>
-                                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                                      <a href="#" class="btn btn-secondary btn-about">Go somewhere</a>
                                     </div>
                                   </div>
                                   <div class="card mx-5 my-5 p-3" style="width: 15rem; border-top:15px solid #659384">
@@ -148,7 +152,7 @@
                                     <div class="card-body">
                                       <h5 class="card-title">Cipung</h5>
                                       <p>Full Stack</p>
-                                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                                      <a href="#" class="btn btn-secondary btn-about">Go somewhere</a>
                                     </div>
                                   </div>
                                   <div class="card mx-5 my-5 p-3" style="width: 15rem; border-top:15px solid #659384">
@@ -156,7 +160,7 @@
                                     <div class="card-body">
                                       <h5 class="card-title">Cipung</h5>
                                       <p>Full Stack</p>
-                                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                                      <a href="#" class="btn btn-secondary btn-about">Go somewhere</a>
                                     </div>
                                   </div>
                             </div>
@@ -166,26 +170,25 @@
                           <div class="swiper-pagination"></div>
                         </div>
                       
-                        <!-- Swiper JS -->
-                        <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-                      
-                        <!-- Initialize Swiper -->
-                        <script>
-                          var swiper = new Swiper(".mySwiper", {
-                            pagination: {
-                              el: ".swiper-pagination",
-                              type: "progressbar",
-                            },
-                            navigation: {
-                              nextEl: ".swiper-button-next",
-                              prevEl: ".swiper-button-prev",
-                            },
-                          });
-                        </script>
-                      </body>
+                        
                     
                 </div>
             </div>
         </div>      
     </div>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+                      
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        pagination: {
+          el: ".swiper-pagination",
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
 @endsection
