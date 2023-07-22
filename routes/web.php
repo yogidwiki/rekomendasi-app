@@ -29,6 +29,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('users', UserController::class);
     Route::post('users/{id}/reset-password', [UserController::class, 'resetPassword'])->name('reset-password');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+    
 });
 
 
