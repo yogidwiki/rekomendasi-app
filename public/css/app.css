@@ -87,6 +87,11 @@ body{
     100% { transform: rotate(360deg); }
   }
 
+  .card-form{
+    background-color:#fff;
+    border-radius: 18px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  }
   .card-testimonial{
     background-color:#f0ecec;
     border-radius: 18px;
