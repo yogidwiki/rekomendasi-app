@@ -1,9 +1,6 @@
 @extends('layouts.landingpage')
 
 @section('css')
-<head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-
   <!-- Demo styles -->
   <style>
 
