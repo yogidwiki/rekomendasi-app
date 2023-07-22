@@ -1,6 +1,8 @@
 @extends('layouts.landingpage')
 
+
 @section('content')
+
 <section style="background-color:#C2D2C5 ; margin-top:-20px;">
     <div class="container">
         <div class="row justify-content-between align-items-center py-5 mb-4 ">
@@ -8,15 +10,23 @@
                 <div class="card p-4" style="border-radius: 32px;">
                     <h4 class="text-center fw-bold mb-5 mt-3">Sign In</h4>
                     <div class="row d-flex justify-content-center align-items-center gap-5">
-                        <div class="col-md-10 pb-5 ">
+                        <div class="col-md-12 pb-5 ">
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
                             
                                 <div class="row mb-3">
                                     <label for="email" class="col-md-1 col-form-label text-md-end"><i class="bi bi-person-circle"></i></label>
                             
-                                    <div class="col-md-10">
-                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                    <div class="col-md-11">
+                                        <input 
+                                            style="border: none;border-bottom:2px solid #aeaeae;  background-color: transparent;" placeholder="Email"  
+                                            id="email" type="email" 
+                                            class="form-control py-2 px-4 @error('email') is-invalid @enderror" 
+                                            name="email" 
+                                            value="{{ old('email') }}" 
+                                            required autocomplete="email"
+                                            onFocus="this.style.borderBottom='2px solid #52b678';"
+                                            onBlur="this.style.boxShadow='none';">
                             
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
@@ -29,8 +39,17 @@
                                 <div class="row mb-3">
                                     <label for="password" class="col-md-1 col-form-label text-md-end"><i class="bi bi-lock-fill"></i></label>
                             
-                                    <div class="col-md-10">
-                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                    <div class="col-md-11">
+                                        <input 
+                                            style="border: none;border-bottom:2px solid #aeaeae;" 
+                                            placeholder="Password" 
+                                            id="password" 
+                                            type="password" 
+                                            class="form-control py-2 px-4 @error('password') is-invalid @enderror" 
+                                            name="password" 
+                                            required autocomplete="current-password"
+                                            onFocus="this.style.borderBottom='2px solid #52b678';"
+                                            onBlur="this.style.boxShadow='none';">
                             
                                         @error('password')
                                             <span class="invalid-feedback" role="alert">
@@ -44,12 +63,12 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-md-12 d-flex justify-content-center">
-                                        <button type="submit" class="btn btn-login btn-success px-5">
+                                        <button type="submit" class="btn btn-login btn-success d-block w-100 px-5">
                                             Login
                                         </button>
                                     </div>
                                     <p class="text-center small">
-                                        <a href="{{ route('register') }}" class="nav-link mt-3 mb-5">Dont have an account? Create account</a>
+                                        <a href="{{ route('register') }}" class="nav-link text-success fw-semibold mt-4 mb-5">Dont have an account? Create account</a>
                                     </p>
                                 </div>
                             </form>
@@ -67,5 +86,7 @@
         </div>
     </div>
 </section>
+
+
 
 @endsection
