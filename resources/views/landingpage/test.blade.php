@@ -32,7 +32,7 @@
 @section('content')
 
     <div class="container">
-        <div class="row justify-content-center align-items-center mb-5">
+        <div class="row justify-content-center align-items-center mb-5 py-5">
             <div class="col-md-6">
             <div>
             <h2  class="fw-bold text-success">Kenapa sih Harus Test Parenting?</h2>

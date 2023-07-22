@@ -27,6 +27,8 @@ Route::get('/test', [LandingpageController::class, 'test'])->name('test');
 Route::get('/diskusi', [LandingpageController::class, 'diskusi'])->name('diskusi');
 Route::get('/page-test', [LandingpageController::class, 'pageTest'])->name('page-test');
 Route::get('/quiz-one', [LandingpageController::class, 'quizOne'])->name('quiz-one');
+Route::get('/detail-artikel', [LandingpageController::class, 'detailArtikel'])->name('detail-artikel');
+Route::get('/detail-kategori', [LandingpageController::class, 'detailKategori'])->name('detail-kategori');
 
 
 Route::group(['middleware' => 'admin'], function () {
@@ -42,4 +44,3 @@ Route::group(['middleware' => 'admin'], function () {
 
 
 Auth::routes();
-
