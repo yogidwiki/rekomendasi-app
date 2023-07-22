@@ -38,7 +38,7 @@
             color: white;
         }
     </style>
-    <div class="container">
+    <div class="container mt-5">
         <div class="row d-flex justify-content-between align-items-center">
             <div class="col-md-8">
                 <h5 class="fw-semibold " >Welcome to ParentApp! </h5>
