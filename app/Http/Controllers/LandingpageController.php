@@ -6,22 +6,32 @@ use Illuminate\Http\Request;
 
 class LandingpageController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('welcome');
     }
-    public function about(){
+    public function about()
+    {
         return view('landingpage.about');
     }
-    public function artikel(){
+    public function artikel()
+    {
         return view('landingpage.artikel');
     }
-    public function test(){
+    public function test()
+    {
         return view('landingpage.test');
     }
-    public function diskusi(){
+    public function diskusi()
+    {
         return view('landingpage.diskusi');
     }
-    public function detailArtikel(){
+    public function detailArtikel()
+    {
         return view('landingpage.detail-artikel');
+    }
+    public function detailKategori()
+    {
+        return view('landingpage.detail-kategori');
     }
 }

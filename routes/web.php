@@ -23,6 +23,7 @@ Route::get('/artikel', [LandingpageController::class, 'artikel'])->name('artikel
 Route::get('/test', [LandingpageController::class, 'test'])->name('test');
 Route::get('/diskusi', [LandingpageController::class, 'diskusi'])->name('diskusi');
 Route::get('/detail-artikel', [LandingpageController::class, 'detailArtikel'])->name('detail-artikel');
+Route::get('/detail-kategori', [LandingpageController::class, 'detailKategori'])->name('detail-kategori');
 
 
 Route::group(['middleware' => 'admin'], function () {
@@ -33,4 +34,3 @@ Route::group(['middleware' => 'admin'], function () {
 
 
 Auth::routes();
-
