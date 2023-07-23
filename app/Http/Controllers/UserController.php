@@ -30,18 +30,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $messages = [
-            'required' => 'Kolom :attribute harus diisi.',
-        ];
         
-        $data = $request->validate([
+        $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email',
             'password' => 'required|min:6',
             'gender' => 'required',
             'birthday' => 'required|date',
             'role' => 'required'
-        ], $messages);
+        ]);
         $isAdmin = $request->input('role') === 'admin' ? true : false;
 
         User::create([
