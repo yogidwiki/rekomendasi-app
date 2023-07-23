@@ -113,17 +113,17 @@
     <section class="my-5">
         <div class="container  d-flex justify-content-between align-items-center">
             <div class="row d-flex justify-content-between align-items-center">
-                <div class="col-md-8">
-                    <h5 class="fw-semibold ">Welcome to ParentApp! </h5>
+                <div class="col-md-8" data-aos="zoom-out-down">
+                    <h5 class="fw-semibold " >Welcome to ParentApp! </h5>
                     <h1 style="font-size:50px;" class="fw-bold text-success">Parenting Path: Nurturing Futures, One Step at a Time
                     </h1>
                     <p class="lh-base">Creating Stronger Bonds, Raising Exceptional Children . Lorem ipsum dolor sit amet
                         consectetur
                         adipisicing elit. Qui fuga commodi quibusdam quo. Culpa nobis placeat quia, velit maxime iure!</p>
-                    <a href="{{ route('about') }}" class="btn mt-3 btn-login px-5 mb-3">About us</a>
+                    <a href="{{ route('about') }}" data-aos="fade-right" data-aos-duration="1500" class="btn mt-3 btn-login px-5 mb-3">About us</a>
                 </div>
                 <div class="col-md-4 ">
-                    <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded" width="100%">
+                    <img src="{{ asset('image/cipung.png') }}"  data-aos="zoom-in-down" alt="Hero Image" class="img-fluid rounded" width="100%">
                 </div>
             </div>
         </div>
@@ -133,8 +133,8 @@
     {{-- FEATURE --}}
     <section class="py-5 my-5" style="background-color:#C2D2C5; border-radius:32px; ">
         <div class="container">
-            <div class="row d-flex flex-column align-items-center justify-content-center py-3">
-                <div class="col-md-5">
+            <div class="row d-flex flex-column align-items-center justify-content-center py-3"data-aos="fade-down">
+                <div class="col-md-5" >
 
                     <h2 class="text-center fw-bold text-success">Our Services</h2>
                 </div>
@@ -143,8 +143,8 @@
                 </div>
             </div>
 
-            <div class="row d-flex justify-content-center align-items-center">
-                <div class="col-md-3 mb-3">
+            <div class="row d-flex justify-content-center align-items-center ">
+                <div class="col-md-3 mb-3" data-aos="fade-right">
                     <div class="card text-center card-fitur p-3 border-0 shadow">
                         <div class="d-flex justify-content-center align-items-center">
                             <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded-circle" width="30%">
@@ -155,7 +155,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 mb-3">
+                <div class="col-md-3 mb-3" data-aos="fade-up">
                     <div class="card text-center card-fitur p-3 border-0 shadow">
                         <div class="d-flex justify-content-center align-items-center">
                             <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded-circle" width="30%">
@@ -166,7 +166,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 mb-3">
+                <div class="col-md-3 mb-3"data-aos="fade-left">
                     <div class="card text-center card-fitur p-3 border-0 shadow">
                         <div class="d-flex justify-content-center align-items-center">
                             <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded-circle" width="30%">
@@ -186,17 +186,20 @@
     <section class=" my-5">
         <div class="container">
             <div class="row  d-flex justify-content-center align-items-center">
-                <div class="col-md-6">
+                <div class="col-md-6" data-aos="fade-up">
                     <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded" width="100%">
                 </div>
                 <div class="col-md-6">
-                    <span class="text-success fw-semibold">~ Lorem khj</span>
-                    <h1 class="text-success fw-bold mb-3">
-                        Why Parent-app ?
-                    </h1>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis consectetur, modi similique animi
-                        maiores quia facilis ex velit voluptates </p>
-                    <div class="mb-2 card-why d-flex align-items-center justify-content-center gap-3 ">
+                    <div  data-aos="fade-down">
+
+                        <span class="text-success fw-semibold">~ Lorem khj</span>
+                        <h1 class="text-success fw-bold mb-3">
+                            Why Parent-app ?
+                        </h1>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis consectetur, modi similique animi
+                            maiores quia facilis ex velit voluptates </p>
+                    </div>
+                    <div class="mb-2 card-why d-flex align-items-center justify-content-center gap-3 px-3 " data-aos="fade-right">
                         <div class="col-md-2">
                             
                             <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded" width="100%">
@@ -205,7 +208,7 @@
                             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem doloremque ratione aliquid pariatur libero fuga? Lorem ipsum, </p>
                         </div>
                     </div>
-                    <div class="mb-2 card-why d-flex align-items-center justify-content-center gap-3 ">
+                    <div class="mb-2 card-why d-flex align-items-center justify-content-center gap-3 px-3 " data-aos="fade-right"data-aos-delay="100">
                         <div class="col-md-2">
                             
                             <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded" width="100%">
@@ -214,7 +217,7 @@
                             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem doloremque ratione aliquid pariatur libero fuga? Lorem ipsum, </p>
                         </div>
                     </div>
-                    <div class="mb-2 card-why d-flex align-items-center justify-content-center gap-3 ">
+                    <div class="mb-2 card-why d-flex align-items-center justify-content-center gap-3 px-3 "data-aos="fade-right"data-aos-delay="200">
                         <div class="col-md-2">
                             
                             <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded" width="100%">
@@ -231,7 +234,7 @@
     {{-- ARTICLES --}}
     <section class="my-5 ">
         <div class="container">
-            <div class="row d-flex flex-column align-items-center justify-content-center py-3">
+            <div class="row d-flex flex-column align-items-center justify-content-center py-3"data-aos="zoom-in-up" >
                 <div class="col-md-5">
 
                     <h2 class="text-center fw-bold text-success">New Articles</h2>
@@ -241,7 +244,7 @@
                 </div>
             </div>
             <div class="row d-flex-justify-content-center">
-                <div class="col-md-3 mb-3">
+                <div class="col-md-3 mb-3" data-aos="fade-up" >
                     <div class="card-article card border-0 p-3 shadow">
                         <div class="article-img">
                             <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" width="100%">
@@ -261,7 +264,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 mb-3">
+                <div class="col-md-3 mb-3" data-aos="fade-up" data-aos-delay="100">
                     <div class="card-article card border-0 p-3 shadow">
                         <div class="article-img">
                             <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" width="100%">
@@ -281,7 +284,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 mb-3">
+                <div class="col-md-3 mb-3" data-aos="fade-up" data-aos-delay="200">
                     <div class="card-article card border-0 p-3 shadow">
                         <div class="article-img">
                             <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" width="100%">
@@ -301,7 +304,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 mb-3">
+                <div class="col-md-3 mb-3"data-aos="fade-up" data-aos-delay="300">
                     <div class="card-article card border-0 p-3 shadow">
                         <div class="article-img">
                             <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" width="100%">
@@ -325,7 +328,7 @@
             </div>
             <div class="text-center">
 
-                <button class="btn btn-login mt-5">
+                <button class="btn btn-login mt-5" data-aos="fade-right">
                     All Articles
                 </button>
             </div>
