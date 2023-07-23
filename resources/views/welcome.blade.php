@@ -2,6 +2,9 @@
 
 @section('content')
     <style>
+        .article-img img{
+            border-radius: 16px;
+        }
         .img-container {
             background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)), url('{{ asset('image/cipung.png') }}');
             background-size: cover;
@@ -61,91 +64,282 @@
             color: #659384;
             font-size: 10px;
         }
+        .card-fitur {
+            color: rgb(33, 33, 33);
+            box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+            border: none;
+            overflow: hidden;
+            transition: .3s ease-in-out;
+            border-radius: 18px;
+            cursor: pointer;
+            
+        }
+
+        .card-fitur:hover{
+            background-color: #5dd485;
+            color: white;
+            transform: scale(1.05);
+            font-size: 16px;
+        }
+
+        .card-article{
+            transition: .3s ease-in-out;
+        }
+        .card-article:hover{
+            transform: scale(1.05);
+            font-size: 16px;
+            box-shadow: none;
+        }
+        .card-why {
+            color: rgb(33, 33, 33);
+            border: none;
+            overflow: hidden;
+            transition: .3s ease-in-out;
+            border-radius: 18px;
+            cursor: pointer;
+            
+        }
+
+        .card-why:hover{
+            background-color: #5dd485;
+            
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+            color: white;
+            font-size: 16px;
+        }
 
     </style>
-    <div class="container mt-5">
-        <div class="row d-flex justify-content-between align-items-center">
-            <div class="col-md-8">
-                <h5 class="fw-semibold ">Welcome to ParentApp! </h5>
-                <h1 style="font-size:50px;" class="fw-bold text-success">Parenting Path: Nurturing Futures, One Step at a Time
-                </h1>
-                <p class="lh-base">Creating Stronger Bonds, Raising Exceptional Children . Lorem ipsum dolor sit amet
-                    consectetur
-                    adipisicing elit. Qui fuga commodi quibusdam quo. Culpa nobis placeat quia, velit maxime iure!</p>
-                <a href="{{ route('about') }}" class="btn mt-3 btn-login px-5">About us</a>
-            </div>
-            <div class="col-md-4 ">
-                <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded" width="100%">
-            </div>
-        </div>
-    </div>
-
-    <section style="background-color:#C2D2C5 ">
-        <div class="container py-5  my-5">
-            <h4 class="text-success text-center fw-bold mb-5">Category: Top-importance articles</h4>
-
-            <div class="row d-flex justify-content-center gap-4">
-                <div class="col-md-5 img-container pt-5 text-light">
-                    <div class="isi-content">
-                        <span class="badge rounded-pill text-bg-warning text-white px-3 py-1">Badge</span>
-
-                        <h2>Proses untuk Memantaskan Diri Menjadi Orang Tua Teladan</h2>
-                        <p>Pola asuh sebagai sebuah proses bagaimana orang tua memperlakukan dan cara berinteraksi dengan
-                            anak didalamnya meliputi aktivitas yang bersifat ...</p>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <div class="row  d-flex justify-content-center">
-                        <div class="col-md-6 bg-warning img-container2">
-                            <div class="isi-content2">
-
-                                <span class="badge rounded-pill mb-2 text-bg-warning text-white px-3 py-1">Badge</span>
-
-                                <h6>Proses untuk </h6>
-                            </div>
-                        </div>
-                        <div class="col-md-6 bg-warning img-container2">
-                            <div class="isi-content2">
-
-                                <span class="badge rounded-pill mb-2 text-bg-warning text-white px-3 py-1">Badge</span>
-
-                                <h6>Proses untuk </h6>
-                            </div>
-                        </div>
-                        <div class="col-md-12 bg-danger img-container3 mt-5">
-                            <div class="isi-content2">
-
-                                <span class="badge rounded-pill mb-2 text-bg-warning text-white px-3 py-1">Badge</span>
-
-                                <h4>Proses untuk Memantaskan Diri </h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class=" mb-5">
-        <div class="container">
-            <div class="row vh-100 d-flex justify-content-center align-items-center">
-                <div class="col-md-6">
-                    <h1 class="text-success fw-bold mb-3">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    <section class="my-5">
+        <div class="container vh-100 d-flex justify-content-between align-items-center">
+            <div class="row d-flex justify-content-between align-items-center">
+                <div class="col-md-8">
+                    <h5 class="fw-semibold ">Welcome to ParentApp! </h5>
+                    <h1 style="font-size:50px;" class="fw-bold text-success">Parenting Path: Nurturing Futures, One Step at a Time
                     </h1>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis consectetur, modi similique animi
-                        maiores quia facilis ex velit voluptates quae alias unde explicabo perferendis expedita quo eum?
-                        Corrupti quasi nostrum, doloremque sunt odit exercitationem! Culpa dolorum atque itaque animi
-                        facilis officiis velit, minima obcaecati odio, quia aut quam suscipit laudantium natus t...</p>
-                    <button class="btn btn-login px-2 mt-3 text-white">Selengkapnya</button>
+                    <p class="lh-base">Creating Stronger Bonds, Raising Exceptional Children . Lorem ipsum dolor sit amet
+                        consectetur
+                        adipisicing elit. Qui fuga commodi quibusdam quo. Culpa nobis placeat quia, velit maxime iure!</p>
+                    <a href="{{ route('about') }}" class="btn mt-3 btn-login px-5">About us</a>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4 ">
                     <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded" width="100%">
                 </div>
             </div>
         </div>
     </section>
+    
 
+    {{-- FEATURE --}}
+    <section class="py-5 my-5" style="background-color:#C2D2C5; border-radius:32px; ">
+        <div class="container">
+            <div class="row d-flex flex-column align-items-center justify-content-center py-3">
+                <div class="col-md-5">
+
+                    <h2 class="text-center fw-bold text-success">Our Services</h2>
+                </div>
+                <div class="col-md-5 text-center">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam </p>
+                </div>
+            </div>
+
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-md-3 mb-3">
+                    <div class="card text-center card-fitur p-3 border-0 shadow">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded-circle" width="30%">
+                        </div>
+                        <div class="feature-content">
+                            <h4 class="fw-semibold my-3">Fitur Utama</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod ligula id eros gravida, </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card text-center card-fitur p-3 border-0 shadow">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded-circle" width="30%">
+                        </div>
+                        <div class="feature-content">
+                            <h4 class="fw-semibold my-3">Fitur Utama</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod ligula id eros gravida, </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card text-center card-fitur p-3 border-0 shadow">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded-circle" width="30%">
+                        </div>
+                        <div class="feature-content">
+                            <h4 class="fw-semibold my-3">Fitur Utama</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod ligula id eros gravida, </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card text-center card-fitur p-3 border-0 shadow">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded-circle" width="30%">
+                        </div>
+                        <div class="feature-content">
+                            <h4 class="fw-semibold my-3">Fitur Utama</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod ligula id eros gravida, </p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    {{-- WHY --}}
+    <section class=" my-5">
+        <div class="container">
+            <div class="row vh-100 d-flex justify-content-center align-items-center">
+                <div class="col-md-6">
+                    <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded" width="100%">
+                </div>
+                <div class="col-md-6">
+                    <span class="text-success fw-semibold">~ Lorem khj</span>
+                    <h1 class="text-success fw-bold mb-3">
+                        Why Parent-app ?
+                    </h1>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis consectetur, modi similique animi
+                        maiores quia facilis ex velit voluptates </p>
+                    <div class="row mb-2 card-why d-flex align-items-center justify-content-center ">
+                        <div class="col-md-2">
+                            
+                            <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded" width="100%">
+                        </div>
+                        <div class="col-md-10 pt-3">
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem doloremque ratione aliquid pariatur libero fuga? Lorem ipsum, </p>
+                        </div>
+                    </div>
+                    <div class="row mb-2 card-why d-flex align-items-center justify-content-center ">
+                        <div class="col-md-2">
+                            
+                            <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded" width="100%">
+                        </div>
+                        <div class="col-md-10 pt-3">
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem doloremque ratione aliquid pariatur libero fuga? Lorem ipsum, </p>
+                        </div>
+                    </div>
+                    <div class="row mb-2 card-why d-flex align-items-center justify-content-center ">
+                        <div class="col-md-2">
+                            
+                            <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded" width="100%">
+                        </div>
+                        <div class="col-md-10  pt-3">
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem doloremque ratione aliquid pariatur libero fuga? Lorem ipsum, </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- ARTICLES --}}
+    <section class="my-5 vh-100">
+        <div class="container">
+            <div class="row d-flex flex-column align-items-center justify-content-center py-3">
+                <div class="col-md-5">
+
+                    <h2 class="text-center fw-bold text-success">New Articles</h2>
+                </div>
+                <div class="col-md-5 text-center">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam </p>
+                </div>
+            </div>
+            <div class="row d-flex-justify-content-center">
+                <div class="col-md-3">
+                    <div class="card-article card border-0 p-3 shadow">
+                        <div class="article-img">
+                            <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" width="100%">
+                        </div>
+                        <div class="article-content mt-3">
+                            <h5 class="fw-semibold">Title Lorem ipsum dolor sit amet.</h5>
+                            
+                            <span class="badge rounded-pill text-bg-success text-white px-3 py-1 mb-2" >Category</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 ">
+                            <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" width="20%">
+                            <div class="flex-column mt-3">
+                                
+                            <span class="fw-semibold">Hifni Sadboyyyy</span>
+                            <p class="text-secondary small">13 Agustus 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card-article card border-0 p-3 shadow">
+                        <div class="article-img">
+                            <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" width="100%">
+                        </div>
+                        <div class="article-content mt-3">
+                            <h5 class="fw-semibold">Title Lorem ipsum dolor sit amet.</h5>
+                            
+                            <span class="badge rounded-pill text-bg-success text-white px-3 py-1 mb-2" >Category</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 ">
+                            <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" width="20%">
+                            <div class="flex-column mt-3">
+                                
+                            <span class="fw-semibold">Hifni Sadboyyyy</span>
+                            <p class="text-secondary small">13 Agustus 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card-article card border-0 p-3 shadow">
+                        <div class="article-img">
+                            <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" width="100%">
+                        </div>
+                        <div class="article-content mt-3">
+                            <h5 class="fw-semibold">Title Lorem ipsum dolor sit amet.</h5>
+                            
+                            <span class="badge rounded-pill text-bg-success text-white px-3 py-1 mb-2" >Category</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 ">
+                            <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" width="20%">
+                            <div class="flex-column mt-3">
+                                
+                            <span class="fw-semibold">Hifni Sadboyyyy</span>
+                            <p class="text-secondary small">13 Agustus 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card-article card border-0 p-3 shadow">
+                        <div class="article-img">
+                            <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" width="100%">
+                        </div>
+                        <div class="article-content mt-3">
+                            <h5 class="fw-semibold">Title Lorem ipsum dolor sit amet.</h5>
+                            
+                            <span class="badge rounded-pill text-bg-success text-white px-3 py-1 mb-2" >Category</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 ">
+                            <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" width="20%">
+                            <div class="flex-column mt-3">
+                                
+                            <span class="fw-semibold">Hifni Sadboyyyy</span>
+                            <p class="text-secondary small">13 Agustus 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+
+                <button class="btn btn-login mt-5">
+                    All Articles
+                </button>
+            </div>
+        </div>
+    </section>
     {{-- TESTIMONI --}}
     <section class="py-5" style="background-color: #C2D2C5">
         <div class="container">
