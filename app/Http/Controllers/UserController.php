@@ -14,7 +14,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('user.   OCS    /;L9', compact('users'));
+        return view('user.index', compact('users'));
     }
 
     /**
@@ -30,15 +30,18 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $messages = [
+            'required' => 'Kolom :attribute harus diisi.',
+        ];
         
-        $request->validate([
+        $data = $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
             'gender' => 'required',
             'birthday' => 'required|date',
             'role' => 'required'
-        ]);
+        ], $messages);
         $isAdmin = $request->input('role') === 'admin' ? true : false;
 
         User::create([
