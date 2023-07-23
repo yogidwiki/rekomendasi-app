@@ -1,11 +1,11 @@
 <?php
 
-use App\Http\Controllers\MemberController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\MemberController;
 
 /*
 |--------------------------------------------------------------------------
