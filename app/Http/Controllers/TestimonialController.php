@@ -35,14 +35,14 @@ class TestimonialController extends Controller
                              ->with('warning', 'Anda harus login terlebih dahulu untuk mengirim testimonial.');
         }
         $validatedData = $request->validate([
-            'user_id' => 'required|exists:users,id',
             'ulasan' => 'required',
             'rating' => 'required|integer|min:1|max:5',
         ]);
+        $validatedData['user_id'] =  Auth::user()->id;
 
         Testimonial::create($validatedData);
 
-        return view('welcome')->with('success', 'Testimonial created successfully');
+        return redirect()->back()->with('success', 'Berhasil menambahkan Testimoni');
     }
 
     /**

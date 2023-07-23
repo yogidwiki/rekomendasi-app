@@ -109,37 +109,16 @@
         }
 
     </style>
-<<<<<<< HEAD
-    <div class="container">
-        <div class="row d-flex justify-content-between align-items-center">
-            <div class="col-md-8">
-                <h5 class="fw-semibold " >Welcome to ParentApp! </h5>
-                <h1 style="font-size:50px;" class="fw-bold text-success">Parenting Path: Nurturing Futures, One Step at a Time</h1>
-                <p class="lh-base">Creating Stronger Bonds, Raising Exceptional Children . Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Qui fuga commodi quibusdam quo. Culpa nobis placeat quia, velit maxime iure!</p>
-                <a href="#" class="btn mt-3 btn-login px-5">About us</a>
-            </div>
-            <div class="col-md-4 ">
-                <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded" width="100%">
-            </div>
-        </div>
-    </div>
-
-    <section style="background-color:#C2D2C5 ">
-        <div class="container py-5  my-5">
-            <h4 class="text-success text-center fw-bold mb-5">Category: Top-importance articles</h4>
-
-            <div class="row d-flex justify-content-center gap-4">
-                <div class="col-md-5 img-container pt-5 text-light">
-                    <div class="isi-content">
-                        <span class="badge rounded-pill text-bg-warning text-white px-3 py-1">Badge</span>
-
-                        <h2>Proses untuk Memantaskan Diri Menjadi Orang Tua Teladan</h2>
-                        <p>Pola asuh sebagai sebuah proses bagaimana orang tua memperlakukan dan cara berinteraksi dengan
-                            anak didalamnya meliputi aktivitas yang bersifat ...</p>
-                    </div>
-=======
     <section style="height: 100px"></section>
+    <div class="containn">
+
+        @if(Session::has('success'))
+            <div class="alert alert-success alert-dismissible" role="alert">
+                {{ Session::get('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+        @endif
+    </div>
     <section class="my-5">
         <div class="container  d-flex justify-content-between align-items-center">
             <div class="row d-flex justify-content-between align-items-center">
@@ -151,7 +130,6 @@
                         consectetur
                         adipisicing elit. Qui fuga commodi quibusdam quo. Culpa nobis placeat quia, velit maxime iure!</p>
                     <a href="{{ route('about') }}" data-aos="fade-right" data-aos-duration="1500" class="btn mt-3 btn-login px-5 mb-3">About us</a>
->>>>>>> 5cba2a4c068923982388e6c993fedc4c0bc71a5b
                 </div>
                 <div class="col-md-4 ">
                     <img src="{{ asset('image/cipung.png') }}"  data-aos="zoom-in-down" alt="Hero Image" class="img-fluid rounded" width="100%">
@@ -392,11 +370,17 @@
                                     <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid img-testimonial" width="30%">
                                     <h5 class="fw-semibold mt-3">{{$item->user->name}}</h5>
                                     <p class="fs-6">
-                                        <i class="bi bi-star-fill text-warning"></i> <!-- 1st star -->
-                                        <i class="bi bi-star-fill text-warning"></i> <!-- 2nd star -->
-                                        <i class="bi bi-star-fill text-warning"></i> <!-- 3rd star -->
-                                        <i class="bi bi-star-fill text-warning"></i> <!-- 4th star -->
-                                        <i class="bi bi-star-half text-warning"></i> <!-- 5th star -->
+                                        @php
+                                            $rating = $item->rating;
+                                        @endphp
+                                    
+                                        @for ($i = 1; $i <= 5; $i++)
+                                            @if ($i <= $rating)
+                                            <span ><i class="bi bi-star-fill text-warning"></i> </span> 
+                                        
+                                            @endif
+                                        @endfor
+                                        
                                     </p>
                                     
                                     <i class="bi bi-chat-quote-fill text-danger fw-semi-bold"></i> {{$item->ulasan}}
