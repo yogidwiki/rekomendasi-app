@@ -76,7 +76,7 @@
         }
 
         .card-fitur:hover{
-            background-color: #5dd485;
+            background: linear-gradient(to right, #52b678, #268340);
             color: white;
             transform: scale(1.05);
             font-size: 16px;
@@ -109,8 +109,9 @@
         }
 
     </style>
+    <section style="height: 100px"></section>
     <section class="my-5">
-        <div class="container vh-100 d-flex justify-content-between align-items-center">
+        <div class="container  d-flex justify-content-between align-items-center">
             <div class="row d-flex justify-content-between align-items-center">
                 <div class="col-md-8">
                     <h5 class="fw-semibold ">Welcome to ParentApp! </h5>
@@ -119,7 +120,7 @@
                     <p class="lh-base">Creating Stronger Bonds, Raising Exceptional Children . Lorem ipsum dolor sit amet
                         consectetur
                         adipisicing elit. Qui fuga commodi quibusdam quo. Culpa nobis placeat quia, velit maxime iure!</p>
-                    <a href="{{ route('about') }}" class="btn mt-3 btn-login px-5">About us</a>
+                    <a href="{{ route('about') }}" class="btn mt-3 btn-login px-5 mb-3">About us</a>
                 </div>
                 <div class="col-md-4 ">
                     <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded" width="100%">
@@ -176,17 +177,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 mb-3">
-                    <div class="card text-center card-fitur p-3 border-0 shadow">
-                        <div class="d-flex justify-content-center align-items-center">
-                            <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded-circle" width="30%">
-                        </div>
-                        <div class="feature-content">
-                            <h4 class="fw-semibold my-3">Fitur Utama</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod ligula id eros gravida, </p>
-                        </div>
-                    </div>
-                </div>
                 
             </div>
         </div>
@@ -195,7 +185,7 @@
     {{-- WHY --}}
     <section class=" my-5">
         <div class="container">
-            <div class="row vh-100 d-flex justify-content-center align-items-center">
+            <div class="row  d-flex justify-content-center align-items-center">
                 <div class="col-md-6">
                     <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded" width="100%">
                 </div>
@@ -206,7 +196,7 @@
                     </h1>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis consectetur, modi similique animi
                         maiores quia facilis ex velit voluptates </p>
-                    <div class="row mb-2 card-why d-flex align-items-center justify-content-center ">
+                    <div class="mb-2 card-why d-flex align-items-center justify-content-center gap-3 ">
                         <div class="col-md-2">
                             
                             <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded" width="100%">
@@ -215,7 +205,7 @@
                             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem doloremque ratione aliquid pariatur libero fuga? Lorem ipsum, </p>
                         </div>
                     </div>
-                    <div class="row mb-2 card-why d-flex align-items-center justify-content-center ">
+                    <div class="mb-2 card-why d-flex align-items-center justify-content-center gap-3 ">
                         <div class="col-md-2">
                             
                             <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded" width="100%">
@@ -224,7 +214,7 @@
                             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem doloremque ratione aliquid pariatur libero fuga? Lorem ipsum, </p>
                         </div>
                     </div>
-                    <div class="row mb-2 card-why d-flex align-items-center justify-content-center ">
+                    <div class="mb-2 card-why d-flex align-items-center justify-content-center gap-3 ">
                         <div class="col-md-2">
                             
                             <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded" width="100%">
@@ -239,7 +229,7 @@
     </section>
 
     {{-- ARTICLES --}}
-    <section class="my-5 vh-100">
+    <section class="my-5 ">
         <div class="container">
             <div class="row d-flex flex-column align-items-center justify-content-center py-3">
                 <div class="col-md-5">
@@ -251,7 +241,7 @@
                 </div>
             </div>
             <div class="row d-flex-justify-content-center">
-                <div class="col-md-3">
+                <div class="col-md-3 mb-3">
                     <div class="card-article card border-0 p-3 shadow">
                         <div class="article-img">
                             <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" width="100%">
@@ -271,7 +261,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 mb-3">
                     <div class="card-article card border-0 p-3 shadow">
                         <div class="article-img">
                             <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" width="100%">
@@ -291,7 +281,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 mb-3">
                     <div class="card-article card border-0 p-3 shadow">
                         <div class="article-img">
                             <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" width="100%">
@@ -311,7 +301,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 mb-3">
                     <div class="card-article card border-0 p-3 shadow">
                         <div class="article-img">
                             <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" width="100%">
@@ -331,6 +321,7 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
             <div class="text-center">
 
@@ -346,7 +337,7 @@
             <div class="row d-flex flex-column align-items-center justify-content-center py-3">
                 <div class="col-md-5">
 
-                    <h2 class="text-center fw-semibold mt-4 text-success">TESTIMONIALS </h2>
+                    <h2 class="text-center fw-bold mt-4 text-success">Testimonials </h2>
                 </div>
                 <div class="col-md-2">
                     <hr style="border-width: 2px;" >

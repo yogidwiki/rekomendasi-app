@@ -1,8 +1,9 @@
 @extends('layouts.landingpage')
 @section('css')
 @section('content')
-<div class="2   container-fluid">
-  <nav class="navbar navbar-expand-lg bg-body-tertiary ">
+<div style="height: 90px;" class="p"></div>
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg bg-transparant ">
     <div class="container-fluid">
       <div class="collapse navbar-collapse " id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">

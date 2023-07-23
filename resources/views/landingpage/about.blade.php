@@ -36,7 +36,7 @@
   </style>
 @endsection
 @section('content')
-    <div class="container py-5" >
+    <div class="container my-5 py-5" >
       <h2 class="text-center fw-bold my-4 text-success">
         ABOUT US
       </h2>

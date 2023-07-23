@@ -1,8 +1,8 @@
 @extends('layouts.landingpage')
 @section('content')
-<div style="background-color:#C2D2C5 ; margin-top:-20px;">
+<div style="background-color:#C2D2C5 ;">
     <div class="container py-5">
-        <div class="row d-flex align-items-center justify-content-center gap-3">
+        <div class="row d-flex align-items-center justify-content-center gap-3 my-5">
             <div class="col-md-4 d-flex align-items-center justify-content-center " style="height: 100vh;">
                 <img src="{{asset('image/fam.png')}}" alt="Gambar Anda" style="max-width: 100%; height: auto;">
                 <!-- Konten sebelah kiri dengan background biru -->
