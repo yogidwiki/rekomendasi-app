@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MemberController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
@@ -30,6 +31,7 @@ Route::get('/detail-kategori', [LandingpageController::class, 'detailKategori'])
 Route::group(['middleware' => 'admin'], function () {
     Route::resource('users', UserController::class);
     Route::resource('testimonials', TestimonialController::class);
+    Route::resource('member',MemberController::class);
     Route::post('users/{id}/reset-password', [UserController::class, 'resetPassword'])->name('reset-password');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     

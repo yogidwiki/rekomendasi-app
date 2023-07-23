@@ -35,7 +35,9 @@
                                     <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
                                         <strong>{{ $loop->iteration }}</strong>
                                     </td>
-                                    <td>{{ $item->name }}</td>
+                                    <td>
+                                        {{ $item->name }}
+                                    </td>
                                     <td>
                                         {{ $item->email }}
                                     </td>

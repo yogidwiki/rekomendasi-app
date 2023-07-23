@@ -196,8 +196,8 @@
             <!-- Forms & Tables -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Data</span></li>
             <!-- Forms -->
-            <li class="menu-item">
-              <a href="icons-boxicons.html" class="menu-link">
+            <li class="menu-item {{ request()->is('member') ? 'active' : ''}}">
+              <a href="{{route('member.index')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Boxicons">Member</div>
               </a>
