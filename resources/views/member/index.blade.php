@@ -188,7 +188,7 @@
           <div class="row">
             <div class="col mb-3">
               <label for="nameWithTitle" class="form-label">Name</label>
-              <input type="text" id="nameWithTitle" name="nama" class="form-control @error('nama') is-invalid @enderror" placeholder="Enter Name">
+              <input type="text" id="nameWithTitle" name="nama" class="form-control @error('nama') is-invalid @enderror" placeholder="Enter Name" >
               @error('nama')
               <span class="invalid-feedback">{{ $message }}</span>
               @enderror
@@ -197,7 +197,7 @@
           <div class="row g-2 mb-3">
             <div class="col mb-0">
               <label for="emailWithTitle" class="form-label">Email</label>
-              <input type="email" id="emailWithTitle" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="email@example.com">
+              <input type="email" id="emailWithTitle" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="email@example.com" \>
               @error('email')
               <span class="invalid-feedback">{{ $message }}</span>
               @enderror
@@ -206,7 +206,7 @@
           <div class="row g-2 mb-3">
             <div class="col mb-0">
               <label for="exampleFormControlSelect1" class="form-label">Jenis Kelamin</label>
-              <select class="form-select @error('jenis_kelamin') is-invalid @enderror" id="exampleFormControlSelect1" name="jenis_kelamin" aria-label="Default select example">
+              <select class="form-select @error('jenis_kelamin') is-invalid @enderror" id="exampleFormControlSelect1" name="jenis_kelamin" aria-label="Default select example" >
                 <option disabled selected>Pilih jenis kelamin</option>
                 <option value="laki-laki">Laki-Laki</option>
                 <option value="perempuan">Perempuan</option>
@@ -220,7 +220,7 @@
             <label for="instagramWithTitle" class="form-label">Instagram</label>
             <div class="input-group">
               <span class="input-group-text" id="instagramLabel">https://instagram.com/</span>
-              <input type="text" class="form-control @error('instagram') is-invalid @enderror" id="instagram" name="instagram" placeholder="username" aria-describedby="instagramLabel">
+              <input type="text" class="form-control @error('instagram') is-invalid @enderror" id="instagram" name="instagram" placeholder="username" aria-describedby="instagramLabel" >
               @error('instagram')
               <span class="invalid-feedback">{{ $message }}</span>
               @enderror
@@ -230,7 +230,7 @@
             <label for="githubWithTitle" class="form-label">GitHub</label>
             <div class="input-group">
               <span class="input-group-text" id="githubLabel">https://github.com/ </span>
-              <input type="text" class="form-control @error('github') is-invalid @enderror" id="github" name="github" placeholder="username" aria-describedby="githubLabel">
+              <input type="text" class="form-control @error('github') is-invalid @enderror" id="github" name="github" placeholder="username" aria-describedby="githubLabel" >
               @error('github')
               <span class="invalid-feedback">{{ $message }}</span>
               @enderror
@@ -240,7 +240,7 @@
             <label for="linkedinWithTitle" class="form-label">LinkedIn</label>
             <div class="input-group">
               <span class="input-group-text" id="linkedinLabel">https://linkedin.com/</span>
-              <input type="text" class="form-control @error('linkedin') is-invalid @enderror" id="linkedin" name="linkedin" placeholder="username" aria-describedby="linkedinLabel">
+              <input type="text" class="form-control @error('linkedin') is-invalid @enderror" id="linkedin" name="linkedin" placeholder="username" aria-describedby="linkedinLabel" >
               @error('linkedin')
               <span class="invalid-feedback">{{ $message }}</span>
               @enderror
@@ -248,7 +248,7 @@
           </div>
           <div class="mb-3">
             <label for="gambar" class="form-label">Foto</label>
-            <input type="file" id="gambar" name="image" onchange="previewImage()" class="form-control mb-3 @error('image') is-invalid @enderror">
+            <input type="file" id="gambar" name="image" onchange="previewImage()" class="form-control mb-3 @error('image') is-invalid @enderror" >
             <img id="preview" src="" class="img-preview img-fluid mb-4 col-sm-8">
             @error('image')
             <span class="invalid-feedback">{{ $message }}</span>

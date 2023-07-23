@@ -36,9 +36,9 @@ class MemberController extends Controller
         'email' => 'required',
         'jenis_kelamin' => 'required|in:laki-laki,perempuan', 
         'image' => 'image|mimes:jpeg,png,jpg', // Menambahkan validasi untuk jenis file gambar
-        'instagram' => 'required|url',
-        'github' => 'required|url',
-        'linkedin' => 'required|url',
+        'instagram' => 'required',
+        'github' => 'required',
+        'linkedin' => 'required',
     ];
 
     // Pesan validasi kustom
@@ -82,7 +82,9 @@ class MemberController extends Controller
     // Menyiapkan data untuk disimpan ke dalam database
     $data = [
         'nama' => $validatedData['nama'],
+        'email' => $validatedData['email'],
         'image' => null,
+        'jenis_kelamin' => $validatedData['jenis_kelamin'],
         'instagram' => $instagramUsername,
         'github' => $githubUsername,
         'linkedin' => $linkedinUsername,
