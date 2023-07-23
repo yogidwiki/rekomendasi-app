@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 
 class LandingpageController extends Controller
 {
     public function index()
     {
-        return view('welcome');
+        $testimonials = Testimonial::all();
+        return view('welcome', compact('testimonials'));
     }
     public function about()
     {

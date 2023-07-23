@@ -355,10 +355,11 @@
                     <!-- Swiper -->
                     <div class="swiper mySwiper">
                         <div class="swiper-wrapper">
+                            @foreach ($testimonials as $item)
                             <div class="swiper-slide py-5">
                                 <div class="card-testimonial p-4">
                                     <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid img-testimonial" width="30%">
-                                    <h5 class="fw-semibold mt-3">Cipung</h5>
+                                    <h5 class="fw-semibold mt-3">{{$item->user->name}}</h5>
                                     <p class="fs-6">
                                         <i class="bi bi-star-fill text-warning"></i> <!-- 1st star -->
                                         <i class="bi bi-star-fill text-warning"></i> <!-- 2nd star -->
@@ -367,96 +368,13 @@
                                         <i class="bi bi-star-half text-warning"></i> <!-- 5th star -->
                                     </p>
                                     
-                                    <i class="bi bi-chat-quote-fill text-danger fw-semi-bold"></i> Lorem ipsum dolor sit amet consectetur adipisicing elit. At distinctio exercitationem rerum alias non
+                                    <i class="bi bi-chat-quote-fill text-danger fw-semi-bold"></i> {{$item->ulasan}}
                                     <i class="bi bi-chat-quote-fill text-danger fw-semi-bold"></i>
                                 </div>
                                 
                             </div>
-                            <div class="swiper-slide py-5">
-                                <div class="card-testimonial p-4">
-                                    <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid img-testimonial" width="30%">
-                                    <h5 class="fw-semibold mt-3">Cipung</h5>
-                                    <p class="fs-6">
-                                        <i class="bi bi-star-fill text-warning"></i> <!-- 1st star -->
-                                        <i class="bi bi-star-fill text-warning"></i> <!-- 2nd star -->
-                                        <i class="bi bi-star-fill text-warning"></i> <!-- 3rd star -->
-                                        <i class="bi bi-star-fill text-warning"></i> <!-- 4th star -->
-                                        <i class="bi bi-star-half text-warning"></i> <!-- 5th star -->
-                                    </p>
-                                    
-                                    <i class="bi bi-chat-quote-fill text-danger fw-semi-bold"></i> Lorem ipsum dolor sit amet consectetur adipisicing elit. At distinctio exercitationem rerum alias non
-                                    <i class="bi bi-chat-quote-fill text-danger fw-semi-bold"></i>
-                                </div>
-                                
-                            </div>
-                            <div class="swiper-slide py-5">
-                                <div class="card-testimonial p-4">
-                                    <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid img-testimonial" width="30%">
-                                    <h5 class="fw-semibold mt-3">Cipung</h5>
-                                    <p class="fs-6">
-                                        <i class="bi bi-star-fill text-warning"></i> <!-- 1st star -->
-                                        <i class="bi bi-star-fill text-warning"></i> <!-- 2nd star -->
-                                        <i class="bi bi-star-fill text-warning"></i> <!-- 3rd star -->
-                                        <i class="bi bi-star-fill text-warning"></i> <!-- 4th star -->
-                                        <i class="bi bi-star-half text-warning"></i> <!-- 5th star -->
-                                    </p>
-                                    
-                                    <i class="bi bi-chat-quote-fill text-danger fw-semi-bold"></i> Lorem ipsum dolor sit amet consectetur adipisicing elit. At distinctio exercitationem rerum alias non
-                                    <i class="bi bi-chat-quote-fill text-danger fw-semi-bold"></i>
-                                </div>
-                                
-                            </div>
-                            <div class="swiper-slide py-5">
-                                <div class="card-testimonial p-4">
-                                    <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid img-testimonial" width="30%">
-                                    <h5 class="fw-semibold mt-3">Cipung</h5>
-                                    <p class="fs-6">
-                                        <i class="bi bi-star-fill text-warning"></i> <!-- 1st star -->
-                                        <i class="bi bi-star-fill text-warning"></i> <!-- 2nd star -->
-                                        <i class="bi bi-star-fill text-warning"></i> <!-- 3rd star -->
-                                        <i class="bi bi-star-fill text-warning"></i> <!-- 4th star -->
-                                        <i class="bi bi-star-half text-warning"></i> <!-- 5th star -->
-                                    </p>
-                                    
-                                    <i class="bi bi-chat-quote-fill text-danger fw-semi-bold"></i> Lorem ipsum dolor sit amet consectetur adipisicing elit. At distinctio exercitationem rerum alias non
-                                    <i class="bi bi-chat-quote-fill text-danger fw-semi-bold"></i>
-                                </div>
-                                
-                            </div>
-                            <div class="swiper-slide py-5">
-                                <div class="card-testimonial p-4">
-                                    <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid img-testimonial" width="30%">
-                                    <h5 class="fw-semibold mt-3">Cipung</h5>
-                                    <p class="fs-6">
-                                        <i class="bi bi-star-fill text-warning"></i> <!-- 1st star -->
-                                        <i class="bi bi-star-fill text-warning"></i> <!-- 2nd star -->
-                                        <i class="bi bi-star-fill text-warning"></i> <!-- 3rd star -->
-                                        <i class="bi bi-star-fill text-warning"></i> <!-- 4th star -->
-                                        <i class="bi bi-star-half text-warning"></i> <!-- 5th star -->
-                                    </p>
-                                    
-                                    <i class="bi bi-chat-quote-fill text-danger fw-semi-bold"></i> Lorem ipsum dolor sit amet consectetur adipisicing elit. At distinctio exercitationem rerum alias non
-                                    <i class="bi bi-chat-quote-fill text-danger fw-semi-bold"></i>
-                                </div>
-                                
-                            </div>
-                            <div class="swiper-slide py-5">
-                                <div class="card-testimonial p-4">
-                                    <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid img-testimonial" width="30%">
-                                    <h5 class="fw-semibold mt-3">Cipung</h5>
-                                    <p class="fs-6">
-                                        <i class="bi bi-star-fill text-warning"></i> <!-- 1st star -->
-                                        <i class="bi bi-star-fill text-warning"></i> <!-- 2nd star -->
-                                        <i class="bi bi-star-fill text-warning"></i> <!-- 3rd star -->
-                                        <i class="bi bi-star-fill text-warning"></i> <!-- 4th star -->
-                                        <i class="bi bi-star-half text-warning"></i> <!-- 5th star -->
-                                    </p>
-                                    
-                                    <i class="bi bi-chat-quote-fill text-danger fw-semi-bold"></i> Lorem ipsum dolor sit amet consectetur adipisicing elit. At distinctio exercitationem rerum alias non
-                                    <i class="bi bi-chat-quote-fill text-danger fw-semi-bold"></i>
-                                </div>
-                                
-                            </div>
+                            @endforeach
+                            
                             
                         </div>
                         <div class="swiper-button-next"></div>
@@ -478,11 +396,12 @@
             <h2 class="text-center text-success fw-semibold mb-5">Submit Your Testimonial</h2>
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="col-md-8 card-form p-5">
-                    <form action="/submit_testimonial" method="post">
+                    <form action="{{ route('testimonials.store') }}" method="POST">
+                        @csrf
                         <div class="row mb-3">
                             <label for="testimonial" class="col-sm-3 col-form-label">Testimonial</label>
                             <div class="col-sm-9">
-                                <textarea name="testimonial" id="testimonial" class="form-control" rows="5" required></textarea>
+                                <textarea name="ulasan" id="testimonial" class="form-control" rows="5" required></textarea>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -497,17 +416,51 @@
                                 </select>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-login btn-success float-end">Submit Testimonial</button>
+                        @if (Auth::check())
+                        <button type="submit" class="btn btn-login btn-success float-end">Submit Testimoni</button>
+                    @else
+                        <a href="{{ route('login') }}" class="btn btn-login btn-primary float-end" id="login-button">Submit Testimoni</a>
+                    @endif
+
                     </form>
                 </div>
             </div>
         </div>
     </section>
+
+
     
 
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    // Cek apakah tombol login ada di halaman
+    const loginButton = document.getElementById('login-button');
+
+    if (loginButton) {
+        // Tambahkan event listener untuk menampilkan SweetAlert saat tombol login diklik
+        loginButton.addEventListener('click', function(event) {
+            event.preventDefault();
+
+            Swal.fire({
+                title: 'Peringatan',
+                text: 'Anda harus login terlebih dahulu untuk mengirim testimonial.',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Login',
+                cancelButtonText: 'Tutup',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Arahkan pengguna ke halaman login jika tombol "Login" di klik
+                    window.location.href = '{{ route('login') }}';
+                }
+            });
+        });
+    }
+</script>
 
     <!-- Initialize Swiper -->
     <script>
