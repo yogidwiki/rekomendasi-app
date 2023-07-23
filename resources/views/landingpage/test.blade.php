@@ -31,8 +31,9 @@
 @endsection
 @section('content')
 
+<section class="my-5">
     <div class="container">
-        <div class="row justify-content-center align-items-center mb-5">
+        <div class="row justify-content-center align-items-center mb-3 py-5">
             <div class="col-md-6">
             <div>
             <h2  class="fw-bold text-success">Kenapa sih Harus Test Parenting?</h2>
@@ -45,11 +46,13 @@
             </div>
             <div class="col-md-6">
                 <!-- Kolom kanan dengan gambar -->
-                <img src="{{asset('image/parenthero.png')}}" style="width: 100%;" alt="Gambar">
+                <img src="{{asset('image/parenthero.png')}}" class="mb-5" style="width: 100%;" alt="Gambar">
             </div>
         </div>
     </div>
-
+</section>
+    
+<div class="container">
     <div class="row d-flex justify-content-center ">
         <div class="col-md-8 ">
             <p><i class="bi bi-chat-square-quote-fill text-danger fs-3 mx-3"></i>Test parenting juga membantu kita memahami cara merespons situasi dan tantangan dalam mengasuh anak . Dengan bijaksana dan penuh empati karena setiap anak memiliki cara berfikir yang berbeda-beda.<i class="bi bi-chat-square-quote-fill mx-3 fs-3 text-danger"></i><span class="fw-bold text-secondary">~ Hifni Sadboy</span></p>
@@ -57,11 +60,13 @@
 
         </div>
     </div>
+</div>
+    
 
     <div class="container my-4 py-5" id="tutorial">
-        <h2 class="text-center fw-bold mb-5 text-success">Cara Mengerjakan Test <hr></h2>
+        <h2 class="text-center fw-bold mb-5 text-success mt-5">Cara Mengerjakan Test <hr></h2>
         <div class="row d-flex justify-content-center mb-5">
-            <div class="col-md-4">
+            <div class="col-md-4 mb-3">
                 
                 <!-- Kartu 1 -->
                 <div class="d-flex justify-content-center">
@@ -74,7 +79,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 mb-3">
                 <div class="d-flex justify-content-center">
                     <p class="text-center nomer bg-success">2</p>
                 </div>
@@ -86,7 +91,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 mb-3">
                 <div class="d-flex justify-content-center">
                     <p class="text-center nomer bg-success">3</p>
                 </div>
@@ -100,7 +105,7 @@
             </div>
         </div>
         <div class="row d-flex justify-content-center">
-            <div class="col-md-4">
+            <div class="col-md-4 mb-3">
                 <div class="d-flex justify-content-center">
                     <p class="text-center nomer bg-success">4</p>
                 </div>
@@ -112,7 +117,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 mb-3">
                 <div class="d-flex justify-content-center">
                     <p class="text-center nomer bg-success">5</p>
                 </div>
@@ -124,7 +129,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 mb-3">
                 <div class="d-flex justify-content-center">
                     <p class="text-center nomer bg-success">6</p>
                 </div>

@@ -17,7 +17,6 @@ body{
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
     border-bottom-left-radius: 32px;
     border-bottom-right-radius: 32px;
-    margin-bottom: 30px;
 }
 .menu-active{
     color: #52b678;
@@ -28,12 +27,13 @@ body{
     border-radius: 8px;
     border: none;
     font-weight: 600;
-    background-color:  #52b678;
+    background: linear-gradient(to right, #52b678, #268340);
     color: #fff;
+    transition: background  0.3s ease-in-out;
   }
   
 .btn-login:hover {
-    background-color: #659384 ;
+  background: linear-gradient(to right, #1c6330, #52b678);
     color: #fff;
     }
 .navbar li .nav-menu {
@@ -86,4 +86,23 @@ body{
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+  }
+
+  .card-form{
+    background-color:#fff;
+    border-radius: 18px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  }
+  .card-testimonial{
+    background-color:#f0ecec;
+    border-radius: 18px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  }
+  .card-testimonial img{
+    margin-top: -80px;
+  }
+
+  .img-testimonial{
+    border-radius: 50%;
+    border: 2px solid #fff;
   }

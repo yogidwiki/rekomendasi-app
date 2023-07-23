@@ -1,9 +1,6 @@
 @extends('layouts.landingpage')
 
 @section('css')
-<head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-
   <!-- Demo styles -->
   <style>
 
@@ -39,11 +36,14 @@
   </style>
 @endsection
 @section('content')
-    <div class="container py-5" >
-        <div class="row d-flex justify-content-center align-items-center gap-5">
-            <div class="col-md-5 p-4 shadow rounded text-start ">
-                <h2 class="fw-bold">Our Vision</h2>
-                <p class="text-start">At web parenting, we envision a digital landscape where children can explore the internet confidently, harnessing it’ss vast potential while staying protected from potential risks. We believe in fostering open communication, promoting digital literacy, and encouraging responsible online behavior, creating a nurturing environment where children can thrive online.</p>
+    <div class="container my-5 py-5" >
+      <h2 class="text-center fw-bold my-4 text-success">
+        ABOUT US
+      </h2>
+        <div class="row d-flex justify-content-between align-items-center gap-5">
+            <div class="col-md-6 p-4 shadow rounded">
+                <h3 class="fw-semibold text-success">Our Vision</h3>
+                <p >At web parenting, we envision a digital landscape where children can explore the internet confidently, harnessing it’ss vast potential while staying protected from potential risks. We believe in fostering open communication, promoting digital literacy, and encouraging responsible online behavior, creating a nurturing environment where children can thrive online.</p>
 
             </div>
             <div class="col-md-5">
@@ -51,14 +51,14 @@
 
             </div>
         </div>
-        <div class="row d-flex justify-content-center align-items-center gap-5">
-            <div class="col-md-5">
-                <img src="{{asset('/image/Group 66.png')}}" style="width: 80%" alt="hero image" class="img-fuild rounded">
+        <div class="row d-flex justify-content-between align-items-center gap-5 ">
+            <div class="col-md-5 ">
+                <img src="{{asset('/image/Group 66.png')}}" style="width: 80%" alt="hero image" class=" img-fuild rounded float-end">
 
             </div>
-            <div class="col-md-5 p-4 shadow rounded">
-                <h2 class="fw-bold">Our Process</h2>
-                <p class="text-justify">At web parenting, we are committed to staying at the forefront of web parenting best practices. Our content is regulary update to reflect the everchanging digital landscape, ensuring that you receive the most relevant and accurate information.</p>
+            <div class="col-md-6 p-4 shadow rounded">
+                <h3 class="fw-semibold text-success">Our Process</h3>
+                <p>At web parenting, we are committed to staying at the forefront of web parenting best practices. Our content is regulary update to reflect the everchanging digital landscape, ensuring that you receive the most relevant and accurate information. Lorem ipsum dolor sit amet consectetur adipisicing elit. A, quo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, cum?</p>
 
         </div>
         <div class="d-flex justify-content-center">
