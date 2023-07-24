@@ -123,6 +123,10 @@
         <div class="container  d-flex justify-content-between align-items-center">
             <div class="row d-flex justify-content-between align-items-center">
                 <div class="col-md-8" data-aos="zoom-out-down">
+                    @auth
+                        
+                    <h3 class="fw-semibold text-success">Halooo {{Auth::user()->name}}<i class="bi bi-balloon-heart-fill text-danger fw-semiboldel"></i></h3>
+                    @endauth
                     <h5 class="fw-semibold " >Welcome to ParentApp! </h5>
                     <h1 style="font-size:50px;" class="fw-bold text-success">Parenting Path: Nurturing Futures, One Step at a Time
                     </h1>

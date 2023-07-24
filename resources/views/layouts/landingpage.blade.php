@@ -42,21 +42,34 @@
                 </ul>
                 <ul class="navbar-nav">
                     @if (Route::has('login'))
-                        @auth
+                    @auth
+                        @if (Auth::user()->is_Admin == 1)
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/home') }}">Dashboard</a>
                             </li>
                         @else
                             <li class="nav-item">
-                                <a class="fw-bold nav-link  btn-login px-4 mx-2" href="{{ route('login') }}">Log In</a>
+                                <a class="fw-bold nav-link  btn-login px-4 mx-2" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
                             </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="fw-bold nav-link btn-register nav-menu " href="{{ route('register') }}">Register</a>
-                                </li>
-                            @endif
-                        @endauth
-                    @endif
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        @endif
+                    @else
+                        <li class="nav-item">
+                            <a class="fw-bold nav-link btn-login px-4 mx-2" href="{{ route('login') }}">Log In</a>
+                        </li>
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="fw-bold nav-link btn-register nav-menu " href="{{ route('register') }}">Register</a>
+                            </li>
+                        @endif
+                    @endauth
+                @endif
+                
                 </ul>
             </div>
         </div>
@@ -97,6 +110,9 @@
     <!-- Bootstrap JS (Place this at the end of the body) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- SweetAlert CDN -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+
     
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>

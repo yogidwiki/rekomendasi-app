@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Discussion;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class CategoryDiscussion extends Model
 {
@@ -12,4 +13,9 @@ class CategoryDiscussion extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function discussions()
+    {
+        return $this->hasMany(Discussion::class);
+    }
 }

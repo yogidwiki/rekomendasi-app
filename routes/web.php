@@ -3,10 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\LandingpageController;
-use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\DiscussionController;
+use App\Http\Controllers\LandingpageController;
 
+use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\CategoryDiscussionController;
 
 
@@ -32,6 +33,7 @@ Route::get('/detail-kategori', [LandingpageController::class, 'detailKategori'])
 
 // DISKUSI
 Route::resource('categories-discussions', CategoryDiscussionController::class);
+Route::resource('discussions', DiscussionController::class);
 
 
 

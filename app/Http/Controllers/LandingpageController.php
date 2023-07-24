@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Discussion;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use App\Models\CategoryDiscussion;
@@ -27,11 +28,12 @@ class LandingpageController extends Controller
         return view('landingpage.test');
     }
     public function diskusi()
-{
-    $categories_discussion = CategoryDiscussion::all();
+    {
+        $categories_discussion = CategoryDiscussion::all();
+        $discussions = Discussion::all();
 
-    return view('landingpage.diskusi', compact('categories_discussion'));
-}
+        return view('landingpage.diskusi', compact('categories_discussion', 'discussions'));
+    }
 
 
     public function detailArtikel()
