@@ -7,6 +7,9 @@ use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\MemberController;
 
+use App\Http\Controllers\CategoryDiscussionController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +29,10 @@ Route::get('/test', [LandingpageController::class, 'test'])->name('test');
 Route::get('/diskusi', [LandingpageController::class, 'diskusi'])->name('diskusi');
 Route::get('/detail-artikel', [LandingpageController::class, 'detailArtikel'])->name('detail-artikel');
 Route::get('/detail-kategori', [LandingpageController::class, 'detailKategori'])->name('detail-kategori');
+
+// DISKUSI
+Route::resource('categories-discussions', CategoryDiscussionController::class);
+
 
 
 Route::group(['middleware' => 'admin'], function () {

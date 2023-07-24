@@ -110,7 +110,7 @@
 
     </style>
     <section style="height: 100px"></section>
-    <div class="containn">
+    <div class="container">
 
         @if(Session::has('success'))
             <div class="alert alert-success alert-dismissible" role="alert">

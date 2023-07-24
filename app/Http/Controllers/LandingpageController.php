@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
+use App\Models\CategoryDiscussion;
+use Illuminate\Support\Facades\DB;
 
 class LandingpageController extends Controller
 {
@@ -25,9 +27,13 @@ class LandingpageController extends Controller
         return view('landingpage.test');
     }
     public function diskusi()
-    {
-        return view('landingpage.diskusi');
-    }
+{
+    $categories_discussion = CategoryDiscussion::all();
+
+    return view('landingpage.diskusi', compact('categories_discussion'));
+}
+
+
     public function detailArtikel()
     {
         return view('landingpage.detail-artikel');
