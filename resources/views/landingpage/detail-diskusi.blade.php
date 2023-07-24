@@ -19,7 +19,7 @@
                             <div class="d-flex">
 
                                 <h5 class="card-title fw-semibold">{{$discussion->user->name}}</h5>
-                                <p class="badge text-bg-primary mx-3">{{$discussion->category->name}}</p>
+                                <p class=" text-success mx-3">#{{$discussion->category->name}}</p>
                             </div>
                             <p class="card-text">{{$discussion->content}}</p>
                             <div class="row d-flex justify-content-between">
