@@ -29,6 +29,9 @@ Route::get('/page-test', [LandingpageController::class, 'pageTest'])->name('page
 Route::get('/quiz-one', [LandingpageController::class, 'quizOne'])->name('quiz-one');
 Route::get('/detail-artikel', [LandingpageController::class, 'detailArtikel'])->name('detail-artikel');
 Route::get('/detail-kategori', [LandingpageController::class, 'detailKategori'])->name('detail-kategori');
+Route::get('/page-test', [LandingpageController::class, 'pageTest'])->name('page-test');
+Route::get('/question/{id}/next', [QuestionController::class, 'nextQuestion']);
+
 
 
 Route::group(['middleware' => 'admin'], function () {
@@ -36,9 +39,6 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('users/{id}/reset-password', [UserController::class, 'resetPassword'])->name('reset-password');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::resource('question', QuestionController::class);
-    Route::get('/questions/{question}/edit', [QuestionController::class, 'edit'])->name('questions.edit');
-    Route::delete('/questions/{question}', [QuestionController::class, 'destroy'])->name('questions.destroy');
-    Route::post('/questions', [QuestionController::class, 'store'])->name('questions.store');
     
 });
 

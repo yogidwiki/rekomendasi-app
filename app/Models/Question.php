@@ -9,7 +9,6 @@ class Question extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'id',
         'judul',
         'konten',
     ];

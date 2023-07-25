@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Question;
 
 use Illuminate\Http\Request;
 
@@ -25,5 +26,16 @@ class LandingpageController extends Controller
     public function diskusi()
     {
         return view('landingpage.diskusi');
+    }
+    public function quizOne()
+    {
+        return view('landingpage.quiz-one');
+    }
+    public function pageTest()
+    {
+        $Question = Question::all(); // Mengambil pertanyaan pertama
+
+
+        return view('landingpage.page-test', compact('Question'));
     }
 }

@@ -1,27 +1,27 @@
 @extends('layouts.landingpage')
+
 @section('css')
 <style>
-        /* Gaya khusus untuk menengahkan teks secara vertikal dan horizontal */
-        .centered-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;         
-            color: #585858;
-            font-size: 43.43px;
-            font-family: Poppins;
-            font-weight: 400;
-            text-align: center;
-            padding-top: 40px;
-        }
+    /* Gaya khusus untuk menengahkan teks secara vertikal dan horizontal */
+    .centered-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #585858;
+        font-size: 43.43px;
+        font-family: Poppins;
+        font-weight: 400;
+        text-align: center;
+        padding-top: 40px;
+    }
 
-        /* Gaya khusus untuk gambar */
-        .centered-content img {
-            max-width: 100%;
+    /* Gaya khusus untuk gambar */
+    .centered-content img {
+        max-width: 100%;
+    }
 
-        }
-        
-        .slider-container {
+    .slider-container {
         width: 100%;
         margin-left: 29%;
         margin-top: 3%;
@@ -67,44 +67,39 @@
         font-weight: bold;
         margin-top: 3%;
     }
-    
-
-    </style>
+</style>
 @endsection
+
 @section('content')
 <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <!-- Gambar dengan teks di bawahnya -->
-                <div class="centered-content">
-                    <img src="{{asset('image/soal1.png')}}" alt="Gambar">
-                    <p>Bagaimana anda mempersiapkan diri anda agar menjadi seorang orang tua yang baik?</p>
-                </div>
-            </div>
-        </div>       
-    </div>
-    <div class="container">
-        <div class="row d-flex">
-            <div class="col-md-6">
-                <div class="slider-container">
-                    <input type="range" class="slider" min="1" max="5">
-                </div>
+    <div class="row">
+        @foreach ($Question as $item)
+        <div class="col-sm-12">
+            <!-- Gambar dengan teks di bawahnya -->
+            <div class="centered-content">
+                <p>{{ $item->konten }}</p>
             </div>
         </div>
+        <div class="col-md-6">
+            <div class="slider-container">
+                <input type="range" class="slider" min="1" max="5">
+            </div>
+        </div>
+        <div class="tickmark row justify-content-lg-center">
+        <div class="col-md-2 text-center">Sangat Tidak</div>
+        <div class="col-md-2 text-center">Kurang</div>
+        <div class="col-md-2 text-center">Biasa Saja</div>
+        <div class="col-md-2 text-center">Cukup</div>
+        <div class="col-md-2 text-center">Sangat Bisa</div>
     </div>
+        @endforeach
+    </div>
+</div>
 
-      <div class="container">
-        <div class="tickmark row justify-content-lg-center" >
-          <div class="col-md-2 text-center">Sangat Tidak</div>
-          <div class="col-md-2 text-center">Kurang</div>
-          <div class="col-md-2 text-center">Biasa Saja</div>
-          <div class="col-md-2 text-center">Cukup</div>
-          <div class="col-md-2 text-center">Sangat Bisa</div>
-        </div>
-      </div>
-    
-      <div class="d-grid gap-2 d-md-flex justify-content-end p-lg-5">
-        <a href="{{ route('quiz-one') }}" class="btn me-md-2 px-4"  style="background-color: #E97A61; border-radius: 20px; color: aliceblue;" type="button">Selanjutnya</a>
-      </div>
+<div class="text-center mt-5">
+<a href="{{ route('quiz-one') }}" class="btn btn-login px-3 mt-3 text-white">Selesai</a>
+</div>
+</div>
+
 
 @endsection
