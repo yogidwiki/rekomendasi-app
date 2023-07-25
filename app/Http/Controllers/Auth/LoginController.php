@@ -26,7 +26,19 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected function redirectTo()
+    {
+        // Cek status is_admin dari user yang login
+        $isAdmin = auth()->user()->is_admin;
+
+        // Jika is_admin true, arahkan ke halaman home
+        if ($isAdmin) {
+            return RouteServiceProvider::HOME;
+        }
+
+        // Jika is_admin false, arahkan ke halaman '/'
+        return '/';
+    }
 
     /**
      * Create a new controller instance.

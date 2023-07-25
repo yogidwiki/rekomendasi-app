@@ -33,6 +33,8 @@ Route::get('/detail-artikel', [LandingpageController::class, 'detailArtikel'])->
 Route::get('/detail-kategori', [LandingpageController::class, 'detailKategori'])->name('detail-kategori');
 Route::get('/diskusi/page/{page}', [DiscussionController::class,'getDiskusiByPage']);
 
+Route::resource('testimonials', TestimonialController::class);
+
 Route::resource('comments',CommentController::class);
 
 
@@ -45,7 +47,6 @@ Route::resource('discussions', DiscussionController::class);
 
 Route::group(['middleware' => 'admin'], function () {
     Route::resource('users', UserController::class);
-    Route::resource('testimonials', TestimonialController::class);
     Route::resource('member',MemberController::class);
     Route::post('users/{id}/reset-password', [UserController::class, 'resetPassword'])->name('reset-password');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
