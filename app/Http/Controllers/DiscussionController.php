@@ -52,10 +52,9 @@ class DiscussionController extends Controller
      */
     public function show($id)
     {
-        // Cari diskusi berdasarkan ID
-        $discussion = Discussion::findOrFail($id);
-
-        // Tampilkan halaman detail diskusi dengan data diskusi yang ditemukan
+        
+        $discussion = Discussion::with('comments')->findOrFail($id);
+        
         return view('landingpage.detail-diskusi', compact('discussion'));
     }
 
@@ -104,4 +103,12 @@ class DiscussionController extends Controller
 
         return redirect()->back()->with('success', 'Diskusi berhasil dihapus');
     }
+
+    public function getDiskusiByPage($page)
+{
+    $discussions = Discussion::orderBy('created_at', 'desc')
+                             ->paginate(4, ['*'], 'page', $page);
+
+    return view('landingpage.diskusi-partial', compact('discussions'));
+}
 }

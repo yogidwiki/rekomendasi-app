@@ -4,9 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DiscussionController;
-use App\Http\Controllers\LandingpageController;
 
+use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\CategoryDiscussionController;
 
@@ -30,6 +31,11 @@ Route::get('/test', [LandingpageController::class, 'test'])->name('test');
 Route::get('/diskusi', [LandingpageController::class, 'diskusi'])->name('diskusi');
 Route::get('/detail-artikel', [LandingpageController::class, 'detailArtikel'])->name('detail-artikel');
 Route::get('/detail-kategori', [LandingpageController::class, 'detailKategori'])->name('detail-kategori');
+Route::get('/diskusi/page/{page}', [DiscussionController::class,'getDiskusiByPage']);
+
+Route::resource('comments',CommentController::class);
+
+
 
 // DISKUSI
 Route::resource('categories-discussions', CategoryDiscussionController::class);

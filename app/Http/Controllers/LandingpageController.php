@@ -28,12 +28,13 @@ class LandingpageController extends Controller
         return view('landingpage.test');
     }
     public function diskusi()
-    {
-        $categories_discussion = CategoryDiscussion::all();
-        $discussions = Discussion::all();
+{
+    $categories_discussion = CategoryDiscussion::all();
+    $discussions = Discussion::orderBy('created_at', 'desc')
+                             ->paginate(4);
 
-        return view('landingpage.diskusi', compact('categories_discussion', 'discussions'));
-    }
+    return view('landingpage.diskusi', compact('categories_discussion', 'discussions'));
+}
 
 
     public function detailArtikel()
