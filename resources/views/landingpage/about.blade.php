@@ -97,7 +97,7 @@
                                 <div class="card-body">
                                   <h4 class="fw-semibold 3" style="margin-bottom: 5px;">Super {{ $item->nama }}</h4>
                                   <p class="" style="margin-top: -5px; font-size:12px;">~ Full Stack</p>
-                                  <p style="font-size: 14px;" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, quod? </p>
+                                  <p style="font-size: 14px;" >Lorem ium dolor sit amet consectetur adipisicing elit. Rem, quod? </p>
                                   <span class="card opacity-75 p-2 rounded fw-semibold" style="font-size:14px;" >{{$item->email}}</span>
                                   <div class="d-flex justify-content-center mt-3 gap-3">
                                     <a href="{{$item->linkedin}}" class="nav-link"> <i class="bi bi-linkedin "></i></a>
