@@ -30,7 +30,7 @@
 @endsection
 @section('content')
 <!-- JELEK -->
-    <div class="container">
+    <div class="container my-5">
 @if ($totalRating <= $minimumScore)
 <div class="row center-content">
       <!-- Gambar di sebelah kiri -->

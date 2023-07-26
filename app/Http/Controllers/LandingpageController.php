@@ -29,7 +29,6 @@ class LandingpageController extends Controller
         return view('landingpage.test');
     }
     public function diskusi()
-<<<<<<< HEAD
     {
         $categories_discussion = CategoryDiscussion::all();
     $discussions = Discussion::orderBy('created_at', 'desc')
@@ -40,7 +39,6 @@ class LandingpageController extends Controller
 
 
     public function detailArtikel()
->>>>>>> 69bc74ee161128fd32e84b8d8da6c0d996cfc05f
     {
         return view('landingpage.quiz-one');
     }
