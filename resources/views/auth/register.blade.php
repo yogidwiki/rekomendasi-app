@@ -1,8 +1,8 @@
 @extends('layouts.landingpage')
 @section('content')
-<div style="background-color:#C2D2C5 ; margin-top:-20px;">
+<div style="background-color:#C2D2C5 ;">
     <div class="container py-5">
-        <div class="row d-flex align-items-center justify-content-center gap-3">
+        <div class="row d-flex align-items-center justify-content-center gap-3 my-5">
             <div class="col-md-4 d-flex align-items-center justify-content-center " style="height: 100vh;">
                 <img src="{{asset('image/fam.png')}}" alt="Gambar Anda" style="max-width: 100%; height: auto;">
                 <!-- Konten sebelah kiri dengan background biru -->
@@ -65,7 +65,7 @@
                                 <div class="flex-grow-1">
                                     <div class="mb-3 form-group">
                                         <label for="birthdate" class="form-label">{{ __('Tanggal Lahir') }}</label>
-                                        <input style="border: none;border-bottom:2px solid #aeaeae;  background-color: transparent;"  id="birthdate" type="date" class="form-control @error('birthdate') is-invalid @enderror" name="birthdate" value="{{ old('birthdate') }}" required onFocus="this.style.borderBottom='2px solid #52b678';" onBlur="this.style.boxShadow='none';">
+                                        <input style="border: none;border-bottom:2px solid #aeaeae;  background-color: transparent;"  id="birthdate" type="date" class="form-control @error('birthdate') is-invalid @enderror" name="birthday" value="{{ old('birthdate') }}" required onFocus="this.style.borderBottom='2px solid #52b678';" onBlur="this.style.boxShadow='none';">
                                         @error('birthdate')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>

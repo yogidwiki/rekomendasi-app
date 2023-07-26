@@ -11,11 +11,12 @@
     
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('./css/app.css')}}">
     @yield('css')
 </head>
 <body>
-    <nav class=" navbar navbar-expand-lg navbar-light nav-parent " >
+    <nav class=" navbar navbar-expand-lg navbar-light nav-parent fixed-top " >
         <div class="container">
             <img src="{{asset('image/parenting-logo.jpeg')}}" style="max-width: 100px; height: auto;" alt="">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,21 +42,34 @@
                 </ul>
                 <ul class="navbar-nav">
                     @if (Route::has('login'))
-                        @auth
+                    @auth
+                        @if (Auth::user()->is_Admin == 1)
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/home') }}">Dashboard</a>
                             </li>
                         @else
                             <li class="nav-item">
-                                <a class="fw-bold nav-link  btn-login px-4 mx-2" href="{{ route('login') }}">Log In</a>
+                                <a class="fw-bold nav-link  btn-login px-4 mx-2" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
                             </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="fw-bold nav-link btn-register nav-menu " href="{{ route('register') }}">Register</a>
-                                </li>
-                            @endif
-                        @endauth
-                    @endif
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        @endif
+                    @else
+                        <li class="nav-item">
+                            <a class="fw-bold nav-link btn-login px-4 mx-2" href="{{ route('login') }}">Log In</a>
+                        </li>
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="fw-bold nav-link btn-register nav-menu " href="{{ route('register') }}">Register</a>
+                            </li>
+                        @endif
+                    @endauth
+                @endif
+                
                 </ul>
             </div>
         </div>
@@ -96,10 +110,18 @@
     <!-- Bootstrap JS (Place this at the end of the body) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- SweetAlert CDN -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+
     
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.15.0/bootstrap-icons.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    
+    <script>
+        AOS.init();
+    </script>
     <script>
         // Tampilkan loading spinner saat halaman dimuat
       window.addEventListener('beforeunload', function() {

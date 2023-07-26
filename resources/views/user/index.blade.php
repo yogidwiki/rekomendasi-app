@@ -35,7 +35,9 @@
                                     <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
                                         <strong>{{ $loop->iteration }}</strong>
                                     </td>
-                                    <td>{{ $item->name }}</td>
+                                    <td>
+                                        {{ $item->name }}
+                                    </td>
                                     <td>
                                         {{ $item->email }}
                                     </td>
@@ -43,7 +45,7 @@
                                         {{ $item->is_admin ? 'Admin' : 'User' }}
                                     </td>
                                     <td>
-                                        {{ $item->birthday }}
+                                        {{ Carbon\Carbon::parse($item->birthday)->formatLocalized('%d %B %Y') }}
                                     </td>
                                     <td>
                                         {{ $item->gender }}
@@ -95,10 +97,13 @@
                                                     <div class="mb-3">
                                                         <label for="exampleFormControlSelect1" class="form-label">Jenis Kelamin</label>
                                                         <select class="form-select" id="exampleFormControlSelect1" name="gender" aria-label="Default select example" required>
-                                                            <option disabled selected>Pilih jenis kelamin</option>
+                                                            <option disabled >Pilih jenis kelamin</option>
                                                             <option value="laki-laki" {{ $item->gender === 'laki-laki' ? 'selected' : '' }}>Laki-Laki</option>
                                                             <option value="perempuan" {{ $item->gender === 'perempuan' ? 'selected' : '' }}>Perempuan</option>
                                                         </select>
+                                                        @error('gender')
+                                                            <span class="invalid-feedback">{{ $message }}</span>
+                                                        @enderror
                                                     </div>
                                                     
                                                     <div class="mb-3">

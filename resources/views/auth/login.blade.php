@@ -3,9 +3,9 @@
 
 @section('content')
 
-<section style="background-color:#C2D2C5 ; margin-top:-20px;">
+<section style="background-color:#C2D2C5 ;">
     <div class="container">
-        <div class="row justify-content-between align-items-center py-5 mb-4 ">
+        <div class="row justify-content-between align-items-center py-5 mb-4 my-5 ">
             <div class="col-md-5">
                 <div class="card p-4" style="border-radius: 32px;">
                     <h4 class="text-center fw-bold mb-5 mt-3">Sign In</h4>

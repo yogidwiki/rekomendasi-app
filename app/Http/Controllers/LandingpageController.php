@@ -3,13 +3,18 @@
 namespace App\Http\Controllers;
 use App\Models\Question;
 
+use App\Models\Discussion;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
+use App\Models\CategoryDiscussion;
+use Illuminate\Support\Facades\DB;
 
 class LandingpageController extends Controller
 {
     public function index()
     {
-        return view('welcome');
+        $testimonials = Testimonial::all();
+        return view('welcome', compact('testimonials'));
     }
     public function about()
     {
@@ -24,10 +29,18 @@ class LandingpageController extends Controller
         return view('landingpage.test');
     }
     public function diskusi()
+<<<<<<< HEAD
     {
-        return view('landingpage.diskusi');
+        $categories_discussion = CategoryDiscussion::all();
+    $discussions = Discussion::orderBy('created_at', 'desc')
+                             ->paginate(4);
+
+    return view('landingpage.diskusi', compact('categories_discussion', 'discussions'));
     }
-    public function quizOne()
+
+
+    public function detailArtikel()
+>>>>>>> 69bc74ee161128fd32e84b8d8da6c0d996cfc05f
     {
         return view('landingpage.quiz-one');
     }
