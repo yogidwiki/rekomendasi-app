@@ -33,9 +33,9 @@ class LandingpageController extends Controller
     }
     public function pageTest()
     {
-        $Question = Question::all(); // Mengambil pertanyaan pertama
+        $question = Question::all(); // Mengambil pertanyaan pertama
 
 
-        return view('landingpage.page-test', compact('Question'));
+        return view('landingpage.page-test', compact('question'));
     }
 }

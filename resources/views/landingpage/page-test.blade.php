@@ -72,8 +72,10 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-        @foreach ($Question as $item)
+<div class="row">
+    <form action="{{route('answer.store')}}" method="POST">
+        @csrf <!-- Add the CSRF token for security -->
+        @foreach ($question as $item)
         <div class="col-sm-12">
             <!-- Gambar dengan teks di bawahnya -->
             <div class="centered-content">
@@ -81,24 +83,28 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="slider-container">
-                <input type="range" class="slider" min="1" max="5">
+        <div class="slider-container">
+                <input type="range" class="slider" name="score[]" id="score-{{ $item->id }}" min="0" max="4">
             </div>
         </div>
         <div class="tickmark row justify-content-lg-center">
-        <div class="col-md-2 text-center">Sangat Tidak</div>
-        <div class="col-md-2 text-center">Kurang</div>
-        <div class="col-md-2 text-center">Biasa Saja</div>
-        <div class="col-md-2 text-center">Cukup</div>
-        <div class="col-md-2 text-center">Sangat Bisa</div>
-    </div>
+            <div class="col-md-2 text-center">Sangat Tidak</div>
+            <div class="col-md-2 text-center">Kurang</div>
+            <div class="col-md-2 text-center">Biasa Saja</div>
+            <div class="col-md-2 text-center">Cukup</div>
+            <div class="col-md-2 text-center">Sangat Bisa</div>
+        </div>
         @endforeach
-    </div>
+        <div class="text-center mt-5">
+        <button type="submit" class="btn btn-login btn-success px-3">Selesai</button>
+</div>
+        
+    </form>
 </div>
 
-<div class="text-center mt-5">
-<a href="{{ route('quiz-one') }}" class="btn btn-login px-3 mt-3 text-white">Selesai</a>
 </div>
+
+
 </div>
 
 
