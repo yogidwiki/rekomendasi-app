@@ -4,6 +4,12 @@
     <style>
         .article-img img{
             border-radius: 16px;
+            
+            overflow: hidden;
+        }
+        .article-img{
+            overflow: hidden;
+            height: 200px;
         }
         .img-container {
             background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)), url('{{ asset('image/cipung.png') }}');
@@ -257,86 +263,29 @@
                 </div>
             </div>
             <div class="row d-flex-justify-content-center">
+                @foreach ($articles as $item)
                 <div class="col-md-3 mb-3" data-aos="fade-up" >
                     <div class="card-article card border-0 p-3 shadow">
                         <div class="article-img">
-                            <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" width="100%">
+                            <img src="{{ asset('/public/posts/' . $item->image) }}" alt="Hero Image" width="100%">
                         </div>
                         <div class="article-content mt-3">
-                            <h5 class="fw-semibold">Title Lorem ipsum dolor sit amet.</h5>
+                            <h5 class="fw-semibold">{{$item->title}}</h5>
                             
-                            <span class="badge rounded-pill text-bg-success text-white px-3 py-1 mb-2" >Category</span>
+                            <span class="badge rounded-pill text-bg-success text-white px-3 py-1 mb-2" >{{$item->category->name}}</span>
                         </div>
                         <div class="d-flex align-items-center gap-3 ">
                             <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" width="20%">
                             <div class="flex-column mt-3">
                                 
                             <span class="fw-semibold">Hifni Sadboyyyy</span>
-                            <p class="text-secondary small">13 Agustus 2023</p>
+                            <p class="text-secondary small">{{ Carbon\Carbon::parse($item->created_at)->formatLocalized('%d %B %Y') }}</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 mb-3" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card-article card border-0 p-3 shadow">
-                        <div class="article-img">
-                            <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" width="100%">
-                        </div>
-                        <div class="article-content mt-3">
-                            <h5 class="fw-semibold">Title Lorem ipsum dolor sit amet.</h5>
-                            
-                            <span class="badge rounded-pill text-bg-success text-white px-3 py-1 mb-2" >Category</span>
-                        </div>
-                        <div class="d-flex align-items-center gap-3 ">
-                            <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" width="20%">
-                            <div class="flex-column mt-3">
-                                
-                            <span class="fw-semibold">Hifni Sadboyyyy</span>
-                            <p class="text-secondary small">13 Agustus 2023</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-3" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card-article card border-0 p-3 shadow">
-                        <div class="article-img">
-                            <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" width="100%">
-                        </div>
-                        <div class="article-content mt-3">
-                            <h5 class="fw-semibold">Title Lorem ipsum dolor sit amet.</h5>
-                            
-                            <span class="badge rounded-pill text-bg-success text-white px-3 py-1 mb-2" >Category</span>
-                        </div>
-                        <div class="d-flex align-items-center gap-3 ">
-                            <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" width="20%">
-                            <div class="flex-column mt-3">
-                                
-                            <span class="fw-semibold">Hifni Sadboyyyy</span>
-                            <p class="text-secondary small">13 Agustus 2023</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-3"data-aos="fade-up" data-aos-delay="300">
-                    <div class="card-article card border-0 p-3 shadow">
-                        <div class="article-img">
-                            <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" width="100%">
-                        </div>
-                        <div class="article-content mt-3">
-                            <h5 class="fw-semibold">Title Lorem ipsum dolor sit amet.</h5>
-                            
-                            <span class="badge rounded-pill text-bg-success text-white px-3 py-1 mb-2" >Category</span>
-                        </div>
-                        <div class="d-flex align-items-center gap-3 ">
-                            <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" width="20%">
-                            <div class="flex-column mt-3">
-                                
-                            <span class="fw-semibold">Hifni Sadboyyyy</span>
-                            <p class="text-secondary small">13 Agustus 2023</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+                
                 
             </div>
             <div class="text-center">

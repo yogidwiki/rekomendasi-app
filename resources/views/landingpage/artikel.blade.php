@@ -33,49 +33,33 @@
 
       <h1 class="text-center mb-5 fw-bold"> Family life <i class="bi bi-arrow-right"></i></h1>
     </a>
+    @foreach ($articles as $item)
     <div class="row d-flex justify-content-center mb-5">
-      <div class="col-md-3 ">
-        <img src="{{asset('image/image7.png')}}" style="width: 100%" alt="" />
-      </div>
+      <div class="col-md-3" style="overflow: hidden;">
+        <img src="{{ asset('/public/posts/' . $item->image) }}" style="width: 100%; height: 200px; object-fit: cover;" alt="">
+    </div>
+    
       <div class="col-md-7">
-        <span>Kategori</span>
+        <span>{{$item->category->name}}</span>
 
         <a href="{{route('detail-artikel')}}" class="nav-link">
 
-          <h2 class="fw-semibold">Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet. </h2>
+          <h2 class="fw-semibold">{{$item->title}} </h2>
         </a>
         <p class="mt-4">
-          Lorem ipsum dolor sit amet,
+          {{$item->description}}
         </p>
+        <ul>
+          <li>Pengarang : {{$item->author}}</li>
+          <li>Tahun :{{$item->year}}</li>
+          <li>Penerbit :{{$item->publisher}}</li>
+          <li>Tanggal : {{ Carbon\Carbon::parse($item->created_at)->formatLocalized('%d %B %Y') }}</li>
+        </ul>
       </div>
       <hr class="mt-5">
     </div>
-    <div class="row d-flex justify-content-center mb-5">
-      <div class="col-md-3 ">
-        <img src="{{asset('image/image7.png')}}" style="width: 100%" alt="" />
-      </div>
-      <div class="col-md-7">
-        <span>Kategori</span>
-        <h2 class="fw-semibold">Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet. </h2>
-        <p class="mt-4">
-          Lorem ipsum dolor sit amet,
-        </p>
-      </div>
-      <hr class="mt-5">
-    </div>
-    <div class="row d-flex justify-content-center mb-5">
-      <div class="col-md-3 ">
-        <img src="{{asset('image/image7.png')}}" style="width: 100%" alt="" />
-      </div>
-      <div class="col-md-7">
-        <span>Kategori</span>
-        <h2 class="fw-semibold">Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet. </h2>
-        <p class="mt-4">
-          Lorem ipsum dolor sit amet,
-        </p>
-      </div>
-      <hr class="mt-5">
-    </div>
+    @endforeach
+    
 
 
   </div>

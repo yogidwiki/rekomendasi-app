@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Question;
-
 use App\Models\Member;
+
+use App\Models\Article;
+use App\Models\Question;
 use App\Models\Discussion;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
@@ -15,7 +16,8 @@ class LandingpageController extends Controller
     public function index()
     {
         $testimonials = Testimonial::all();
-        return view('welcome', compact('testimonials'));
+        $articles = Article::all();
+        return view('welcome', compact('testimonials','articles'));
     }
     public function about()
     {
@@ -24,7 +26,8 @@ class LandingpageController extends Controller
     }
     public function artikel()
     {
-        return view('landingpage.artikel');
+        $articles = Article::paginate(2);
+        return view('landingpage.artikel',compact('articles'));
     }
     public function test()
     {
