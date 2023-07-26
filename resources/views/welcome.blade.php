@@ -107,10 +107,7 @@
         }
 
         .card-why:hover{
-            background-color: #5dd485;
-            
             box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
-            color: white;
             font-size: 16px;
         }
 
@@ -136,9 +133,7 @@
                     <h5 class="fw-semibold " >Welcome to ParentApp! </h5>
                     <h1 style="font-size:50px;" class="fw-bold text-success">Parenting Path: Nurturing Futures, One Step at a Time
                     </h1>
-                    <p class="lh-base">Creating Stronger Bonds, Raising Exceptional Children . Lorem ipsum dolor sit amet
-                        consectetur
-                        adipisicing elit. Qui fuga commodi quibusdam quo. Culpa nobis placeat quia, velit maxime iure!</p>
+                    <p class="lh-base">Selamat datang di Parent-app! Kami hadir untuk membantu Anda memperkuat hubungan dengan anak Anda dan mendidik mereka menjadi anak-anak yang luar biasa. Dengan akses mudah ke informasi, panduan praktis, dan pemantauan perkembangan</p>
                     <a href="{{ route('about') }}" data-aos="fade-right" data-aos-duration="1500" class="btn mt-3 btn-login px-5 mb-3">About us</a>
                 </div>
                 <div class="col-md-4 ">
@@ -158,7 +153,7 @@
                     <h2 class="text-center fw-bold text-success">Our Services</h2>
                 </div>
                 <div class="col-md-5 text-center">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam </p>
+                    <p>Terdapat 3 fitur utama di parent-app yang bisa digunakan sebaik mungkin</p>
                 </div>
             </div>
 
@@ -169,8 +164,8 @@
                             <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded-circle" width="30%">
                         </div>
                         <div class="feature-content">
-                            <h4 class="fw-semibold my-3">Fitur Utama</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod ligula id eros gravida, </p>
+                            <h4 class="fw-semibold my-3">Tes Parenting</h4>
+                            <p>Tes parenting mengevaluasi cara orang tua mendidik anak dan ciptakan lingkungan positif.</p>
                         </div>
                     </div>
                 </div>
@@ -180,8 +175,8 @@
                             <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded-circle" width="30%">
                         </div>
                         <div class="feature-content">
-                            <h4 class="fw-semibold my-3">Fitur Utama</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod ligula id eros gravida, </p>
+                            <h4 class="fw-semibold my-3">Forum Diskusi</h4>
+                            <p>Forum diskusi adalah platform daring untuk berinteraksi dan bertukar ide.</p>
                         </div>
                     </div>
                 </div>
@@ -191,8 +186,8 @@
                             <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded-circle" width="30%">
                         </div>
                         <div class="feature-content">
-                            <h4 class="fw-semibold my-3">Fitur Utama</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod ligula id eros gravida, </p>
+                            <h4 class="fw-semibold my-3">Artikel</h4>
+                            <p> Temukan wawasan menarik di artikel kami , isi terstruktur, fakta relevan. Baca sekarang!</p>
                         </div>
                     </div>
                 </div>
@@ -215,34 +210,30 @@
                         <h1 class="text-success fw-bold mb-3">
                             Why Parent-app ?
                         </h1>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis consectetur, modi similique animi
-                            maiores quia facilis ex velit voluptates </p>
+                        <p>Dengan menggunakan aplikasi ini Terdapat 3 kelebihan yang para orang tua wajib anda ketahui sekarang juga!</p>
                     </div>
                     <div class="mb-2 card-why d-flex align-items-center justify-content-center gap-3 px-3 " data-aos="fade-right">
-                        <div class="col-md-2">
-                            
-                            <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded" width="100%">
+                        <div class="col-md-2 text-center fs-1 text-success">
+                            <i class="bi bi-airplane-engines-fill"></i>
                         </div>
                         <div class="col-md-10 pt-3">
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem doloremque ratione aliquid pariatur libero fuga? Lorem ipsum, </p>
+                            <p>  <b class="text-success">Kemudahan Akses Informasi : </b>Aplikasi ini memberikan akses mudah dan cepat ke informasi bermanfaat seputar perkembangan anak, pola asuh, kesehatan, dan pendidikan. </p>
                         </div>
                     </div>
                     <div class="mb-2 card-why d-flex align-items-center justify-content-center gap-3 px-3 " data-aos="fade-right"data-aos-delay="100">
-                        <div class="col-md-2">
-                            
-                            <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded" width="100%">
+                        <div class="col-md-2 text-center fs-1 text-success">
+                            <i class="bi bi-person-hearts"></i>
                         </div>
                         <div class="col-md-10 pt-3">
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem doloremque ratione aliquid pariatur libero fuga? Lorem ipsum, </p>
+                            <p><b class="text-success">Panduan Pola Asuh : </b>Aplikasi parenting menyediakan panduan praktis untuk pola asuh yang efektif. Orang tua dapat mengakses strategi pengasuhan yang terbukti berhasil</p>
                         </div>
                     </div>
                     <div class="mb-2 card-why d-flex align-items-center justify-content-center gap-3 px-3 "data-aos="fade-right"data-aos-delay="200">
-                        <div class="col-md-2">
-                            
-                            <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded" width="100%">
+                        <div class="col-md-2 text-center fs-1 text-success">
+                            <i class="bi bi-eye-fill"></i>
                         </div>
                         <div class="col-md-10  pt-3">
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem doloremque ratione aliquid pariatur libero fuga? Lorem ipsum, </p>
+                            <p><b class="text-success">Pemantauan Perkembangan Anak : </b>Aplikasi ini memungkinkan orang tua untuk mencatat dan memantau perkembangan fisik, kognitif, dan emosional anak. </p>
                         </div>
                     </div>
                 </div>
@@ -259,7 +250,7 @@
                     <h2 class="text-center fw-bold text-success">New Articles</h2>
                 </div>
                 <div class="col-md-5 text-center">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam </p>
+                    <p>Artikel terbaru dari parent-app yang dapat memperluas pengetahuan anda!</p>
                 </div>
             </div>
             <div class="row d-flex-justify-content-center">
@@ -308,7 +299,7 @@
                     <hr style="border-width: 2px;" >
                 </div>
                 <div class="col-md-7 text-center">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam repudiandae molestiae voluptatibus a! Nihil vero </p>
+                    <p>Beberapa testimoni dari para orrang tua yang telah menggunakan aplikasi ini. yuk berikan testimonimu sekarang! </p>
                 </div>
             </div>
             <div class="row">
