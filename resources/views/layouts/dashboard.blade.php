@@ -147,14 +147,14 @@
                 <div data-i18n="User interface">Artikel</div>
               </a>
               <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="ui-typography.html" class="menu-link">
-                    <div data-i18n="Typography">Data Artikel</div>
+                <li class="menu-item {{ request()->is('categories') ? 'active' : ''}}">
+                  <a href="{{route('categories.index')}}" class="menu-link">
+                    <div data-i18n="Typography">Data Kategori</div>
                   </a>
                 </li>
                 <li class="menu-item">
                   <a href="ui-typography.html" class="menu-link">
-                    <div data-i18n="Typography">Kategori Artikel</div>
+                    <div data-i18n="Typography">Data Artikel</div>
                   </a>
                 </li>
               </ul>
@@ -167,8 +167,8 @@
                 <div data-i18n="Extended UI">Test</div>
               </a>
               <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="extended-ui-perfect-scrollbar.html" class="menu-link">
+                <li class="menu-item {{ request()->is('question') ? 'active' : ''}}">
+                  <a href="{{route('question.index')}}" class="menu-link">
                     <div data-i18n="Perfect Scrollbar">Daftar pertanyaan</div>
                   </a>
                 </li>
