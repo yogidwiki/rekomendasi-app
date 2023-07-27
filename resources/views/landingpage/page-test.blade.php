@@ -71,7 +71,7 @@
 @endsection
 
 @section('content')
-<div class="container">
+<div class="container my-5">
 <div class="row">
     <form action="{{route('answer.store')}}" method="POST">
         @csrf <!-- Add the CSRF token for security -->
