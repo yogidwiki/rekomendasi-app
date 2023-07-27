@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Member;
 
 use App\Models\Article;
+use App\Models\Category;
 use App\Models\Question;
 use App\Models\Discussion;
 use App\Models\Testimonial;
@@ -26,8 +27,10 @@ class LandingpageController extends Controller
     }
     public function artikel()
     {
-        $articles = Article::paginate(2);
-        return view('landingpage.artikel',compact('articles'));
+        $categories = Category::all();
+        $articles = Article::orderBy('created_at', 'desc')
+                             ->paginate(3);
+        return view('landingpage.artikel',compact('articles','categories'));
     }
     public function test()
     {
@@ -43,10 +46,11 @@ class LandingpageController extends Controller
     }
 
 
-    public function detailArtikel()
-    {
-        return view('landingpage.quiz-one');
-    }
+    public function detailArtikel($id)
+{
+    $artikel = Article::findOrFail($id);
+    return view('landingpage.detail-artikel', compact('artikel'));
+}
     public function pageTest()
     {
         $question = Question::all(); // Mengambil pertanyaan pertama

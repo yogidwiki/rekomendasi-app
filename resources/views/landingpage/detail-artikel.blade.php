@@ -3,48 +3,45 @@
 @section('content')
 <style>
     .banner{
-        height: 350px;
+        height: 25rem;
         margin-top: -25px;
-            background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)), url('{{ asset('image/cipung.png') }}');
+            background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)), url('https://png.pngtree.com/thumb_back/fh260/back_our/20190623/ourmid/pngtree-outdoor-parent-child-cartoon-banner-image_244316.jpg');
             background-size: cover;
-            background-posisition: center;
     }
 </style>
     <div class="banner">
-
     </div>
     <section>
         <div class="container">
             <div class="row d-flex align-items-center my-5">
-                <div class="col-md-4">
-                    <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded" width="100%">
+                <div class="col-md-4" style="overflow: hidden;height: 300px">
+                    <img src="{{asset('public/posts/'. $artikel->image)}}" alt="Hero Image" class="img-fluid rounded" width="100%" >
                 </div>
-                <div class="col-md-6">
-                    <span>Lorem ipsum dolor sit amet.</span>
-                    <h3 class="fw-semibold">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, eos.</h3>
+                <div class="col-md-6 ">
+                    <span class="badge text-bg-success mb-2" >{{$artikel->category->name}}</span>
+                    <h3 class="fw-semibold">{{$artikel->title}} Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni, debitis!</h3>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-3">
                     <div class="description mb-4">
                         <h6 class="fw-semibold">Author :</h6>
-                        <span>Ellen Sturm niz</span>
+                        <span>{{$artikel->author}}</span>
                     </div>
                     <div class="description mb-4">
                         <h6 class="fw-semibold">Category :</h6>
-                        <span>Ellen Sturm niz</span>
+                        <span>{{$artikel->category->name}}</span>
                     </div>
                     <div class="description mb-4">
                         <h6 class="fw-semibold">Release Date :</h6>
-                        <span>june, 29 2023</span>
+                        <span>{{ Carbon\Carbon::parse($artikel->created_at)->formatLocalized('%d %B %Y') }}</span>
                     </div>
                     
                     
                 </div>
                 <div class="col-md-5">
                     <h6 class="mb-3 fw-semibold">About this article</h6>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum impedit veniam in nesciunt. Ipsam esse quo totam quod omnis. Corrupti repellat praesentium alias quibusdam voluptates neque vitae ipsa quae, explicabo laborum expedita hic at, ratione ducimus quod autem, iure ut. Eius eos assumenda facilis nisi possimus vero iste asperiores labore molestiae ipsum harum fugit impedit totam, officiis voluptatem dicta! Dolores, reiciendis eius? Iure ipsam labore consectetur distinctio doloribus commodi, ut cupiditate soluta. Provident autem tempora, rerum eum adipisci, necessitatibus alias placeat temporibus doloremque accusamus repellat quibusdam fuga, neque numquam culpa quisquam possimus iure obcaecati similique dolor! Suscipit itaque ad laboriosam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum impedit veniam in nesciunt. Ipsam esse quo totam quod omnis. Corrupti repellat praesentium alias quibusdam voluptates neque vitae ipsa quae, explicabo laborum expedita hic at, ratione ducimus quod autem, iure ut. Eius eos assumenda facilis nisi possimus vero iste asperiores labore molestiae ipsum harum fugit impedit totam, officiis voluptatem dicta! Dolores, reiciendis eius? Iure ipsam labore consectetur distinctio doloribus commodi, ut cupiditate soluta..</p>
+                    <p>{{$artikel->description}} Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi doloremque deserunt eius? Magni ad, obcaecati aut sed inventore dolorum consequuntur, dolor eveniet quibusdam fuga reiciendis. Pariatur quis cupiditate, dolorem recusandae impedit repudiandae fugit iste, necessitatibus dolorum, ipsum corrupti voluptatibus consectetur unde molestiae asperiores autem reprehenderit temporibus itaque ex delectus quas!</p>
                 </div>
                 <div class="col-md-4">
                     <h6 class="mb-3 fw-semibold">Related article</h6>
