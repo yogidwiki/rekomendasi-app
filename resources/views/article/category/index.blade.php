@@ -92,7 +92,7 @@
               <h5 class="modal-title" id="modalCenterTitle">Tambah Kategori</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{ route('categories.store', $item->id) }}" method="POST">
+            <form action="{{ route('categories.store') }}" method="POST">
               @csrf
               <div class="modal-body">
                 <div class="row">
