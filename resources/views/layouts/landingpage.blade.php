@@ -109,6 +109,49 @@
 
     <!-- Bootstrap JS (Place this at the end of the body) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+<script>
+    $(document).ready(function() {
+        $('#searchButton').click(function() {
+            searchArticles();
+        });
+  
+        $('#searchInput').keyup(function(event) {
+            if (event.keyCode === 13) {
+                searchArticles();
+            }
+        });
+  
+        function searchArticles() {
+            var searchQuery = $('#searchInput').val();
+  
+            $.ajax({
+                url: '{{ route('article.search') }}',
+                method: 'GET',
+                data: { query: searchQuery },
+                beforeSend: function() {
+                    $('#searchResults').html(`
+                    <div class="d-flex justify-content-center">
+                      <p class="mx-3">Tunggu...  </p>
+                        <div class="spinner"></div>
+                    </div>`);
+                },
+                success: function(response) {
+                    if (response.trim()) {
+                    $('#articleList').hide(); // Hide the previous article list
+                    $('#searchResults').html(response); // Show the search results
+                } else {
+                    $('#articleList').show(); // Show the previous article list
+                    $('#searchResults').empty(); // Clear the search results
+                }
+                },
+                error: function() {
+                    $('#searchResults').html('<p class="text-center text-danger">Gaboleh kosong bang!</p>');
+                }
+            });
+        }
+    });
+  </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- SweetAlert CDN -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>

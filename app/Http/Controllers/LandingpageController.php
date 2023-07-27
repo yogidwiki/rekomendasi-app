@@ -29,7 +29,7 @@ class LandingpageController extends Controller
     {
         $categories = Category::all();
         $articles = Article::orderBy('created_at', 'desc')
-                             ->paginate(3);
+        ->paginate(4);;
         return view('landingpage.artikel',compact('articles','categories'));
     }
     public function test()
@@ -57,5 +57,17 @@ class LandingpageController extends Controller
 
 
         return view('landingpage.page-test', compact('question'));
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $articles = [];
+    
+        if ($query) {
+            $articles = Article::where('title', 'LIKE', '%' . $query . '%')->get();
+        }
+    
+        return view('landingpage.search-result', compact('articles'));
     }
 }

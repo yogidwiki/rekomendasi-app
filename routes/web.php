@@ -49,6 +49,7 @@ Route::resource('comments',CommentController::class);
 Route::resource('categories-discussions', CategoryDiscussionController::class);
 Route::resource('discussions', DiscussionController::class);
 Route::get('/artikel/{id}', [LandingpageController::class,'detailArtikel'])->name('detail.artikel');
+Route::get('/search', [LandingPageController::class, 'search'])->name('article.search');
 
 
 
