@@ -70,4 +70,14 @@ class LandingpageController extends Controller
     
         return view('landingpage.search-result', compact('articles'));
     }
+
+    public function detailKategori($id)
+{
+    $categories = Category::all();
+    $category = Category::findOrFail($id);
+    $articles = Article::where('category_id', $category->id)->get();
+
+    return view('landingpage.detail-kategori', compact('articles', 'category','categories'));
+}
+
 }

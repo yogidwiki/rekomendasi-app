@@ -31,7 +31,7 @@
                         </button>
                         <ul class="dropdown-menu">
                             @foreach ($categories as $item)
-                                <li><a class="dropdown-item" href="#">{{ $item->name }}</a></li>
+                                <li><a class="dropdown-item" href="{{ route('detail-kategori', $item->id) }}">{{ $item->name }}</a></li>
                             @endforeach
                         </ul>
                     </div>

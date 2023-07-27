@@ -37,7 +37,7 @@ Route::get('/test', [LandingpageController::class, 'test'])->name('test');
 Route::get('/diskusi', [LandingpageController::class, 'diskusi'])->name('diskusi');
 Route::get('/page-test', [LandingpageController::class, 'pageTest'])->name('page-test');
 Route::get('/detail-artikel', [LandingpageController::class, 'detailArtikel'])->name('detail-artikel');
-Route::get('/detail-kategori', [LandingpageController::class, 'detailKategori'])->name('detail-kategori');
+Route::get('/detail-kategori/{id}', [LandingPageController::class, 'detailKategori'])->name('detail-kategori');
 Route::get('/page-test', [LandingpageController::class, 'pageTest'])->name('page-test');
 Route::get('/question/{id}/next', [QuestionController::class, 'nextQuestion']);
 Route::resource('answer', AnswerController::class);
@@ -63,7 +63,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('question', QuestionController::class);
     Route::resource('categories', CategoryController::class);
     
-    
+
 });
 
 
