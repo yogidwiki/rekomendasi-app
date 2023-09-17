@@ -28,21 +28,13 @@
                         <a class="nav-link nav-menu  {{ request()->is('/') ? 'menu-active' : ''}}" href="{{route('welcome')}}">Home</a>
                     </li>
                     <li class="nav-item">
-<<<<<<< HEAD
                         <a class="nav-link nav-menu {{ request()->is('diskusi') ? 'menu-active' : ''}}" href="{{route('diskusi')}}">Discussions</a>
-=======
-                        <a class="nav-link nav-menu {{ request()->is('diskusi') ? 'menu-active' : ''}}" href="{{route('diskusi')}}">Forum Diskusi</a>
->>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
                     </li>
                     <li class="nav-item">
                         <a class="nav-link nav-menu {{ request()->is('test') ? 'menu-active' : ''}}" href="{{route('test')}}">Parenting Test</a>
                     </li>
                     <li class="nav-item">
-<<<<<<< HEAD
                         <a class="nav-link nav-menu {{ request()->is('artikel') ? 'menu-active' : ''}}" href="{{route('artikel')}}">Articles</a>
-=======
-                        <a class="nav-link nav-menu {{ request()->is('artikel') ? 'menu-active' : ''}}" href="{{route('artikel')}}">Artikel</a>
->>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
                     </li>
                     <li class="nav-item">
                         <a class="nav-link nav-menu {{ request()->is('about') ? 'menu-active' : ''}}" href="{{route('about')}}">About Us</a>

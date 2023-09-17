@@ -137,11 +137,7 @@
                     <a href="{{ route('about') }}" data-aos="fade-right" data-aos-duration="1500" class="btn mt-3 btn-login px-5 mb-3">About us</a>
                 </div>
                 <div class="col-md-4 ">
-<<<<<<< HEAD
                     <img src="{{ asset('image/imghero.jpeg') }}"  data-aos="zoom-in-down" alt="Hero Image" class="img-fluid rounded" width="100%">
-=======
-                    <img src="{{ asset('image/cipung.png') }}"  data-aos="zoom-in-down" alt="Hero Image" class="img-fluid rounded" width="100%">
->>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
                 </div>
             </div>
         </div>
@@ -149,11 +145,7 @@
     
 
     {{-- FEATURE --}}
-<<<<<<< HEAD
     <section class="py-5 my-5 overflow-hidden" style="background-color:#C2D2C5; border-radius:32px; ">
-=======
-    <section class="py-5 my-5" style="background-color:#C2D2C5; border-radius:32px; ">
->>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
         <div class="container">
             <div class="row d-flex flex-column align-items-center justify-content-center py-3"data-aos="fade-down">
                 <div class="col-md-5" >
@@ -167,7 +159,6 @@
 
             <div class="row d-flex justify-content-center align-items-center ">
                 <div class="col-md-3 mb-3" data-aos="fade-right">
-<<<<<<< HEAD
                     <a class="nav-link" href="{{route('test')}}">
                         <div class="card text-center card-fitur p-3 border-0 shadow">
                             <div class="d-flex justify-content-center align-items-center">
@@ -206,39 +197,6 @@
                             </div>
                         </div>
                     </a>
-=======
-                    <div class="card text-center card-fitur p-3 border-0 shadow">
-                        <div class="d-flex justify-content-center align-items-center">
-                            <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded-circle" width="30%">
-                        </div>
-                        <div class="feature-content">
-                            <h4 class="fw-semibold my-3">Tes Parenting</h4>
-                            <p>Tes parenting mengevaluasi cara orang tua mendidik anak dan ciptakan lingkungan positif.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-3" data-aos="fade-up">
-                    <div class="card text-center card-fitur p-3 border-0 shadow">
-                        <div class="d-flex justify-content-center align-items-center">
-                            <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded-circle" width="30%">
-                        </div>
-                        <div class="feature-content">
-                            <h4 class="fw-semibold my-3">Forum Diskusi</h4>
-                            <p>Forum diskusi adalah platform daring untuk berinteraksi dan bertukar ide.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-3"data-aos="fade-left">
-                    <div class="card text-center card-fitur p-3 border-0 shadow">
-                        <div class="d-flex justify-content-center align-items-center">
-                            <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded-circle" width="30%">
-                        </div>
-                        <div class="feature-content">
-                            <h4 class="fw-semibold my-3">Artikel</h4>
-                            <p> Temukan wawasan menarik di artikel kami , isi terstruktur, fakta relevan. Baca sekarang!</p>
-                        </div>
-                    </div>
->>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
                 </div>
                 
             </div>
@@ -250,11 +208,7 @@
         <div class="container">
             <div class="row  d-flex justify-content-center align-items-center">
                 <div class="col-md-6" data-aos="fade-up">
-<<<<<<< HEAD
                     <img src="{{ asset('image/herobawah.jpeg') }}" alt="Hero Image" class="img-fluid rounded" width="100%">
-=======
-                    <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid rounded" width="100%">
->>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
                 </div>
                 <div class="col-md-6">
                     <div  data-aos="fade-down">
@@ -309,7 +263,6 @@
             <div class="row d-flex-justify-content-center">
                 @foreach ($articles as $item)
                 <div class="col-md-3 mb-3" data-aos="fade-up" >
-<<<<<<< HEAD
                     <a class="text-decoration-none" href="{{ route('detail.artikel', ['id' => $item->id]) }}">
                         <div class="card-article card border-0 p-3 shadow">
                             <div class="article-img">
@@ -330,26 +283,6 @@
                             </div>
                         </div>
                     </a>
-=======
-                    <div class="card-article card border-0 p-3 shadow">
-                        <div class="article-img">
-                            <img src="{{ asset('/public/posts/' . $item->image) }}" alt="Hero Image" width="100%">
-                        </div>
-                        <div class="article-content mt-3">
-                            <h5 class="fw-semibold">{{$item->title}}</h5>
-                            
-                            <span class="badge rounded-pill text-bg-success text-white px-3 py-1 mb-2" >{{$item->category->name}}</span>
-                        </div>
-                        <div class="d-flex align-items-center gap-3 ">
-                            <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" width="20%">
-                            <div class="flex-column mt-3">
-                                
-                            <span class="fw-semibold">Hifni Sadboyyyy</span>
-                            <p class="text-secondary small">{{ Carbon\Carbon::parse($item->created_at)->formatLocalized('%d %B %Y') }}</p>
-                            </div>
-                        </div>
-                    </div>
->>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
                 </div>
                 @endforeach
                 
@@ -387,11 +320,7 @@
                             @foreach ($testimonials as $item)
                             <div class="swiper-slide py-5">
                                 <div class="card-testimonial p-4">
-<<<<<<< HEAD
                                     <img src="{{ asset('image/profile.png') }}" alt="Hero Image" class="img-fluid img-testimonial" width="30%">
-=======
-                                    <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" class="img-fluid img-testimonial" width="30%">
->>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
                                     <h5 class="fw-semibold mt-3">{{$item->user->name}}</h5>
                                     <p class="fs-6">
                                         @php

@@ -141,11 +141,7 @@
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Master</span></li>
             
             <!-- User interface -->
-<<<<<<< HEAD
             <li class="menu-item {{ request()->is('categories','articles') ? 'active' : ''}}">
-=======
-            <li class="menu-item">
->>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
               <a href="javascript:void(0)" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-box"></i>
                 <div data-i18n="User interface">Artikel</div>
@@ -156,13 +152,8 @@
                     <div data-i18n="Typography">Data Kategori</div>
                   </a>
                 </li>
-<<<<<<< HEAD
                 <li class="menu-item {{ request()->is('articles') ? 'active' : ''}}">
                   <a href="{{route('articles.index')}}" class="menu-link">
-=======
-                <li class="menu-item">
-                  <a href="ui-typography.html" class="menu-link">
->>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
                     <div data-i18n="Typography">Data Artikel</div>
                   </a>
                 </li>
@@ -189,24 +180,14 @@
               </ul>
             </li>
 
-<<<<<<< HEAD
             <li class="menu-item {{ request()->is('discussions') ? 'active' : ''}}">
               <a href="{{route('discussions.index')}}" class="menu-link">
-=======
-            <li class="menu-item">
-              <a href="icons-boxicons.html" class="menu-link">
->>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
                 <i class="menu-icon tf-icons bx bx-crown"></i>
                 <div data-i18n="Boxicons">Forum Diskusi</div>
               </a>
             </li>
-<<<<<<< HEAD
             <li class="menu-item {{ request()->is('testimonials') ? 'active' : ''}}">
               <a href="{{route('testimonials.index')}}" class="menu-link">
-=======
-            <li class="menu-item">
-              <a href="icons-boxicons.html" class="menu-link">
->>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
                 <i class="menu-icon tf-icons bx bx-cube-alt"></i>
                 <div data-i18n="Boxicons">Testimonial</div>
               </a>

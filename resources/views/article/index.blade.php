@@ -7,11 +7,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
     @endif
-<<<<<<< HEAD
 <h4 class="fw-bold py-3 mb-4">Tabel Artikel</h4>
-=======
-<h4 class="fw-bold py-3 mb-4">Tabel articles</h4>
->>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
     <div class="row">
         <div class="col-md-12">
             <div class="card p-4">
@@ -76,42 +72,26 @@
                                                 @method('PUT')
                                                 <div class="modal-body">
                                                     <div class="row mb-3">
-<<<<<<< HEAD
                                                         <label for="title" class="form-label col-sm-3">Judul</label>
-=======
-                                                        <label for="title" class="form-label col-sm-3">Title</label>
->>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
                                                         <div class="col-sm-9">
                                                           <input type="text" class="form-control" value="{{$item->title}}" id="title" name="title" required>
                                                         </div>
                                                       </div>
                                                       <div class="row mb-3">
-<<<<<<< HEAD
                                                         <label for="author" class="form-label col-sm-3">Pengarang</label>
-=======
-                                                        <label for="author" class="form-label col-sm-3">Author</label>
->>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
                                                         <div class="col-sm-9">
                                                           <input type="text" class="form-control" value="{{$item->author}}" id="author" name="author" required>
                                                         </div>
                                                       </div>
                                                       <div class="row mb-3">
-<<<<<<< HEAD
                                                         <label for="description" class="form-label col-sm-3">Deskripsi</label>
-=======
-                                                        <label for="description" class="form-label col-sm-3">Description</label>
->>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
                                                         <div class="col-sm-9">
                                                             <textarea class="form-control" id="description" name="description">{{$item->description}}</textarea>
 
                                                         </div>
                                                       </div>
                                                       <div class="row mb-3">
-<<<<<<< HEAD
                                                         <label for="year" class="form-label col-sm-3">Tahun</label>
-=======
-                                                        <label for="year" class="form-label col-sm-3">Year</label>
->>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
                                                         <div class="col-sm-9">
                                                           <input type="number" class="form-control" value="{{$item->year}}"id="year" name="year">
                                                         </div>
@@ -121,11 +101,7 @@
                                                         <label for="publisher" class="form-label col-sm-3">Penerbit</label>
 =======
                                                         <label for="publisher" class="form-label col-sm-3">Publisher</label>
->>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
                                                         <div class="col-sm-9">
-                                                          <input type="text" class="form-control" id="publisher" value="{{$item->publisher}}"name="publisher">
-                                                        </div>
-                                                      </div>
                                                       <div class="row mb-3">
 <<<<<<< HEAD
                                                         <label for="category_id" class="form-label col-sm-3">Kategori</label>
