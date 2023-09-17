@@ -7,7 +7,11 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
     @endif
+<<<<<<< HEAD
 <h4 class="fw-bold py-3 mb-4">Tabel Artikel</h4>
+=======
+<h4 class="fw-bold py-3 mb-4">Tabel articles</h4>
+>>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
     <div class="row">
         <div class="col-md-12">
             <div class="card p-4">
@@ -72,38 +76,62 @@
                                                 @method('PUT')
                                                 <div class="modal-body">
                                                     <div class="row mb-3">
+<<<<<<< HEAD
                                                         <label for="title" class="form-label col-sm-3">Judul</label>
+=======
+                                                        <label for="title" class="form-label col-sm-3">Title</label>
+>>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
                                                         <div class="col-sm-9">
                                                           <input type="text" class="form-control" value="{{$item->title}}" id="title" name="title" required>
                                                         </div>
                                                       </div>
                                                       <div class="row mb-3">
+<<<<<<< HEAD
                                                         <label for="author" class="form-label col-sm-3">Pengarang</label>
+=======
+                                                        <label for="author" class="form-label col-sm-3">Author</label>
+>>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
                                                         <div class="col-sm-9">
                                                           <input type="text" class="form-control" value="{{$item->author}}" id="author" name="author" required>
                                                         </div>
                                                       </div>
                                                       <div class="row mb-3">
+<<<<<<< HEAD
                                                         <label for="description" class="form-label col-sm-3">Deskripsi</label>
+=======
+                                                        <label for="description" class="form-label col-sm-3">Description</label>
+>>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
                                                         <div class="col-sm-9">
                                                             <textarea class="form-control" id="description" name="description">{{$item->description}}</textarea>
 
                                                         </div>
                                                       </div>
                                                       <div class="row mb-3">
+<<<<<<< HEAD
                                                         <label for="year" class="form-label col-sm-3">Tahun</label>
+=======
+                                                        <label for="year" class="form-label col-sm-3">Year</label>
+>>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
                                                         <div class="col-sm-9">
                                                           <input type="number" class="form-control" value="{{$item->year}}"id="year" name="year">
                                                         </div>
                                                       </div>
                                                       <div class="row mb-3">
+<<<<<<< HEAD
                                                         <label for="publisher" class="form-label col-sm-3">Penerbit</label>
+=======
+                                                        <label for="publisher" class="form-label col-sm-3">Publisher</label>
+>>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
                                                         <div class="col-sm-9">
                                                           <input type="text" class="form-control" id="publisher" value="{{$item->publisher}}"name="publisher">
                                                         </div>
                                                       </div>
                                                       <div class="row mb-3">
+<<<<<<< HEAD
                                                         <label for="category_id" class="form-label col-sm-3">Kategori</label>
+=======
+                                                        <label for="category_id" class="form-label col-sm-3">Category</label>
+>>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
                                                         <div class="col-sm-9">
                                                             <select id="category_id" name="category_id" class="form-select @error('category_id') is-invalid @enderror select2">
                                                                 <option value="">Pilih Kategori</option>
@@ -118,7 +146,11 @@
                                                         </div>
                                                       </div>
                                                       <div class="row mb-3">
+<<<<<<< HEAD
                                                         <label for="image" class="form-label col-sm-3">Gambar</label>
+=======
+                                                        <label for="image" class="form-label col-sm-3">Image</label>
+>>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
                                                         <div class="col-sm-9">
                                                           <input type="file"  class="form-control" value="{{$item->image}}"id="image" name="image">
                                                         </div>
@@ -148,44 +180,72 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
+<<<<<<< HEAD
               <h5 class="modal-title" id="addModalLabel">Tambah Artikel</h5>
+=======
+              <h5 class="modal-title" id="addModalLabel">Add Item</h5>
+>>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <form method="POST" action="{{ route('articles.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="row mb-3">
+<<<<<<< HEAD
                   <label for="title" class="form-label col-sm-3">Judul</label>
+=======
+                  <label for="title" class="form-label col-sm-3">Title</label>
+>>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
                   <div class="col-sm-9">
                     <input type="text" class="form-control" id="title" name="title" required>
                   </div>
                 </div>
                 <div class="row mb-3">
+<<<<<<< HEAD
                   <label for="author" class="form-label col-sm-3">Pengarang</label>
+=======
+                  <label for="author" class="form-label col-sm-3">Author</label>
+>>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
                   <div class="col-sm-9">
                     <input type="text" class="form-control" id="author" name="author" required>
                   </div>
                 </div>
                 <div class="row mb-3">
+<<<<<<< HEAD
                   <label for="description" class="form-label col-sm-3">Deskripsi</label>
+=======
+                  <label for="description" class="form-label col-sm-3">Description</label>
+>>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
                   <div class="col-sm-9">
                     <textarea class="form-control" id="description" name="description"></textarea>
                   </div>
                 </div>
                 <div class="row mb-3">
+<<<<<<< HEAD
                   <label for="year" class="form-label col-sm-3">Tahun</label>
+=======
+                  <label for="year" class="form-label col-sm-3">Year</label>
+>>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
                   <div class="col-sm-9">
                     <input type="number" class="form-control" id="year" name="year">
                   </div>
                 </div>
                 <div class="row mb-3">
+<<<<<<< HEAD
                   <label for="publisher" class="form-label col-sm-3">Penerbit</label>
+=======
+                  <label for="publisher" class="form-label col-sm-3">Publisher</label>
+>>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
                   <div class="col-sm-9">
                     <input type="text" class="form-control" id="publisher" name="publisher">
                   </div>
                 </div>
                 <div class="row mb-3">
+<<<<<<< HEAD
                   <label for="category_id" class="form-label col-sm-3">Kategori</label>
+=======
+                  <label for="category_id" class="form-label col-sm-3">Category</label>
+>>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
                   <div class="col-sm-9">
                     <select class="form-select" id="category_id" name="category_id">
                         <option value="" selected disabled>Select a category</option>
@@ -196,13 +256,21 @@
                   </div>
                 </div>
                 <div class="row mb-3">
+<<<<<<< HEAD
                   <label for="image" class="form-label col-sm-3">Gambar</label>
+=======
+                  <label for="image" class="form-label col-sm-3">Image</label>
+>>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
                   <div class="col-sm-9">
                     <input type="file" class="form-control" id="image" name="image">
                   </div>
                 </div>
       
+<<<<<<< HEAD
                 <button type="submit" class="btn btn-primary">Simpan</button>
+=======
+                <button type="submit" class="btn btn-primary">Save</button>
+>>>>>>> acf3df4ef69eb49988c49f92d96f34340d045bd2
               </form>
             </div>
           </div>
