@@ -92,7 +92,7 @@ class MemberController extends Controller
 
     // Check if a file is uploaded
     if ($image = $request->file('image')) {
-        $path = 'public/images';
+        $path = 'images';
         $namaGambar = date('YmdHis') . "." . $image->getClientOriginalExtension();
         $image->move($path, $namaGambar);
         $data['image'] = $namaGambar;
@@ -156,7 +156,7 @@ class MemberController extends Controller
 
     // Proses upload gambar baru jika ada
     if ($image = $request->file('image')) {
-        $path = 'public/images';
+        $path = 'images';
         if ($members->image) {
             // Hapus gambar sebelumnya jika ada
             Storage::delete($path . '/' . $members->image);

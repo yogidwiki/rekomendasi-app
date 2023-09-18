@@ -93,7 +93,7 @@
                 <!-- Tampilkan komentar -->
                 @if ($discussion->comments->count() > 0)
                     @foreach ($discussion->comments as $comment)
-                        @if ($comment->parent_id === 0)
+                        @if ($comment->parent_id == 0)
                             <div class="col-md-12 my-3">
                                 <div class="card p-3">
                                     <div class="card-body">
@@ -116,6 +116,10 @@
                                                             @if (Auth::check())
                                                             <a href="#" class="nav-link mx-3" data-bs-toggle="modal"
                                                             data-bs-target="#replyModal{{ $comment->id }}">
+                                                            <i class="bi bi-reply"></i> Reply
+                                                        </a>
+                                                        @else
+                                                        <a href="#" class="nav-link mx-3" onclick="alert('silahkan login terlebih dahulu')">
                                                             <i class="bi bi-reply"></i> Reply
                                                         </a>
                                                             @endif
@@ -184,27 +188,23 @@
                                                     @foreach ($comment->replies as $comment)
                                                         <div class="card border-0 card-body mb-3"
                                                             style="box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;">
-                                                            <div class="row d-flex">
+                                                            <div class="d-flex gap-3">
                                                                 <!-- Profile Photo -->
-                                                                <div class="col-md-1">
+                                                                <div class="">
                                                                     <img src="{{asset('image/profile.png')}}"
                                                                         alt="Profile Photo"
                                                                         class="img-fluid rounded-circle mb-3"
-                                                                        style="max-width: 100%;">
+                                                                        style="max-width: 40px;">
                                                                 </div>
-                                                                <div class="col-md-10">
+                                                                <div class="">
                                                                     <h5 class="card-title fw-semibold">
                                                                         {{ $comment->user->name }}</h5>
                                                                     <p class="card-text">{{ $comment->content }}</p>
                                                                     <div class="float-end">
                                                                             <span
-                                                                                class="float-end text text-secondary fs-7 ">
+                                                                                class="float-end text text-secondary fs-7">
                                                                                 <i>{{ \Carbon\Carbon::parse($comment->created_at)->diffForHumans() }}</i>
                                                                             </span>
-                                                                    </div>
-                                                                    <div class="mt-2 d-flex gap-3 mb-3">
-
-
                                                                     </div>
                                                                 </div>
                                                             </div>

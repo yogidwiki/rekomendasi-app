@@ -49,7 +49,8 @@ class LandingpageController extends Controller
     public function detailArtikel($id)
 {
     $artikel = Article::findOrFail($id);
-    return view('landingpage.detail-artikel', compact('artikel'));
+    $articles = Article::latest()->paginate(4);
+    return view('landingpage.detail-artikel', compact('artikel','articles'));
 }
     public function pageTest()
     {

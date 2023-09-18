@@ -122,7 +122,7 @@
               </div>
         @endif
     </div>
-    <section class="my-5">
+    <section class="my-5 overflow-hidden">
         <div class="container  d-flex justify-content-between align-items-center">
             <div class="row d-flex justify-content-between align-items-center">
                 <div class="col-md-8" data-aos="zoom-out-down">

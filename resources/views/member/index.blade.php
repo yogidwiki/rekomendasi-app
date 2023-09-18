@@ -57,7 +57,7 @@
                 {{$member->linkedin}}
               </td>
               <td>
-                <img src="{{ asset('/public/images/' . $member->image) }}" class="w-50">
+                <img src="{{ asset('/images/' . $member->image) }}" class="w-50">
               </td>
               <td>
                 <div class="d-flex gap-2">

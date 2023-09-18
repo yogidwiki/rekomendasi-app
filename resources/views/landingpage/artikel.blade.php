@@ -18,14 +18,14 @@
         }
     </style>
     <div style="height: 90px;" class="p"></div>
-    <div class="container my-5">
+    <div class="container my-5 p-4">
 
         <h2 class="text-center text-success mb-3 fw-bold"> Aticles</h1>
             <div class="row d-flex justify-content-between mb-5">
                 <!-- Kolom sebelah kiri (Dropdown untuk kategori) -->
                 <div class="col-md-2">
                     <div class="dropdown mt-3">
-                        <button class="btn btn-login btn-success dropdown-toggle w-100 d-block" type="button"
+                        <button class="btn btn-login btn-success dropdown-toggle mb-5 w-100 d-block" type="button"
                             data-bs-toggle="dropdown">
                             Kategori
                         </button>
@@ -40,7 +40,7 @@
                 <!-- Kolom sebelah kanan (Input search group append) -->
                 <div class="col-md-4">
                     <div class="input-group mb-3">
-                        <input type="search" placeholder="Cari judul buku..." name="search" class="form-control"
+                        <input type="search" placeholder="Cari judul artikel..." name="search" class="form-control"
                             id="searchInput">
                         <div class="input-group-append">
                             <button class="btn btn-login butn-success btn-sm" type="button" id="searchButton">Cari</button>

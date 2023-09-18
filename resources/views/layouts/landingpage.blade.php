@@ -19,7 +19,7 @@
     <nav class=" navbar navbar-expand-lg navbar-light nav-parent fixed-top " >
         <div class="container">
             <img src="{{asset('image/parenting-logo.jpeg')}}" style="max-width: 100px; height: auto;" alt="">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -40,7 +40,7 @@
                         <a class="nav-link nav-menu {{ request()->is('about') ? 'menu-active' : ''}}" href="{{route('about')}}">About Us</a>
                     </li>
                 </ul>
-                <ul class="navbar-nav">
+                <ul class="navbar-nav gap-3">
                     @if (Route::has('login'))
                     @auth
                         @if (Auth::user()->is_Admin == 1)
@@ -49,7 +49,7 @@
                             </li>
                         @else
                             <li class="nav-item">
-                                <a class="fw-bold nav-link  btn-login px-4 mx-2" href="{{ route('logout') }}"
+                                <a class="fw-bold nav-link  btn-login px-4" href="{{ route('logout') }}"
                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     Logout
                                 </a>
@@ -60,7 +60,7 @@
                         @endif
                     @else
                         <li class="nav-item">
-                            <a class="fw-bold nav-link btn-login px-4 mx-2" href="{{ route('login') }}">Log In</a>
+                            <a class="fw-bold nav-link btn-login px-4 " href="{{ route('login') }}">Log In</a>
                         </li>
                         @if (Route::has('register'))
                             <li class="nav-item">
