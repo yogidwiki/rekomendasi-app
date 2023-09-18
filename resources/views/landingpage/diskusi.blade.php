@@ -25,10 +25,16 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif
+            @if ($errors->has('content'))
+            <div class="alert alert-danger" role="alert">
+                {{ $errors->first('content') }}
+            </div>
+        @endif
         </div>
-        <h2 class="text-center fw-bold text-success pt-5">DISCUSSION FORUM</h2>
+        
 
         <div class="container mt-4">
+            <h2 class="text-center fw-bold text-success pt-5">FORUM DISKUSI</h2>
             <div class="row d-flex justify-content-center gap-5 mb-4">
                 <div class="col-md-8 card border-0 p-5 shadow">
                     <form action="{{ route('discussions.store') }}" method="POST">
@@ -47,7 +53,10 @@
                             <label for="commentInput" class="col-sm-3 col-form-label">Tulis Diskusi:</label>
                             <div class="col-sm-9">
                                 <textarea class="form-control " name="content" id="commentInput" style="height: 100px" rows="1"
-                                    placeholder="Tell everyone what your problem is......."></textarea>
+                                    placeholder="Tell everyone what your problem is......." required></textarea>
+                                    <div class="invalid-feedback">
+                                        Please enter your problem description.
+                                    </div>
                             </div>
                         </div>
                         @if (Auth::check())
@@ -62,7 +71,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <h4 class="text-center mb-4">Categories</h4>
+                    <h4 class="text-center mb-4">Kategori</h4>
                     <div class="row" id="categoryContainer">
                         @foreach ($categories_discussion as $item)
                             <div class="col-md-6">
@@ -72,10 +81,6 @@
                         <div class="col-md-12">
                                 @if (Auth::check())
                                 <button class="btn btn-login w-100 mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    Tambah Kategori
-                                </button>
-                                @else
-                                <button class="btn btn-login w-100 mt-5" id="login-button">
                                     Tambah Kategori
                                 </button>
                                 @endif
@@ -121,9 +126,9 @@
         </div>
 
 
-        <h4 class="text-center mt-5 fw-semibold text-success">Diskusi Teraru</h4>
-
-        <div class="container mt-4">
+        
+        <div class="container py-5">
+            <h2 class="text-center mt-5 fw-bold text-success">Diskusi Terbaru</h2>
             <div class="row d-flex justify-content-center mb-4 " id="diskusi-container">
                 @foreach ($discussions as $item)
                 <div class="col-md-6 mt-5">

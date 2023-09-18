@@ -3,24 +3,24 @@
         <div class="row">
             <!-- Profile Photo -->
             <div class="col-md-3">
-                <img src="https://i.pinimg.com/736x/55/3a/b5/553ab5f0f4090b47e54ee84a39905ae5.jpg"
+                <img src="{{asset('image/profile.png')}}"
                     alt="Profile Photo" class="img-fluid rounded-circle mb-3"
                     style="max-width: 100px;">
             </div>
             <div class="col-md-8">
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between align-items-center">
                     <a href="" class="nav-link fs-4 fw-semibold">{{ $item->user->name }}
 
                     </a>
 
-                    <a href="" class="nav-link text-success ">#{{ $item->category->name }}
+                    <a href="" class="nav-link text-success card p-1 ">#{{ $item->category->name }}
                     </a>
                     <div class="dropdown">
                         @if (Auth::check() && $item->user_id === Auth::user()->id)
                             <button class="btn btn-outline-success btn-sm dropdown-toggle"
                                 type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                                ...
+                                
                             </button>
                         @endif
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -99,12 +99,12 @@
                 </div>
 
                 <p class="card-text">{{ $item->content }}</p>
-                <div class="mt-2 d-flex justify-content-between gap-5 mb-3">
+                <div class="mt-2 d-flex justify-content-between gap-3 mb-3 align-items-center">
                     <a href="{{ route('discussions.show', $item->id) }}"
-                        class="btn btn-success btn-login w-100">Lihat Diskusi</a>
+                        class="btn btn-success btn-login">Lihat Diskusi</a>
 
-                    <span class="card-text"><small
-                            class="text-muted">{{ Carbon\Carbon::parse($item->created_at)->formatLocalized('%d %B %Y') }}</small></span>
+                    <p class="card-text"><small
+                            class="text-muted">{{ Carbon\Carbon::parse($item->created_at)->formatLocalized('%d %B %Y') }}</small></p>
                 </div>
 
             </div>

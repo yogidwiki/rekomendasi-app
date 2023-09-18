@@ -29,23 +29,31 @@ class DiscussionController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        // $request->validate([
-        //     'content' => 'required|string',
-        //     'category_id' => 'required|exists:categories,id'
-        // ]);
+{
+    $request->validate([
+        'content' => 'required|string',
+        'category_id' => 'required|exists:categories,id'
+    ], [
+        'content.required' => 'Diskusi tidak boleh kosong!',
+        // Aturan validasi lainnya
+    ]);
 
-        // Ambil ID pengguna yang login saat ini
-        $user_id = Auth::user()->id;
+    // Ambil ID pengguna yang login saat ini
+    $user_id = Auth::user()->id;
 
-        // Tambahkan 'user_id' dalam data request
-        $data = $request->all();
-        $data['user_id'] = $user_id;
+    // Tambahkan 'user_id' dalam data request
+    $data = $request->all();
+    $data['user_id'] = $user_id;
 
+    try {
         Discussion::create($data);
-
         return redirect()->back()->with('success', 'Berhasil membuat diskusi');
+    } catch (\Exception $e) {
+        return redirect()->back()->with('error', 'Gagal membuat diskusi. Pastikan Anda telah mengisi konten.');
+
     }
+}
+
 
     /**
      * Display the specified resource.
