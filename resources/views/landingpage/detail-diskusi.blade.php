@@ -53,8 +53,15 @@
                                                     <textarea class="form-control " name="content" id="commentInput" style="height: 100px" rows="1"
                                                         placeholder="Tell everyone what your problem is......."></textarea>
                                                 </div>
+                                                @if (Auth::check())
                                                 <button type="submit"
-                                                    class="btn btn-login btn-success btn-sm mt-3">Submit</button>
+                                                class="btn btn-login btn-success btn-sm mt-3">Submit</button>
+                                                @else
+                                                <button type="button"
+                                                    class="btn btn-login btn-success btn-sm mt-3"  id="login-button">Submit</button>
+                                                
+                                                @endif
+                                                
                                             </form>
                                         </div>
 
@@ -106,10 +113,12 @@
                                                     <div class="col-md-6">
                                                         <div class="d-flex">
                                                             <!-- Button trigger modal -->
+                                                            @if (Auth::check())
                                                             <a href="#" class="nav-link mx-3" data-bs-toggle="modal"
-                                                                data-bs-target="#replyModal{{ $comment->id }}">
-                                                                <i class="bi bi-reply"></i> Reply
-                                                            </a>
+                                                            data-bs-target="#replyModal{{ $comment->id }}">
+                                                            <i class="bi bi-reply"></i> Reply
+                                                        </a>
+                                                            @endif
 
                                                             <!-- Modal -->
                                                             <!-- Modal untuk membalas komentar -->
@@ -122,7 +131,7 @@
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title"
                                                                                 id="replyModalLabel{{ $comment->id }}">
-                                                                                Reply Modal</h5>
+                                                                                Balas yuk</h5>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <!-- Form untuk membalas komentar -->
@@ -219,4 +228,29 @@
 
         </div>
     </div>
+    <script>
+        // Cek apakah tombol login ada di halaman
+        const loginButton = document.getElementById('login-button');
+    
+        if (loginButton) {
+            // Tambahkan event listener untuk menampilkan SweetAlert saat tombol login diklik
+            loginButton.addEventListener('click', function(event) {
+                event.preventDefault();
+    
+                Swal.fire({
+                    title: 'Peringatan',
+                    text: 'Anda harus login terlebih dahulu untuk mengirim dan membalas komentar.',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Login',
+                    cancelButtonText: 'Tutup',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Arahkan pengguna ke halaman login jika tombol "Login" di klik
+                        window.location.href = '{{ route('login') }}';
+                    }
+                });
+            });
+        }
+    </script>
 @endsection
