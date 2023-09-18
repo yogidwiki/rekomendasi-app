@@ -31,7 +31,7 @@
 @endsection
 @section('content')
 
-<section class="my-5">
+<section class="my-5 p-lg-0 p-3">
     <div class="container">
         <div class="row justify-content-center align-items-center mb-3 py-5">
             <div class="col-md-6">
@@ -44,7 +44,7 @@
                 <a href="#tutorial" class="btn btn-login btn-secondary px-3">Tutorial  <i class="bi bi-arrow-down-short"></i></a>
             </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mt-5">
                 <!-- Kolom kanan dengan gambar -->
                 <img src="{{asset('image/parenthero.png')}}" class="mb-5" style="width: 100%;" alt="Gambar">
             </div>
@@ -144,9 +144,14 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-md-6 mt-5 ">
                     <div class="text-center"> 
+                        @if (Auth::check())
                         <a href="{{ route('page-test') }}" class="btn btn-login btn-success">
                             Mulai Test  <i class="bi bi-play-fill"></i>
                         </a>
+                        @else
+                        <button id="login-button" class="btn-login btn-success" >Mulai Test</button>
+                        @endif
+                        
                     </div>
                 </div>
             </div>
@@ -162,4 +167,29 @@
     </div>
         
     </div>
+    <script>
+        // Cek apakah tombol login ada di halaman
+        const loginButton = document.getElementById('login-button');
+    
+        if (loginButton) {
+            // Tambahkan event listener untuk menampilkan SweetAlert saat tombol login diklik
+            loginButton.addEventListener('click', function(event) {
+                event.preventDefault();
+    
+                Swal.fire({
+                    title: 'Peringatan',
+                    text: 'Anda harus login terlebih dahulu untuk memulai test',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Login',
+                    cancelButtonText: 'Tutup',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Arahkan pengguna ke halaman login jika tombol "Login" di klik
+                        window.location.href = '{{ route('login') }}';
+                    }
+                });
+            });
+        }
+    </script>
 @endsection

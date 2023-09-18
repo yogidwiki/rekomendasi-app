@@ -1,72 +1,37 @@
 @extends('layouts.landingpage')
-@section('css')
-    <style>
-    /* CSS untuk posisi tengah horizontal dan vertikal */
-    .container {
-      display: flex;
-      justify-content: space-around;
-    }
 
-    .center-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .card {
-            box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
-            border: none;
-            border-radius: 18px;
-            cursor: pointer;
-            color: white;
-            padding: 20px;
-            
-        }
-    
-    .card-title {
-        padding-bottom: 5%;
-    }
-  </style>
-@endsection
 @section('content')
 <!-- JELEK -->
-    <div class="container my-5">
+<div class="container min-vh-100" style="padding-top: 100px">
+  
+  <h1 class="text-center fw-bold text-success py-5">{{ $success }}</h1>
 @if ($totalRating <= $minimumScore)
-<div class="row center-content">
-      <!-- Gambar di sebelah kiri -->
-      
-      <h1 class="text-center fw-bold text-success mt-5">{{ $success }}</h1>
-      <h2 class="text-center fw-bold text-success">Total Score: {{ $totalRating }}</h2>
-      <div class="col-md-6">
-        <img src="{{asset('image/Kurang.png')}}" alt="Gambar" class="img-fluid">
-      </div>
-      <!-- Card (kotak) di sebelah kanan -->
-      <div class="col-md-6">
-        <div class="card bg-danger">
-          <div class="card-body text-left" >
-            <h5 class="card-title">Ternyata Anda Belum Siap</h5>
-            <p class="card-text">
-                Mungkin hari ini kamu belum mampu menjadi seorang orang tua, tapi kamu percaya bahwa dengan setiap langkahku dalam hidup ini, kamu akan terus belajar dan tumbuh untuk menjadi pribadi yang lebih baik dan lebih siap untuk mengambil peran penting sebagai seorang orang tua di masa depan. Setiap hari adalah kesempatan bagiku untuk memperkuat nilai-nilai, meningkatkan keterampilan, dan memahami arti cinta tanpa syarat. Semoga perjalanan ini membimbingku menuju saat-saat indah menjadi orang tua yang peduli, bijaksana, dan mendukung 
-                anak-anakku sepenuh hati.
-            </p>
-          </div>
-        </div>
+<div class="row d-flex justify-content-between align-items-center ">
+  <div class="col-md-4">
+    <img src="{{asset('image/Kurang.png')}}" alt="Gambar" class="img-fluid">
+  </div>
+  <!-- Card (kotak) di sebelah kanan -->
+  <div class="col-md-7">
+    <div class="card">
+      <div class="card-body text-left" >
+        <h3 class="card-title fw-bold text-danger">Anda Belum Siap</h3>
+        <p class="card-text">
+            Anda belum siap menjadi orang tua yang baik! jangan dulu menikah atau nda akan menyesal karena anak anda akan terkena mental helath karena perlakuan anda yang tidak benar dalam mendidik anak!
+        </p>
       </div>
     </div>
+  </div>
+</div>
 @elseif ($totalRating <= $maxNetralScore )
-<div class="row center-content">
-      <!-- Gambar di sebelah kiri -->
-      
-      <h1 class="text-center fw-bold text-success mt-5">{{ $success }}</h1>
-      <h2 class="text-center fw-bold text-success">Total Score: {{ $totalRating }}</h2>
-      <div class="col-md-6">
+<div class="row d-flex justify-content-between align-items-center ">
+      <div class="col-md-4">
         <img src="{{asset('image/Kurang.png')}}" alt="Gambar" class="img-fluid">
       </div>
       <!-- Card (kotak) di sebelah kanan -->
-      <div class="col-md-6">
-        <div class="card bg-warning">
+      <div class="col-md-7">
+        <div class="card">
           <div class="card-body text-left" >
-            <h5 class="card-title">Ternyata Anda sedeng</h5>
+            <h3 class="card-title fw-bold text-warning">Lumayan</h3>
             <p class="card-text">
                 Mungkin hari ini kamu belum mampu menjadi seorang orang tua, tapi kamu percaya bahwa dengan setiap langkahku dalam hidup ini, kamu akan terus belajar dan tumbuh untuk menjadi pribadi yang lebih baik dan lebih siap untuk mengambil peran penting sebagai seorang orang tua di masa depan. Setiap hari adalah kesempatan bagiku untuk memperkuat nilai-nilai, meningkatkan keterampilan, dan memahami arti cinta tanpa syarat. Semoga perjalanan ini membimbingku menuju saat-saat indah menjadi orang tua yang peduli, bijaksana, dan mendukung 
                 anak-anakku sepenuh hati.
@@ -76,27 +41,22 @@
       </div>
     </div>
 @else
-<div class="row center-content">
-      <!-- Gambar di sebelah kiri -->
-      
-      <h1 class="text-center fw-bold text-success mt-5">{{ $success }}</h1>
-      <h2 class="text-center fw-bold text-success">Total Score: {{ $totalRating }}</h2>
-      <div class="col-md-6">
-        <img src="{{asset('image/Kurang.png')}}" alt="Gambar" class="img-fluid">
-      </div>
-      <!-- Card (kotak) di sebelah kanan -->
-      <div class="col-md-6">
-        <div class="card bg-success">
-          <div class="card-body text-left" >
-            <h5 class="card-title">Ternyata Anda sangat Siap</h5>
-            <p class="card-text">
-                Mungkin hari ini kamu belum mampu menjadi seorang orang tua, tapi kamu percaya bahwa dengan setiap langkahku dalam hidup ini, kamu akan terus belajar dan tumbuh untuk menjadi pribadi yang lebih baik dan lebih siap untuk mengambil peran penting sebagai seorang orang tua di masa depan. Setiap hari adalah kesempatan bagiku untuk memperkuat nilai-nilai, meningkatkan keterampilan, dan memahami arti cinta tanpa syarat. Semoga perjalanan ini membimbingku menuju saat-saat indah menjadi orang tua yang peduli, bijaksana, dan mendukung 
-                anak-anakku sepenuh hati.
-            </p>
-          </div>
-        </div>
+<div class="row d-flex justify-content-between align-items-center ">
+  <div class="col-md-4">
+    <img src="{{asset('image/Kurang.png')}}" alt="Gambar" class="img-fluid">
+  </div>
+  <!-- Card (kotak) di sebelah kanan -->
+  <div class="col-md-7">
+    <div class="card">
+      <div class="card-body text-left" >
+        <h3 class="card-title fw-bold text-primary">Sangat Siap</h3>
+        <p class="card-text">
+            Anda sudah sangat siap menjadi orang tua yang baik !!! Segeralah menikah agar anda cepat mendapat keturunan dan dapat mendidik anak anda sehingga ia menjadi presiden korea selatan
+        </p>
       </div>
     </div>
+  </div>
+</div>
 @endif
 
 </div>

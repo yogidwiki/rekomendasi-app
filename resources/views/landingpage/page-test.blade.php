@@ -22,14 +22,14 @@
     }
 
     .slider-container {
-        width: 100%;
-        margin-left: 29%;
+        text-align: center;
         margin-top: 3%;
     }
 
     .slider {
         -webkit-appearance: none;
-        width: 150%;
+        appearance: none;
+        width: 100%;
         height: 20px;
         background: #b3aaaa;
         border-radius: 16px;
@@ -67,45 +67,65 @@
         font-weight: bold;
         margin-top: 3%;
     }
+
+    /* Gaya tambahan untuk memberikan padding pada tombol Selesai */
+    .selesai-button {
+        padding-top: 20px;
+        text-align: center;
+    }
+
+    /* Gaya untuk merespons pada perangkat dengan lebar layar yang kecil */
+    @media (max-width: 767px) {
+        .centered-content {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .pilihan {
+            font-size: 14px
+        }
+    }
+    @media (max-width: 375px) {
+        .centered-content {
+            font-size: 20px;
+        }
+        .pilihan {
+            font-size: 12px
+        }
+    }
 </style>
 @endsection
 
 @section('content')
-<div class="container my-5">
-<div class="row">
-    <form action="{{route('answer.store')}}" method="POST">
-        @csrf <!-- Add the CSRF token for security -->
-        @foreach ($question as $item)
-        <div class="col-sm-12">
-            <!-- Gambar dengan teks di bawahnya -->
-            <div class="centered-content">
-                <p>{{ $item->konten }}</p>
+<div class="container min-vh-100" style="padding-top: 100px">
+    <div class="row">
+        <form action="{{ route('answer.store') }}" method="POST">
+            @csrf <!-- Add the CSRF token for security -->
+            @foreach ($question as $item)
+            <div class="col-md-12">
+                <!-- Gambar dengan teks di bawahnya -->
+                <div class="centered-content">
+                    <h2 class="fw-bold">{{ $item->konten }}</h2>
+                </div>
             </div>
-        </div>
-        <div class="col-md-6">
-        <div class="slider-container">
-                <input type="range" class="slider" name="score[]" id="score-{{ $item->id }}" min="0" max="4">
+            <div class="col-md-8 col-8 mx-auto">
+                <div class="slider-container">
+                    <input type="range" class="slider" name="score[]" id="score-{{ $item->id }}" min="0" max="4">
+                </div>
             </div>
-        </div>
-        <div class="tickmark row justify-content-lg-center">
-            <div class="col-md-2 text-center">Sangat Tidak</div>
-            <div class="col-md-2 text-center">Kurang</div>
-            <div class="col-md-2 text-center">Biasa Saja</div>
-            <div class="col-md-2 text-center">Cukup</div>
-            <div class="col-md-2 text-center">Sangat Bisa</div>
-        </div>
-        @endforeach
-        <div class="text-center mt-5">
-        <button type="submit" class="btn btn-login btn-success px-3">Selesai</button>
+            <div class="tickmark col-md-12 text-center">
+                <div class="row justify-content-center pilihan">
+                    <p class="col-2 text-center">Sangat Tidak</p>
+                    <p class="col-2 text-center">Kurang</p>
+                    <p class="col-2 text-center">Biasa Saja</p>
+                    <p class="col-2 text-center">Cukup</p>
+                    <p class="col-2 text-center">Sangat Bisa</p>
+                </div>
+            </div>
+            @endforeach
+            <div class="selesai-button col-md-12">
+                <button type="submit" class="btn btn-login btn-success px-3">Selesai</button>
+            </div>
+        </form>
+    </div>
 </div>
-        
-    </form>
-</div>
-
-</div>
-
-
-</div>
-
-
 @endsection
