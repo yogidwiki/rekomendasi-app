@@ -15,7 +15,7 @@
         <div class="container">
             <div class="row d-flex align-items-center my-5">
                 <div class="col-md-4" style="overflow: hidden;height: 300px">
-                    <img src="{{asset('public/posts/'. $artikel->image)}}" alt="Hero Image" class="img-fluid rounded" width="100%" >
+                    <img src="{{asset('posts/'. $artikel->image)}}" alt="Hero Image" class="img-fluid rounded" width="100%" >
                 </div>
                 <div class="col-md-6 ">
                     <span class="badge text-bg-success mb-2" >{{$artikel->category->name}}</span>

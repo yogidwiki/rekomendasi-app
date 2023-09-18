@@ -50,7 +50,7 @@ class ArticleController extends Controller
         ], $messages);
     
         if ($image = $request->file('image')) {
-            $path = 'public/posts';
+            $path = 'posts';
             $namaGambar = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($path, $namaGambar);
             $data['image'] = $namaGambar;
@@ -102,7 +102,7 @@ class ArticleController extends Controller
     
 
     if ($image = $request->file('image')) {
-        $path = 'public/posts';
+        $path = 'posts';
 
         // Menghapus gambar lama jika ada
         if ($article->image) {

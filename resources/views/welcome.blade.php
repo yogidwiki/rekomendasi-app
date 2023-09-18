@@ -266,7 +266,7 @@
                     <a class="text-decoration-none" href="{{ route('detail.artikel', ['id' => $item->id]) }}">
                         <div class="card-article card border-0 p-3 shadow">
                             <div class="article-img">
-                                <img src="{{ asset('/public/posts/' . $item->image) }}" alt="Hero Image" width="100%">
+                                <img src="{{ asset('/posts/' . $item->image) }}" alt="Hero Image" width="100%">
                             </div>
                             <div class="article-content mt-3">
                                 <h5 class="fw-semibold">{{$item->title}}</h5>

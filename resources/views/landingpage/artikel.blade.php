@@ -60,7 +60,7 @@
               <div class="row d-flex  align-items-center gap-3 mb-5 p-3"
                   style="border: 1px solid green;border-radius:18px;box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;">
                   <div class="col-md-4" style="overflow: hidden;">
-                      <img src="{{ asset('/public/posts/' . $item->image) }}"
+                      <img src="{{ asset('/posts/' . $item->image) }}"
                           style="width: 100%; height: 250px; object-fit: cover;border-radius:18px;" alt="">
                   </div>
                   <div class="col-md-7">

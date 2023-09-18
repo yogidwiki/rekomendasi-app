@@ -33,7 +33,7 @@
                     <a href="{{ route('detail.artikel', ['id' => $item->id]) }}" class="text-decoration-none">
                         <div class="card-article card border-0 p-3 shadow ">
                             <div class="article-img" style="height: 250px; overflow:hidden;">
-                                <img src="{{ asset('/public/posts/' . $item->image) }}" alt="Hero Image" width="100%">
+                                <img src="{{ asset('/posts/' . $item->image) }}" alt="Hero Image" width="100%">
                             </div>
                             <div class="article-content mt-3">
                                 <h5 class="fw-semibold>">{{$item->title}}</h5>
@@ -41,10 +41,10 @@
                                 <span class="badge rounded-pill text-bg-success text-white px-3 py-1 mb-2" >{{$item->category->name}}</span>
                             </div>
                             <div class="d-flex align-items-center gap-3 ">
-                                <img src="{{ asset('image/cipung.png') }}" alt="Hero Image" width="20%">
+                                <img src="{{ asset('image/profile.png') }}" alt="Hero Image" width="20%">
                                 <div class="flex-column mt-3">
                                     
-                                <span class="fw-semibold">Hifni Sadboyyyy</span>
+                                <span class="fw-semibold">{{$item->author}}</span>
                                 <p class="text-secondary small">{{ Carbon\Carbon::parse($item->created_at)->formatLocalized('%d %B %Y') }}</p>
                                 </div>
                             </div>
