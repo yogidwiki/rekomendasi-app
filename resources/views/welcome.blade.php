@@ -290,9 +290,9 @@
             </div>
             <div class="text-center">
 
-                <button class="btn btn-login mt-5" data-aos="fade-right">
+                <a href="{{route('artikel')}}" class="btn btn-login mt-5" data-aos="fade-right">
                     All Articles
-                </button>
+                </a>
             </div>
         </div>
     </section>
