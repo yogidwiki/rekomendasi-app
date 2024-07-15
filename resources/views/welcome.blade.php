@@ -2,6 +2,13 @@
 
 @section('content')
     <style>
+        .text-aqua {
+        color: #00BFFF; /* Warna biru laut */
+        }
+        .bg-aqua {
+        background-color: #00BFFF; /* Warna biru laut */
+        }
+
         .article-img img{
             border-radius: 16px;
             
@@ -82,7 +89,7 @@
         }
 
         .card-fitur:hover{
-            background: linear-gradient(to right, #52b678, #268340);
+            background: linear-gradient(to right, #00BFFF, #0077ff);
             color: white;
             transform: scale(1.05);
             font-size: 16px;
@@ -128,12 +135,14 @@
                 <div class="col-md-8" data-aos="zoom-out-down">
                     @auth
                         
-                    <h3 class="fw-semibold text-success">Halooo {{Auth::user()->name}}<i class="bi bi-balloon-heart-fill text-danger fw-semiboldel"></i></h3>
+                    <h3 class="fw-semibold text-aqua">Halooo {{Auth::user()->name}}<i class="bi bi-balloon-heart-fill text-danger fw-semiboldel"></i></h3>
                     @endauth
-                    <h5 class="fw-semibold " >Welcome to ParentApp! </h5>
-                    <h1 style="font-size:50px;" class="fw-bold text-success">Parenting Path: Nurturing Futures, One Step at a Time
+                    <h5 class="fw-semibold " >Welcome! </h5>
+                    <h1 style="font-size:50px;" class="fw-bold text-aqua">Rekomendation Path: Nurturing Futures, One Step at a Time
                     </h1>
-                    <p class="lh-base">Selamat datang di Parent-app! Kami hadir untuk membantu Anda memperkuat hubungan dengan anak Anda dan mendidik mereka menjadi anak-anak yang luar biasa. Dengan akses mudah ke informasi, panduan praktis, dan pemantauan perkembangan</p>
+                    <p class="lh-base">Selamat datang di sistem pemilihan makanan balita kami! 
+                Di sini, Anda dapat menemukan berbagai pilihan makanan sehat dan bergizi yang 
+                dirancang khusus untuk memenuhi kebutuhan gizi balita Anda.</p>
                     <a href="{{ route('about') }}" data-aos="fade-right" data-aos-duration="1500" class="btn mt-3 btn-login px-5 mb-3">About us</a>
                 </div>
                 <div class="col-md-4 ">
@@ -150,7 +159,7 @@
             <div class="row d-flex flex-column align-items-center justify-content-center py-3"data-aos="fade-down">
                 <div class="col-md-5" >
 
-                    <h2 class="text-center fw-bold text-success">Our Services</h2>
+                    <h2 class="text-center fw-bold text-aqua">Our Services</h2>
                 </div>
                 <div class="col-md-5 text-center">
                     <p>Terdapat 3 fitur utama di parent-app yang bisa digunakan sebaik mungkin</p>
@@ -159,27 +168,27 @@
 
             <div class="row d-flex justify-content-center align-items-center ">
                 <div class="col-md-3 mb-3" data-aos="fade-right">
-                    <a class="nav-link" href="{{route('test')}}">
+                    <a class="nav-link" href="#">
                         <div class="card text-center card-fitur p-3 border-0 shadow">
                             <div class="d-flex justify-content-center align-items-center">
                                 <img src="{{ asset('image/testicon.jpeg') }}" alt="Hero Image" class="img-fluid rounded-circle" width="30%">
                             </div>
                             <div class="feature-content">
-                                <h4 class="fw-semibold my-3">Tes Parenting</h4>
-                                <p>Tes parenting mengevaluasi cara orang tua mendidik anak dan ciptakan lingkungan positif.</p>
+                                <h4 class="fw-semibold my-3">Rekomendasi</h4>
+                                <p>Perekomendasian makanan mengevaluasi cara orang tua mendidik anak dan ciptakan lingkungan positif.</p>
                             </div>
                         </div>
                     </a>
                 </div>
                 <div class="col-md-3 mb-3" data-aos="fade-up">
-                    <a class="nav-link" href="{{route('diskusi')}}">
+                    <a class="nav-link" href="#">
                         <div class="card text-center card-fitur p-3 border-0 shadow">
                             <div class="d-flex justify-content-center align-items-center">
                                 <img src="{{ asset('image/discusicon.jpeg') }}" alt="Hero Image" class="img-fluid rounded-circle" width="30%">
                             </div>
                             <div class="feature-content">
-                                <h4 class="fw-semibold my-3">Forum Diskusi</h4>
-                                <p>Forum diskusi adalah platform daring untuk berinteraksi dan bertukar ide.</p>
+                                <h4 class="fw-semibold my-3">History</h4>
+                                <p>Anda dapat melihat riwayat rekomendasi makanan yang telah diberikan untuk balita Anda.</p>
                             </div>
                         </div>
                     </a>
@@ -213,34 +222,36 @@
                 <div class="col-md-6">
                     <div  data-aos="fade-down">
 
-                        <span class="text-success fw-semibold">~ Lorem khj</span>
-                        <h1 class="text-success fw-bold mb-3">
-                            Why Parent-app ?
+                        <span class="text-aqua fw-semibold">~ Lorem khj</span>
+                        <h1 class="text-aqua fw-bold mb-3">
+                            Why ?
                         </h1>
                         <p>Dengan menggunakan aplikasi ini Terdapat 3 kelebihan yang para orang tua wajib anda ketahui sekarang juga!</p>
                     </div>
                     <div class="mb-2 card-why d-flex align-items-center justify-content-center gap-3 px-3 " data-aos="fade-right">
-                        <div class="col-md-2 text-center fs-1 text-success">
+                        <div class="col-md-2 text-center fs-1 text-aqua">
                             <i class="bi bi-airplane-engines-fill"></i>
                         </div>
                         <div class="col-md-10 pt-3">
-                            <p>  <b class="text-success">Kemudahan Akses Informasi : </b>Aplikasi ini memberikan akses mudah dan cepat ke informasi bermanfaat seputar perkembangan anak, pola asuh, kesehatan, dan pendidikan. </p>
+                            <p>  <b class="text-aqua">Kemudahan Akses Informasi : </b>memberikan akses mudah dan cepat ke informasi bermanfaat seputar perkembangan anak, pola asuh, kesehatan, dan pendidikan. </p>
                         </div>
                     </div>
                     <div class="mb-2 card-why d-flex align-items-center justify-content-center gap-3 px-3 " data-aos="fade-right"data-aos-delay="100">
-                        <div class="col-md-2 text-center fs-1 text-success">
+                        <div class="col-md-2 text-center fs-1 text-aqua">
                             <i class="bi bi-person-hearts"></i>
                         </div>
                         <div class="col-md-10 pt-3">
-                            <p><b class="text-success">Panduan Pola Asuh : </b>Aplikasi parenting menyediakan panduan praktis untuk pola asuh yang efektif. Orang tua dapat mengakses strategi pengasuhan yang terbukti berhasil</p>
+                            <p><b class="text-aqua">Rekomendasi makanan : </b>Sistem kami memberikan rekomendasi makanan yang sesuai dengan usia, 
+                kebutuhan gizi, dan preferensi makanan si kecil. Yuk, mulai jelajahi 
+                dan temukan makanan terbaik untuk buah hati Anda!</p>
                         </div>
                     </div>
                     <div class="mb-2 card-why d-flex align-items-center justify-content-center gap-3 px-3 "data-aos="fade-right"data-aos-delay="200">
-                        <div class="col-md-2 text-center fs-1 text-success">
+                        <div class="col-md-2 text-center fs-1 text-aqua">
                             <i class="bi bi-eye-fill"></i>
                         </div>
                         <div class="col-md-10  pt-3">
-                            <p><b class="text-success">Pemantauan Perkembangan Anak : </b>Aplikasi ini memungkinkan orang tua untuk mencatat dan memantau perkembangan fisik, kognitif, dan emosional anak. </p>
+                            <p><b class="text-aqua">Pemantauan Perkembangan Anak : </b>Memungkinkan orang tua untuk memantau perkembangan fisik, kognitif, dan emosional anak. </p>
                         </div>
                     </div>
                 </div>
@@ -254,10 +265,10 @@
             <div class="row d-flex flex-column align-items-center justify-content-center py-3"data-aos="zoom-in-up" >
                 <div class="col-md-5">
 
-                    <h2 class="text-center fw-bold text-success">New Articles</h2>
+                    <h2 class="text-center fw-bold text-aqua">New Articles</h2>
                 </div>
                 <div class="col-md-5 text-center">
-                    <p>Artikel terbaru dari parent-app yang dapat memperluas pengetahuan anda!</p>
+                    <p>Artikel terbaru yang dapat memperluas pengetahuan anda!</p>
                 </div>
             </div>
             <div class="row d-flex-justify-content-center">
@@ -271,7 +282,7 @@
                             <div class="article-content mt-3">
                                 <h5 class="fw-semibold">{{$item->title}}</h5>
                                 
-                                <span class="badge rounded-pill text-bg-success text-white px-3 py-1 mb-2" >{{$item->category->name}}</span>
+                                <span class="badge rounded-pill bg-aqua text-white px-3 py-1 mb-2" >{{$item->category->name}}</span>
                             </div>
                             <div class="d-flex align-items-center gap-3 ">
                                 <img src="{{ asset('image/profile.png') }}" alt="Hero Image" width="20%">
@@ -296,105 +307,6 @@
             </div>
         </div>
     </section>
-    {{-- TESTIMONI --}}
-    <section class="py-5" style="background-color: #C2D2C5">
-        <div class="container">
-            <div class="row d-flex flex-column align-items-center justify-content-center py-3">
-                <div class="col-md-5">
-
-                    <h2 class="text-center fw-bold mt-4 text-success">Testimonials </h2>
-                </div>
-                <div class="col-md-2">
-                    <hr style="border-width: 2px;" >
-                </div>
-                <div class="col-md-7 text-center">
-                    <p>Beberapa testimoni dari para orrang tua yang telah menggunakan aplikasi ini. yuk berikan testimonimu sekarang! </p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col d-flex justify-content-center align-items-center h-100">
-
-                    <!-- Swiper -->
-                    <div class="swiper mySwiper">
-                        <div class="swiper-wrapper">
-                            @foreach ($testimonials as $item)
-                            <div class="swiper-slide py-5">
-                                <div class="card-testimonial p-4">
-                                    <img src="{{ asset('image/profile.png') }}" alt="Hero Image" class="img-fluid img-testimonial" width="30%">
-                                    <h5 class="fw-semibold mt-3">{{$item->user->name}}</h5>
-                                    <p class="fs-6">
-                                        @php
-                                            $rating = $item->rating;
-                                        @endphp
-                                    
-                                        @for ($i = 1; $i <= 5; $i++)
-                                            @if ($i <= $rating)
-                                            <span ><i class="bi bi-star-fill text-warning"></i> </span> 
-                                        
-                                            @endif
-                                        @endfor
-                                        
-                                    </p>
-                                    
-                                    <i class="bi bi-chat-quote-fill text-danger fw-semi-bold"></i> {{$item->ulasan}}
-                                    <i class="bi bi-chat-quote-fill text-danger fw-semi-bold"></i>
-                                </div>
-                                
-                            </div>
-                            @endforeach
-                            
-                            
-                        </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-
-
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    {{-- FORM TESTIMONI --}}
-    <section>
-        <div class="container py-5">
-            
-            <h2 class="text-center text-success fw-semibold mb-5">Submit Your Testimonial</h2>
-            <div class="row d-flex justify-content-center align-items-center">
-                <div class="col-md-8 card-form p-5">
-                    <form action="{{ route('testimonials.store') }}" method="POST">
-                        @csrf
-                        <div class="row mb-3">
-                            <label for="testimonial" class="col-sm-3 col-form-label">Testimonial</label>
-                            <div class="col-sm-9">
-                                <textarea name="ulasan" id="testimonial" class="form-control" rows="5" required></textarea>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="rating" class="col-sm-3 col-form-label">Rating</label>
-                            <div class="col-sm-9">
-                                <select name="rating" id="rating" class="form-select" required>
-                                    <option value="5"><i class="bi bi-star-fill text-warning"></i> 5 stars</option>
-                                    <option value="4"><i class="bi bi-star-fill text-warning"></i> 4 stars</option>
-                                    <option value="3"><i class="bi bi-star-fill text-warning"></i> 3 stars</option>
-                                    <option value="2"><i class="bi bi-star-fill text-warning"></i> 2 stars</option>
-                                    <option value="1"><i class="bi bi-star-fill text-warning"></i> 1 star</option>
-                                </select>
-                            </div>
-                        </div>
-                        @if (Auth::check())
-                        <button type="submit" class="btn btn-login btn-success float-end">Submit Testimoni</button>
-                    @else
-                        <a href="{{ route('login') }}" class="btn btn-login btn-primary float-end" id="login-button">Submit Testimoni</a>
-                    @endif
-
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
 
 
     
@@ -405,30 +317,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
-    // Cek apakah tombol login ada di halaman
-    const loginButton = document.getElementById('login-button');
-
-    if (loginButton) {
-        // Tambahkan event listener untuk menampilkan SweetAlert saat tombol login diklik
-        loginButton.addEventListener('click', function(event) {
-            event.preventDefault();
-
-            Swal.fire({
-                title: 'Peringatan',
-                text: 'Anda harus login terlebih dahulu untuk mengirim testimonial.',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Login',
-                cancelButtonText: 'Tutup',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // Arahkan pengguna ke halaman login jika tombol "Login" di klik
-                    window.location.href = '{{ route('login') }}';
-                }
-            });
-        });
-    }
-</script>
+    
 
     <!-- Initialize Swiper -->
     <script>

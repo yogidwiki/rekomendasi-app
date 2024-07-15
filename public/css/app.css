@@ -19,7 +19,7 @@ body{
     border-bottom-right-radius: 32px;
 }
 .menu-active{
-    color: #52b678;
+    color: #00BFFF;
 }
 
 .btn-login {
@@ -27,14 +27,14 @@ body{
     border-radius: 8px;
     border: none;
     font-weight: 600;
-    background: linear-gradient(to right, #52b678, #268340);
+    background: linear-gradient(to right, #00BFFF, #0077ff);
     color: #fff;
     transition: background  0.3s ease-in-out;
   }
   
   
 .btn-login:hover {
-  background: linear-gradient(to right, #1c6330, #52b678);
+  background: linear-gradient(to right, #0077ff, #00BFFF);
     color: #fff;
     }
 .navbar li .nav-menu {
@@ -48,7 +48,7 @@ body{
     height: 2px;
     bottom: -2px;
     left: 25%;
-    background-color: #52b678;
+    background-color: #00BFFF;
     transition:  0.2s ease-in-out, left 0.2s ease-in-out;
     transform: translateX(-50%);
   }
@@ -57,7 +57,7 @@ body{
         left: 50%;
       }
 .nav-menu:hover{
-    color: #52b678;
+    color: #00BFFF;
 }
 
 
@@ -80,7 +80,7 @@ body{
     height: 40px;
     border-radius: 50%;
     border: 4px solid #f3f3f3;
-    border-top: 4px solid #52b678;
+    border-top: 4px solid #00BFFF;
     animation: spin 1s linear infinite;
   }
   

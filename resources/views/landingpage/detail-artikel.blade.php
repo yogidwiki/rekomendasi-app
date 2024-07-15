@@ -2,6 +2,12 @@
 
 @section('content')
 <style>
+    .text-aqua {
+        color: #00BFFF; /* Warna biru laut */
+        }
+        .bg-aqua {
+        background-color: #00BFFF; /* Warna biru laut */
+        }
     .banner{
         height: 25rem;
         margin-top: -25px;
@@ -18,7 +24,7 @@
                     <img src="{{asset('posts/'. $artikel->image)}}" alt="Hero Image" class="img-fluid rounded" width="100%" >
                 </div>
                 <div class="col-md-6 ">
-                    <span class="badge text-bg-success mb-2" >{{$artikel->category->name}}</span>
+                    <span class="badge bg-aqua mb-2" >{{$artikel->category->name}}</span>
                     <h3 class="fw-semibold">{{$artikel->title}} </h3>
                 </div>
             </div>
@@ -51,7 +57,7 @@
         <div class="row d-flex flex-column align-items-center justify-content-center py-3">
             <div class="col-md-5">
 
-                <h2 class="text-center fw-bold text-success">New Articles</h2>
+                <h2 class="text-center fw-bold text-aqua">New Articles</h2>
             </div>
             <div class="col-md-5 text-center">
                 <p>Artikel terbaru dari parent-app yang dapat memperluas pengetahuan anda!</p>
@@ -69,7 +75,7 @@
                         <div class="article-content mt-3">
                             <h5 class="fw-semibold">{{$item->title}}</h5>
                             
-                            <span class="badge rounded-pill text-bg-success text-white px-3 py-1 mb-2" >{{$item->category->name}}</span>
+                            <span class="badge rounded-pill bg-aqua text-white px-3 py-1 mb-2" >{{$item->category->name}}</span>
                         </div>
                         <div class="d-flex align-items-center gap-3 ">
                             <img src="{{ asset('image/profile.png') }}" alt="Hero Image" width="20%">

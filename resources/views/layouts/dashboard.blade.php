@@ -119,7 +119,7 @@
                   </g>
                 </svg>
               </span>
-              <span class="app-brand-text demo menu-text fw-bolder ms-2">Parenting</span>
+              <span class="app-brand-text demo menu-text fw-bolder ms-2">Rekomendasi</span>
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -138,9 +138,27 @@
               </a>
             </li>
             <!-- Components -->
-            <li class="menu-header small text-uppercase"><span class="menu-header-text">Master</span></li>
+            <li class="menu-header small text-uppercase"><span class="menu-header-text">Menu</span></li>
             
             <!-- User interface -->
+            <li class="menu-item {{ request()->is('testimonials') ? 'active' : ''}}">
+              <a href="#" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-cube-alt"></i>
+                <div data-i18n="Boxicons">Rekomendasi</div>
+              </a>
+            </li>
+            <li class="menu-item {{ request()->is('discussions') ? 'active' : ''}}">
+              <a href="#" class="menu-link">
+              <i class='menu-icon tf-icon bx bx-list-check'></i>
+                <div data-i18n="Boxicons">Kriteria</div>
+              </a>
+            </li>
+            <li class="menu-item {{ request()->is('discussions') ? 'active' : ''}}">
+              <a href="#" class="menu-link">
+              <i class='menu-icon tf-icon bx bx-history'></i>
+                <div data-i18n="Boxicons">History</div>
+              </a>
+            </li>
             <li class="menu-item {{ request()->is('categories','articles') ? 'active' : ''}}">
               <a href="javascript:void(0)" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-box"></i>
@@ -159,49 +177,12 @@
                 </li>
               </ul>
             </li>
-
-            <!-- Extended components -->
-            <li class="menu-item">
-              <a href="javascript:void(0)" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-copy"></i>
-                <div data-i18n="Extended UI">Test</div>
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item {{ request()->is('question') ? 'active' : ''}}">
-                  <a href="{{route('question.index')}}" class="menu-link">
-                    <div data-i18n="Perfect Scrollbar">Daftar pertanyaan</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="extended-ui-text-divider.html" class="menu-link">
-                    <div data-i18n="Text Divider">Hasil tes</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
             <li class="menu-item {{ request()->is('discussions') ? 'active' : ''}}">
-              <a href="{{route('discussions.index')}}" class="menu-link">
+              <a href="#" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-crown"></i>
-                <div data-i18n="Boxicons">Forum Diskusi</div>
+                <div data-i18n="Boxicons">Aturan</div>
               </a>
-            </li>
-            <li class="menu-item {{ request()->is('testimonials') ? 'active' : ''}}">
-              <a href="{{route('testimonials.index')}}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-cube-alt"></i>
-                <div data-i18n="Boxicons">Testimonial</div>
-              </a>
-            </li>
-
-            <!-- Forms & Tables -->
-            <li class="menu-header small text-uppercase"><span class="menu-header-text">Data</span></li>
-            <!-- Forms -->
-            <li class="menu-item {{ request()->is('member') ? 'active' : ''}}">
-              <a href="{{route('member.index')}}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-collection"></i>
-                <div data-i18n="Boxicons">Member</div>
-              </a>
-            </li>
+            </li>      
             <li class="menu-item {{ request()->is('users') ? 'active' : ''}}">
               <a href="{{route('users.index')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-copy"></i>

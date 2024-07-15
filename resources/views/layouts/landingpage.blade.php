@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Parenting</title>
+    <title>rekomendasi_makanan</title>
     <!-- Fonts -->
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
@@ -16,22 +16,23 @@
     @yield('css')
 </head>
 <body>
+    <!-- Navbar-->
     <nav class=" navbar navbar-expand-lg navbar-light nav-parent fixed-top " >
         <div class="container">
-            <img src="{{asset('image/parenting-logo.jpeg')}}" style="max-width: 100px; height: auto;" alt="">
+            <img src="{{asset('image/logo.png')}}" style="max-width: 100px; height: auto;" alt="">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto ">
                     <li class="nav-item">
-                        <a class="nav-link nav-menu  {{ request()->is('/') ? 'menu-active' : ''}}" href="{{route('welcome')}}">Home</a>
+                        <a class="nav-link nav-menu  {{ request()->is('/') ? '' : ''}}" href="{{route('welcome')}}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-menu {{ request()->is('diskusi') ? 'menu-active' : ''}}" href="{{route('diskusi')}}">Discussions</a>
+                        <a class="nav-link nav-menu {{ request()->is('/') ? '' : ''}}" href="#">menu Rekomendasi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-menu {{ request()->is('test') ? 'menu-active' : ''}}" href="{{route('test')}}">Parenting Test</a>
+                        <a class="nav-link nav-menu {{ request()->is('/') ? '' : ''}}" href="#">History</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link nav-menu {{ request()->is('artikel') ? 'menu-active' : ''}}" href="{{route('artikel')}}">Articles</a>
@@ -74,21 +75,21 @@
             </div>
         </div>
     </nav>
-    
+    <!-- End Navbar-->
 
     @yield('content')
     <div id="loading-spinner" class="loading-spinner">
         <div class="spinner"></div>
       </div>
-
+    <!-- Footer -->
       <footer class="border-top mt-5" >
         <div class="container">
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="col-md-8 text-center">
-                    <img src="{{asset('image/parenting-logo.jpeg')}}" class="mt-4" style="max-width: 300px; height: auto;" alt="">
+                    <img src="{{asset('image/logo.png')}}" class="mt-4" style="max-width: 300px; height: auto;" alt="">
                     
                     
-                    <ul class="list-inline text-success">
+                    <ul class="list-inline text-aqua">
                         <li class="list-inline-item ">
                             <a href="#" class="nav-link" target="_blank"><i class="bi bi-facebook"></i></i></a>
                         </li>
@@ -101,11 +102,12 @@
                         <!-- Add more social media icons here -->
                     </ul>
                     <hr>
-                    <a href="#" class="nav-link mb-3 text-success">www.parenting.com</a>
+                    <a href="#" class="nav-link mb-3 text-aqua">&copy; 2024 Sistem Pemilihan Makanan Balita. Semua hak dilindungi</a>
                 </div>
             </div>
         </div>
     </footer>
+    <!-- End Footer -->
 
     <!-- Bootstrap JS (Place this at the end of the body) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
