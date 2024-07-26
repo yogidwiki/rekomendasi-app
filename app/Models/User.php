@@ -23,8 +23,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'birthday',
-        'gender',
         'is_admin',
     ];
 
@@ -48,12 +46,8 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function testimonials()
+    public function orangTua()
     {
-        return $this->hasMany(Testimonial::class);
-    }
-    public function discussions()
-    {
-        return $this->hasMany(Discussion::class);
+        return $this->hasOne(OrangTua::class);
     }
 }

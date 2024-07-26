@@ -1,73 +1,63 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
-use App\Models\User;
+use App\Models\OrangTua;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Models\User;
 
 class RegisterController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
-
     use RegistersUsers;
 
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
     protected $redirectTo = '/';
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('guest');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
     protected function validator(array $data)
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'nama_ayah' => ['required', 'string'],
+            'nama_ibu' => ['required', 'string'],
+            'nomor_identitas' => ['required', 'string'],
+            'alamat' => ['required', 'string'],
+            'nomor_telepon' => ['required', 'string'],
+            'pekerjaan_ayah' => ['required', 'string'],
+            'pekerjaan_ibu' => ['required', 'string'],
+            'pendidikan_terakhir_ayah' => ['required', 'string'],
+            'pendidikan_terakhir_ibu' => ['required', 'string'],
         ]);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\Models\User
-     */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        OrangTua::create([
+            'user_id' => $user->id,
+            'nama_ayah' => $data['nama_ayah'],
+            'nama_ibu' => $data['nama_ibu'],
+            'nomor_identitas' => $data['nomor_identitas'],
+            'alamat' => $data['alamat'],
+            'nomor_telepon' => $data['nomor_telepon'],
+            'pekerjaan_ayah' => $data['pekerjaan_ayah'],
+            'pekerjaan_ibu' => $data['pekerjaan_ibu'],
+            'pendidikan_terakhir_ayah' => $data['pendidikan_terakhir_ayah'],
+            'pendidikan_terakhir_ibu' => $data['pendidikan_terakhir_ibu'],
+        ]);
+
+        return $user;
     }
 }

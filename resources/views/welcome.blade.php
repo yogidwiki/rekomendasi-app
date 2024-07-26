@@ -154,7 +154,7 @@
     
 
     {{-- FEATURE --}}
-    <section class="py-5 my-5 overflow-hidden" style="background-color:#C2D2C5; border-radius:32px; ">
+    <section class="py-5 my-5 overflow-hidden" style="background-color:#cfebfc; border-radius:32px; ">
         <div class="container">
             <div class="row d-flex flex-column align-items-center justify-content-center py-3"data-aos="fade-down">
                 <div class="col-md-5" >
