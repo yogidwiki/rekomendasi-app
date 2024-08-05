@@ -47,7 +47,10 @@ class RekomendasiController extends Controller
             'aktivitas_fisik' => $aktivitasFisik
         ];
 
-        $rekomendasi = $makanan->map(function ($item) {
+        $rekomendasi = $makanan->map(function ($item) use ($kalori) {
+            $item->selisih_kalori = abs($item->kalori - $kalori);
+            return $item;
+        })->sortBy('selisih_kalori')->values()->map(function ($item) {
             return [
                 'nama_makanan' => $item->nama_makanan,
                 'kalori' => $item->kalori,
@@ -55,7 +58,6 @@ class RekomendasiController extends Controller
                 'bahan' => $item->bahan,
             ];
         });
-
         if($rekomendasi->count() > 0) {
             RiwayatRekomendasi::create([
                 'anak_id' => $anakId,
