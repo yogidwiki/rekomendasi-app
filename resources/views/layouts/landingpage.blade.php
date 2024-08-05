@@ -21,101 +21,123 @@
 </head>
 
 <body>
-    <!-- Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-light nav-parent fixed-top">
-        <div class="container">
-            <img src="{{ asset('image/logo.png') }}" style="max-width: 100px; height: auto;" alt="">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto ">
+  <!-- Navbar-->
+<nav class="navbar navbar-expand-lg navbar-light nav-parent fixed-top">
+    <div class="container">
+        <img src="{{ asset('image/logo.png') }}" style="max-width: 100px; height: auto;" alt="">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto ">
+                <li class="nav-item">
+                    <a class="nav-link nav-menu {{ request()->is('/') ? '' : '' }}"
+                        href="{{ route('welcome') }}">Home</a>
+                </li>
+                @auth
                     <li class="nav-item">
-                        <a class="nav-link nav-menu {{ request()->is('/') ? '' : '' }}"
-                            href="{{ route('welcome') }}">Home</a>
+                        <a class="nav-link nav-menu {{ request()->is('/rekomendasi') ? '' : '' }}"
+                            href="{{ route('rekomendasi.index') }}">menu Rekomendasi</a>
                     </li>
+                @endauth
+                <li class="nav-item">
+                    <a class="nav-link nav-menu {{ request()->is('/history') ? '' : '' }}"
+                        href="{{ route('history') }}">History</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-menu {{ request()->is('artikel') ? 'menu-active' : '' }}"
+                        href="{{ route('artikel') }}">Articles</a>
+                </li>
+                @auth
+                    <li class="nav-item">
+                        <a class="nav-link nav-menu {{ request()->is('anak') ? 'menu-active' : '' }}"
+                            href="{{ route('anak') }}">Anak</a>
+                    </li>
+                    {{-- <li class="nav-item">
+                        <a class="nav-link nav-menu {{ request()->is('jadwal-imunisasi') ? 'menu-active' : '' }}"
+                            href="{{ route('jadwal-imunisasi') }}">jadwal imunisasi</a>
+                    </li> --}}
+                @endauth
+                <li class="nav-item">
+                    <a class="nav-link nav-menu {{ request()->is('about') ? 'menu-active' : '' }}"
+                        href="{{ route('about') }}">About Us</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav gap-3">
+                @if (Route::has('login'))
                     @auth
-                        <li class="nav-item">
-                            <a class="nav-link nav-menu {{ request()->is('/rekomendasi') ? '' : '' }}"
-                                href="{{ route('rekomendasi.index') }}">menu Rekomendasi</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false" onclick="markAllAsRead()">
+                                Notifikasi
+                                @if ($notifications->whereNull('read_at')->count() > 0)
+                                    <span class="badge bg-danger ms-2">{{ $notifications->whereNull('read_at')->count() }}</span>
+                                @endif
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end p-0 shadow" aria-labelledby="navbarDropdown">
+                                @forelse ($notifications->whereNull('read_at') as $notification)
+                                    <li class="notification-item unread">
+                                        <a class="dropdown-item d-flex align-items-center" href="#">
+                                            <div class="notification-icon bg-primary text-white rounded-circle d-flex justify-content-center align-items-center me-2" style="width: 40px; height: 40px;">
+                                                <i class="bi bi-bell"></i>
+                                            </div>
+                                            <div>
+                                                <p class="mb-0">{{ $notification->message }}</p>
+                                                <small class="text-muted">{{ $notification->created_at->diffForHumans() }}</small>
+                                            </div>
+                                        </a>
+                                    </li>
+                                @empty
+                                    <li class="notification-item">
+                                        <a class="dropdown-item text-center" href="#">Tidak ada notifikasi</a>
+                                    </li>
+                                @endforelse
+                            </ul>
                         </li>
-                    @endauth
-                    <li class="nav-item">
-                        <a class="nav-link nav-menu {{ request()->is('/history') ? '' : '' }}"
-                            href="{{ route('history') }}">History</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-menu {{ request()->is('artikel') ? 'menu-active' : '' }}"
-                            href="{{ route('artikel') }}">Articles</a>
-                    </li>
-                    @auth
-                        <li class="nav-item">
-                            <a class="nav-link nav-menu {{ request()->is('anak') ? 'menu-active' : '' }}"
-                                href="{{ route('anak') }}">Anak</a>
-                        </li>
-                        {{-- <li class="nav-item">
-                            <a class="nav-link nav-menu {{ request()->is('jadwal-imunisasi') ? 'menu-active' : '' }}"
-                                href="{{ route('jadwal-imunisasi') }}">jadwal imunisasi</a>
-                        </li> --}}
-                    @endauth
-                    <li class="nav-item">
-                        <a class="nav-link nav-menu {{ request()->is('about') ? 'menu-active' : '' }}"
-                            href="{{ route('about') }}">About Us</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav gap-3">
-                    @if (Route::has('login'))
-                        @auth
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false" onclick="markAllAsRead()">
-                                    Notifikasi
-                                    @if ($notifications->whereNull('read_at')->count() > 0)
-                                        <span
-                                            class="badge bg-danger">{{ $notifications->whereNull('read_at')->count() }}</span>
-                                    @endif
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    @forelse ($notifications->whereNull('read_at') as $notification)
-                                        <li>
-                                            <a class="dropdown-item" href="#">{{ $notification->message }}</a>
-                                        </li>
-                                    @empty
-                                        <li><a class="dropdown-item" href="#">Tidak ada notifikasi</a></li>
-                                    @endforelse
-                                </ul>
+                        @if (Auth::user()->is_Admin == 1)
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/home') }}">Dashboard</a>
                             </li>
-                            @if (Auth::user()->is_Admin == 1)
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ url('/home') }}">Dashboard</a>
-                                </li>
-                            @else
-                                <li class="nav-item">
-                                    <a class="fw-bold nav-link btn-login px-4" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-                                </li>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                    style="display: none;">
-                                    @csrf
-                                </form>
-                            @endif
                         @else
                             <li class="nav-item">
-                                <a class="fw-bold nav-link btn-login px-4" href="{{ route('login') }}">Log In</a>
+                                <a class="fw-bold nav-link btn-login px-4" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                             </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="fw-bold nav-link btn-register nav-menu"
-                                        href="{{ route('register') }}">Register</a>
-                                </li>
-                            @endif
-                        @endauth
-                    @endif
-                </ul>
-            </div>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        @endif
+                    @else
+                        <li class="nav-item">
+                            <a class="fw-bold nav-link btn-login px-4" href="{{ route('login') }}">Log In</a>
+                        </li>
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="fw-bold nav-link btn-register nav-menu" href="{{ route('register') }}">Register</a>
+                            </li>
+                        @endif
+                    @endauth
+                @endif
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
+
+<style>
+    .notification-item {
+        border-bottom: 1px solid #e9ecef;
+    }
+    .notification-item:last-child {
+        border-bottom: none;
+    }
+    .notification-item.unread .dropdown-item {
+        background-color: #f8f9fa;
+    }
+    .notification-icon {
+        font-size: 20px;
+    }
+</style>
 
     <!-- End Navbar-->
 

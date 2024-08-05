@@ -139,18 +139,18 @@
                             <div data-i18n="Boxicons">Imunisasi</div>
                         </a>
                     </li>
-                    <li class="menu-item {{ request()->is('testimonials') ? 'active' : '' }}">
+                    {{-- <li class="menu-item {{ request()->is('testimonials') ? 'active' : '' }}">
                         <a href="#" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-star"></i> <!-- Ikon yang sesuai untuk Rekomendasi -->
                             <div data-i18n="Boxicons">Rekomendasi</div>
                         </a>
-                    </li>
-                    <li class="menu-item {{ request()->is('discussions') ? 'active' : '' }}">
+                    </li> --}}
+                    {{-- <li class="menu-item {{ request()->is('discussions') ? 'active' : '' }}">
                         <a href="#" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-chat"></i> <!-- Ikon yang sesuai untuk Kriteria -->
                             <div data-i18n="Boxicons">Kriteria</div>
                         </a>
-                    </li>
+                    </li> --}}
                     <li class="menu-item {{ request()->is('discussions') ? 'active' : '' }}">
                         <a href="#" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-history"></i> <!-- Ikon yang sesuai untuk History -->
