@@ -40,11 +40,11 @@
                         <a class="nav-link nav-menu {{ request()->is('/rekomendasi') ? '' : '' }}"
                             href="{{ route('rekomendasi.index') }}">menu Rekomendasi</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-menu {{ request()->is('/history') ? '' : '' }}"
+                            href="{{ route('history') }}">History</a>
+                    </li>
                 @endauth
-                <li class="nav-item">
-                    <a class="nav-link nav-menu {{ request()->is('/history') ? '' : '' }}"
-                        href="{{ route('history') }}">History</a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link nav-menu {{ request()->is('artikel') ? 'menu-active' : '' }}"
                         href="{{ route('artikel') }}">Articles</a>
@@ -62,11 +62,13 @@
                         <a class="nav-link nav-menu {{ request()->is('riwayat-rekam-medis') ? 'menu-active' : '' }}"
                             href="{{ route('riwayat-rekam-medis') }}">Rekam Medis</a>
                     </li>
-                @endauth
-                {{-- <li class="nav-item">
+                @else
+                <li class="nav-item">
                     <a class="nav-link nav-menu {{ request()->is('about') ? 'menu-active' : '' }}"
                         href="{{ route('about') }}">About Us</a>
-                </li> --}}
+                </li>
+                @endauth
+               
             </ul>
             <ul class="navbar-nav gap-3">
                 @if (Route::has('login'))
