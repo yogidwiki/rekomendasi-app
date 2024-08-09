@@ -30,7 +30,10 @@ class RekamMedisController extends Controller
      */
     public function create()
     {
-        //
+        $orangTua = OrangTua::all();
+        $anak = Anak::all();
+        $rekamMedis = RekamMedis::with(['orangTua', 'anak'])->get();
+        return view('rekam_medis.create', compact('rekamMedis', 'orangTua', 'anak'));
     }
 
     /**
@@ -57,7 +60,7 @@ class RekamMedisController extends Controller
             'alergi' => json_encode($request->alergi),
         ]);
     
-        return redirect()->back()->with('success', 'Rekam Medis berhasil ditambahkan.');
+        return redirect()->route('rekam-medis.index')->with('success', 'Rekam Medis berhasil ditambahkan.');
     }
     
 
@@ -72,9 +75,13 @@ class RekamMedisController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $rekamMedis = RekamMedis::findOrFail($id);
+        $orangTua = OrangTua::all();
+        $anak = Anak::all();
+
+        return view('rekam_medis.edit', compact('rekamMedis', 'orangTua', 'anak'));
     }
 
     /**
@@ -85,23 +92,25 @@ class RekamMedisController extends Controller
         $request->validate([
             'orang_tua_id' => 'required|exists:orang_tua,id',
             'anak_id' => 'required|exists:anak,id',
-            'imunisasi.*' => 'nullable|string',
-            'riwayat_penyakit.*' => 'nullable|string',
-            'alergi.*' => 'nullable|string',
+            'imunisasi' => 'required|array',
+            'tanggal_imunisasi' => 'required|array',
+            'riwayat_penyakit' => 'required|array',
+            'alergi' => 'required|array',
         ]);
 
         $rekamMedis = RekamMedis::findOrFail($id);
 
-        $rekamMedis->orang_tua_id = $request->input('orang_tua_id');
-        $rekamMedis->anak_id = $request->input('anak_id');
-        
-        $rekamMedis->imunisasi = $request->input('imunisasi', []);
-        $rekamMedis->riwayat_penyakit = $request->input('riwayat_penyakit', []);
-        $rekamMedis->alergi = $request->input('alergi', []);
+        $rekamMedis->update([
+            'orang_tua_id' => $request->orang_tua_id,
+            'anak_id' => $request->anak_id,
+            'imunisasi' => json_encode(array_map(function($imunisasi, $tanggal) {
+                return ['nama' => $imunisasi, 'tanggal' => $tanggal];
+            }, $request->imunisasi, $request->tanggal_imunisasi)),
+            'riwayat_penyakit' => json_encode($request->riwayat_penyakit),
+            'alergi' => json_encode($request->alergi),
+        ]);
 
-        $rekamMedis->save();
-
-        return redirect()->route('rekam-medis.index')->with('success', 'Rekam medis berhasil diperbarui.');
+        return redirect()->route('rekam-medis.index')->with('success', 'Rekam Medis berhasil diperbarui.');
     }
 
     /**

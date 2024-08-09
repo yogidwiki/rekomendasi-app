@@ -254,18 +254,7 @@
                                     <li>
                                         <div class="dropdown-divider"></div>
                                     </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            <i class="bx bx-user me-2"></i>
-                                            <span class="align-middle">My Profile</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            <i class="bx bx-cog me-2"></i>
-                                            <span class="align-middle">Settings</span>
-                                        </a>
-                                    </li>
+                                   
                             </li>
                             <li>
                                 <div class="dropdown-divider"></div>
@@ -349,11 +338,6 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('.select2').select2();
-        });
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     

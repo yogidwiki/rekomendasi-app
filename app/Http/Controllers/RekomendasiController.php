@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Anak;
 use App\Models\Makanan;
 use App\Models\RiwayatRekomendasi;
+use App\Models\RekamMedis;
 use App\Models\Rule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -31,8 +32,12 @@ class RekomendasiController extends Controller
         $umur = $request->query('umur');
         $jenisKelamin = $request->query('jenis_kelamin');
         $aktivitasFisik = $request->query('aktivitas_fisik');
-        $fuzzyResults = $this->calculateFuzzy($umur, $beratBadan, $tinggiBadan, $aktivitasFisik, $jenisKelamin);
 
+        // Ambil data alergi anak dari tabel rekam medis
+        $rekamMedis = RekamMedis::where('anak_id', $anakId)->first();
+        $alergiAnak = $rekamMedis ? collect(json_decode($rekamMedis->alergi)) : collect([]);
+
+        $fuzzyResults = $this->calculateFuzzy($umur, $beratBadan, $tinggiBadan, $aktivitasFisik, $jenisKelamin);
         $kalori = $this->defuzzification($fuzzyResults);
         $lowerBound = $kalori - 50;
         $upperBound = $kalori + 50;
@@ -47,8 +52,17 @@ class RekomendasiController extends Controller
             'aktivitas_fisik' => $aktivitasFisik
         ];
 
-        $rekomendasi = $makanan->map(function ($item) use ($kalori) {
+        $rekomendasi = $makanan->map(function ($item) use ($kalori, $alergiAnak) {
             $item->selisih_kalori = abs($item->kalori - $kalori);
+
+            // Periksa bahan makanan terhadap alergi anak
+            $bahanKata = preg_split('/\s+/', strtolower($item->bahan));
+            $alergiKata = preg_split('/\s+/', strtolower($alergiAnak->implode(' ')));
+            $bahanAlergi = collect($bahanKata)->intersect($alergiKata)->unique();
+
+            $item->is_alergi = $bahanAlergi->isNotEmpty();
+            $item->bahan_alergi = $bahanAlergi;
+
             return $item;
         })->sortBy('selisih_kalori')->values()->map(function ($item) {
             return [
@@ -56,9 +70,14 @@ class RekomendasiController extends Controller
                 'kalori' => $item->kalori,
                 'resep' => $item->resep,
                 'bahan' => $item->bahan,
+                'gambar' => $item->gambar,
+                'is_alergi' => $item->is_alergi,
+                'bahan_alergi' => $item->bahan_alergi
             ];
         });
-        if($rekomendasi->count() > 0) {
+
+       
+        if ($rekomendasi->count() > 0) {
             RiwayatRekomendasi::create([
                 'anak_id' => $anakId,
                 'orang_tua_id' => Auth::user()->orangTua->id,
@@ -66,8 +85,11 @@ class RekomendasiController extends Controller
                 'rekomendasi' => $rekomendasi,
             ]);
         }
-        return view('rekomendasi.hasil_rekomendasi', compact('makanan', 'kalori'));
+
+        return view('rekomendasi.hasil_rekomendasi', compact('makanan', 'kalori', 'alergiAnak'));
     }
+
+
 
 
     private function calculateFuzzy($umur, $beratBadan, $tinggiBadan, $aktivitasFisik, $jenisKelamin)

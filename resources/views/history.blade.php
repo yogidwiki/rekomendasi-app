@@ -16,9 +16,8 @@
                             <tr>
                                 <th>Nama Makanan</th>
                                 <th>Gambar</th>
-                                <th>Resep</th>
+                                <th>Resep & Bahan</th>
                                 <th>Kalori</th>
-                                <th>Bahan</th>
                                 <th>Kriteria</th>
                                 <th>Tanggal</th>
                             </tr>
@@ -36,9 +35,10 @@
                                                     Tidak ada gambar
                                                 @endif
                                             </td>
-                                            <td>{{ $item['resep'] }}</td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#resepModal{{ $loop->iteration }}">Lihat Resep dan Bahan</button>
+                                            </td>
                                             <td>{{ $item['kalori'] }}</td>
-                                            <td>{{ $item['bahan'] }}</td>
                                             <td>
                                                 <ul>
                                                     <li>Umur(bulan): {{ $rekomendasi->kriteria['umur'] }}</li>
@@ -50,6 +50,27 @@
                                             </td>
                                             <td>{{ $rekomendasi['created_at']->format('d M Y H:i') }}</td>
                                         </tr>
+
+                                        <!-- Resep dan Bahan Modal -->
+                                        <div class="modal fade" id="resepModal{{ $loop->iteration }}" tabindex="-1" aria-labelledby="resepModalLabel{{ $loop->iteration }}" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="resepModalLabel{{ $loop->iteration }}">Resep dan Bahan</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <h6><strong>Resep:</strong></h6>
+                                                        <p>{{ $item['resep'] }}</p>
+                                                        <h6><strong>Bahan:</strong></h6>
+                                                        <p>{{ $item['bahan'] }}</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     @endforeach
                                 @else
                                     <tr>
