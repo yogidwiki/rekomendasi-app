@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Anak;
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\Imunisasi;
+use App\Models\RekamMedis;
 use App\Models\RiwayatRekomendasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,7 +27,7 @@ class LandingpageController extends Controller
 
         return view('history', compact('riwayatRekomendasi'));
     }
-    
+
     public function about()
     {
         return view('landingpage.about',);
@@ -120,4 +122,22 @@ class LandingpageController extends Controller
         $anak->delete();
         return redirect()->back()->with('success', 'Anak berhasil dihapus!');
     }
+    public function jadwalImunisasi()
+    {
+        $imunisasi = Imunisasi::all();
+        return view('jadwal-imunisasi.index', compact('imunisasi'));
+    }
+
+    public function riwayatRekamMedis(){
+
+        $orangTuaId = Auth::user()->orangTua->id;
+        $rekamMedis = RekamMedis::where('orang_tua_id', $orangTuaId)->get();
+        foreach ($rekamMedis as $item) {
+            $item->imunisasi = is_string($item->imunisasi) ? json_decode($item->imunisasi, true) : [];
+            $item->riwayat_penyakit = is_string($item->riwayat_penyakit) ? json_decode($item->riwayat_penyakit, true) : [];
+            $item->alergi = is_string($item->alergi) ? json_decode($item->alergi, true) : [];
+        }
+        return view('riwayat-rekam-medis.index', compact('rekamMedis'));
+    }
+    
 }

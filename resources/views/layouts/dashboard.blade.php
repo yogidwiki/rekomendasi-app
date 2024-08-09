@@ -151,12 +151,12 @@
                             <div data-i18n="Boxicons">Kriteria</div>
                         </a>
                     </li> --}}
-                    <li class="menu-item {{ request()->is('discussions') ? 'active' : '' }}">
+                    {{-- <li class="menu-item {{ request()->is('discussions') ? 'active' : '' }}">
                         <a href="#" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-history"></i> <!-- Ikon yang sesuai untuk History -->
                             <div data-i18n="Boxicons">History</div>
                         </a>
-                    </li>
+                    </li> --}}
                     <li class="menu-item {{ request()->is('categories', 'articles') ? 'active' : '' }}">
                         <a href="javascript:void(0)" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-book-content"></i>

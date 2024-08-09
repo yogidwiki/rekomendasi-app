@@ -54,15 +54,19 @@
                         <a class="nav-link nav-menu {{ request()->is('anak') ? 'menu-active' : '' }}"
                             href="{{ route('anak') }}">Anak</a>
                     </li>
-                    {{-- <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link nav-menu {{ request()->is('jadwal-imunisasi') ? 'menu-active' : '' }}"
                             href="{{ route('jadwal-imunisasi') }}">jadwal imunisasi</a>
-                    </li> --}}
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-menu {{ request()->is('riwayat-rekam-medis') ? 'menu-active' : '' }}"
+                            href="{{ route('riwayat-rekam-medis') }}">Rekam Medis</a>
+                    </li>
                 @endauth
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link nav-menu {{ request()->is('about') ? 'menu-active' : '' }}"
                         href="{{ route('about') }}">About Us</a>
-                </li>
+                </li> --}}
             </ul>
             <ul class="navbar-nav gap-3">
                 @if (Route::has('login'))

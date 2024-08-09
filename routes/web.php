@@ -39,6 +39,8 @@ Route::post('tambah/anak', [LandingpageController::class, 'tambahAnak'])->name('
 Route::put('update/anak/{id}', [LandingpageController::class, 'updateAnak'])->name('update.anak');
 Route::post('hapus/anak/{id}', [LandingpageController::class, 'hapusAnak'])->name('hapus.anak');
 Route::get('/cari-rekomendasi', [RekomendasiController::class, 'cariRekomendasi']);
+Route::get('/jadwal-imunisasi', [LandingpageController::class, 'jadwalImunisasi'])->name('jadwal-imunisasi');
+Route::get('/riwayat-rekam-medis', [LandingpageController::class, 'riwayatRekamMedis'])->name('riwayat-rekam-medis');
 
 Route::get('/artikel/{id}', [LandingpageController::class,'detailArtikel'])->name('detail.artikel');
 Route::get('/search', [LandingPageController::class, 'search'])->name('article.search');
