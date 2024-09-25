@@ -102,7 +102,7 @@
                                 </g>
                             </svg>
                         </span>
-                        <span class="app-brand-text demo menu-text fw-bolder ms-2">Rekomendasi</span>
+                        <span class="app-brand-text demo menu-text fw-bolder ms-2">Monitoring-app</span>
                     </a>
 
                     <a href="javascript:void(0);"

@@ -140,8 +140,8 @@
                     <h5 class="fw-semibold " >Welcome! </h5>
                     <h1 style="font-size:50px;" class="fw-bold text-aqua">Rekomendation Path: Nurturing Futures, One Step at a Time
                     </h1>
-                    <p class="lh-base">Selamat datang di sistem pemilihan makanan balita kami! 
-                Di sini, Anda dapat menemukan berbagai pilihan makanan sehat dan bergizi yang 
+                    <p class="lh-base">Selamat datang di sistem Monitoring balita kami! 
+                Di sini, Anda dapat memantau balita anda serta makanan sehat dan bergizi yang 
                 dirancang khusus untuk memenuhi kebutuhan gizi balita Anda.</p>
                     <a href="{{ route('about') }}" data-aos="fade-right" data-aos-duration="1500" class="btn mt-3 btn-login px-5 mb-3">About us</a>
                 </div>
@@ -187,14 +187,14 @@
                                 <img src="{{ asset('image/discusicon.jpeg') }}" alt="Hero Image" class="img-fluid rounded-circle" width="30%">
                             </div>
                             <div class="feature-content">
-                                <h4 class="fw-semibold my-3">History</h4>
-                                <p>Anda dapat melihat riwayat rekomendasi makanan yang telah diberikan untuk balita Anda.</p>
+                                <h4 class="fw-semibold my-3">Rekam Medis</h4>
+                                <p>Anda dapat melihat rekam medis yang telah diberikan oleh petugas puskesmas untuk balita Anda.</p>
                             </div>
                         </div>
                     </a>
                 </div>
                 <div class="col-md-3 mb-3"data-aos="fade-left">
-                    <a class="nav-link" href="{{route('artikel')}}">
+                    <a class="nav-link" href="#">
 
                         <div class="card text-center card-fitur p-3 border-0 shadow">
                             <div class="d-flex justify-content-center align-items-center">

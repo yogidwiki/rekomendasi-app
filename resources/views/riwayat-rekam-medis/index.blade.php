@@ -3,7 +3,7 @@
 @section('content')
     <div style="height: 90px;" class="p"></div>
     <div class="container my-5 p-4">
-        <h2 class="fw-bold mb-4">Jadwal Imunisasi</h2>
+        <h2 class="fw-bold mb-4">Rekam Medis</h2>
 
         <div class="card shadow border-0">
             <div class="card-body">

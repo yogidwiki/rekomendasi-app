@@ -3,7 +3,7 @@
 @section('content')
     <div style="height: 90px;" class="p"></div>
     <div class="container my-5 p-4">
-        <h2 class="fw-bold mb-4">Jadwal Imunisasi</h2>
+        <h2 class="fw-bold mb-4">Jadwal</h2>
 
         <div class="card shadow border-0">
             <div class="card-body">
@@ -11,10 +11,9 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Imunisasi</th>
-                            <th>Tanggal Imunisasi</th>
-                            <th>Tempat Imunisasi</th>
-                            <th>Usia Bulan</th>
+                            <th>Nama</th>
+                            <th>Tanggal</th>
+                            <th>Tempat</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -24,7 +23,6 @@
                                 <td>{{ $item->nama_imunisasi }}</td>
                                 <td>{{ \Carbon\Carbon::parse($item->tanggal_imunisasi)->locale('id')->isoFormat('D MMMM YYYY') }}</td>
                                 <td>{{ $item->tempat_imunisasi }}</td>
-                                <td>{{ $item->usia_bulan }}</td>
                             </tr>
                         @endforeach
                     </tbody>

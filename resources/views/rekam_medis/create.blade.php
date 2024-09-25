@@ -19,7 +19,6 @@
                         <label for="anak_id" class="form-label">Nama Anak</label>
                         <select class="form-select" id="anak_id" name="anak_id" required>
                             <option value="">Pilih Nama Anak</option>
-                            <!-- Opsi anak akan diisi oleh JavaScript -->
                         </select>
                     </div>
                     <div class="mb-3">
@@ -48,7 +47,8 @@
                         </div>
                         <button type="button" class="btn btn-info btn-sm mt-2" id="add-riwayat-p Penyakit">Tambah
                             Riwayat Penyakit</button>
-                    </div>
+                    </div> 
+                    <!-- opsi alergi -->
                     <div class="mb-3">
                         <label for="alergi" class="form-label">Alergi</label>
                         <select class="form-select" id="alergi" name="alergi[]" multiple="multiple"
