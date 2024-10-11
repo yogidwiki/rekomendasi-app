@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\OrangTua;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -35,8 +36,11 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             'password' => 'required|min:6',
-            'gender' => 'required',
-            'birthday' => 'required|date',
+            // 'gender' => 'required',
+            // 'birthday' => 'required|date',
+            'nomor_identitas' => 'required',
+            'alamat' => 'required',
+            'nomor_telepon' => 'required',
             'role' => 'required'
         ]);
         $isAdmin = $request->input('role') === 'admin' ? true : false;
@@ -45,8 +49,11 @@ class UserController extends Controller
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => bcrypt($request->input('password')),
-            'gender' => $request->input('gender'),
-            'birthday' => $request->input('birthday'),
+            // 'gender' => $request->input('gender'),
+            // 'birthday' => $request->input('birthday'),
+            'nomor_identitas' => $request->input('nomor_identitas'),
+            'alamat' => $request->input('alamat'),
+            'nomor_telepon' => $request->input('nomor_telepon'),
             'is_admin' => $isAdmin,
         ]);
 
@@ -73,30 +80,44 @@ class UserController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, $id)
-{
-    $request->validate([
-        'name' => 'required',
-        'email' => 'required|email|unique:users,email,'.$id,
-        'gender' => 'required',
-        'birthday' => 'required|date',
-        'role' => 'required'
-    ]);
-
-    $isAdmin = $request->input('role') === 'admin' ? true : false;
-
-    $user = User::findOrFail($id);
-
-    $user->name = $request->input('name');
-    $user->email = $request->input('email');
-    $user->gender = $request->input('gender');
-    $user->birthday = $request->input('birthday');
-    $user->is_admin = $isAdmin;
-
-    $user->save();
-
-    return redirect()->route('users.index')->with('success', 'Berhasil mengupdate user');
-}
-
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email,' . $id,
+            'nomor_identitas' => 'required',
+            'alamat' => 'required',
+            'nomor_telepon' => 'required',
+            'role' => 'required'
+        ]);
+    
+        $isAdmin = $request->input('role') === 'admin' ? true : false;
+    
+        // Update data di tabel Users
+        $user = User::findOrFail($id);
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->is_admin = $isAdmin;
+        $user->save();
+    
+        // Update data di tabel OrangTua (pastikan ada relasi dengan User)
+        $orangTua = OrangTua::where('user_id', $id)->first();
+        if ($orangTua) {
+            $orangTua->nomor_identitas = $request->input('nomor_identitas');
+            $orangTua->alamat = $request->input('alamat');
+            $orangTua->nomor_telepon = $request->input('nomor_telepon');
+            $orangTua->save();
+        } else {
+            // Jika data orang tua belum ada, buat yang baru
+            OrangTua::create([
+                'user_id' => $user->id,
+                'nomor_identitas' => $request->input('nomor_identitas'),
+                'alamat' => $request->input('alamat'),
+                'nomor_telepon' => $request->input('nomor_telepon'),
+            ]);
+        }
+    
+        return redirect()->route('users.index')->with('success', 'Berhasil mengupdate user dan data orang tua');
+    }
 
     /**
      * Remove the specified resource from storage.

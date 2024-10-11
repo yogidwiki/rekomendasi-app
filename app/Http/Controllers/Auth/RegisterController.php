@@ -25,15 +25,15 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'nama_ayah' => ['required', 'string'],
+            // 'nama_ayah' => ['required', 'string'],
             'nama_ibu' => ['required', 'string'],
             'nomor_identitas' => ['required', 'string'],
             'alamat' => ['required', 'string'],
             'nomor_telepon' => ['required', 'string'],
-            'pekerjaan_ayah' => ['required', 'string'],
-            'pekerjaan_ibu' => ['required', 'string'],
-            'pendidikan_terakhir_ayah' => ['required', 'string'],
-            'pendidikan_terakhir_ibu' => ['required', 'string'],
+            // 'pekerjaan_ayah' => ['required', 'string'],
+            // 'pekerjaan_ibu' => ['required', 'string'],
+            // 'pendidikan_terakhir_ayah' => ['required', 'string'],
+            // 'pendidikan_terakhir_ibu' => ['required', 'string'],
         ]);
     }
 
@@ -47,15 +47,15 @@ class RegisterController extends Controller
 
         OrangTua::create([
             'user_id' => $user->id,
-            'nama_ayah' => $data['nama_ayah'],
+            // 'nama_ayah' => $data['nama_ayah'],
             'nama_ibu' => $data['nama_ibu'],
             'nomor_identitas' => $data['nomor_identitas'],
             'alamat' => $data['alamat'],
             'nomor_telepon' => $data['nomor_telepon'],
-            'pekerjaan_ayah' => $data['pekerjaan_ayah'],
-            'pekerjaan_ibu' => $data['pekerjaan_ibu'],
-            'pendidikan_terakhir_ayah' => $data['pendidikan_terakhir_ayah'],
-            'pendidikan_terakhir_ibu' => $data['pendidikan_terakhir_ibu'],
+            // 'pekerjaan_ayah' => $data['pekerjaan_ayah'],
+            // 'pekerjaan_ibu' => $data['pekerjaan_ibu'],
+            // 'pendidikan_terakhir_ayah' => $data['pendidikan_terakhir_ayah'],
+            // 'pendidikan_terakhir_ibu' => $data['pendidikan_terakhir_ibu'],
         ]);
 
         return $user;

@@ -17,12 +17,12 @@
                             <th>Nama Lengkap</th>
                             <th>Tanggal Lahir</th>
                             <th>Jenis Kelamin</th>
-                            <th>Golongan Darah</th>
+                            <!-- <th>Golongan Darah</th> -->
                             <th>Berat Lahir</th>
                             <th>Tinggi Lahir</th>
-                            <th>Lingkar Kepala Lahir</th>
+                            <!-- <th>Lingkar Kepala Lahir</th> -->
                             <th>Anak Ke</th>
-                            <th>Kondisi Kesehatan</th>
+                            <!-- <th>Kondisi Kesehatan</th> -->
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -32,12 +32,12 @@
                                 <td>{{ $a->nama_lengkap }}</td>
                                 <td>{{ $a->tanggal_lahir }}</td>
                                 <td>{{ $a->jenis_kelamin }}</td>
-                                <td>{{ $a->golongan_darah }}</td>
+                                <!-- <td>{{ $a->golongan_darah }}</td> -->
                                 <td>{{ $a->berat_lahir }} Kg</td>
                                 <td>{{ $a->tinggi_lahir }} Cm</td>
-                                <td>{{ $a->lingkar_kepala_lahir }} Cm</td>
+                                <!-- <td>{{ $a->lingkar_kepala_lahir }} Cm</td> -->
                                 <td>{{ $a->anak_ke }}</td>
-                                <td>{{ $a->kondisi_kesehatan }}</td>
+                                <!-- <td>{{ $a->kondisi_kesehatan }}</td> -->
                                 <td>
                                     <div class="d-flex">
                                         <button type="button" class="btn btn-warning btn-sm rounded-5" data-bs-toggle="modal"
@@ -83,11 +83,11 @@
                                                         <option value="Perempuan" {{ $a->jenis_kelamin == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
                                                     </select>
                                                 </div>
-                                                <div class="mb-3">
+                                                <!-- <div class="mb-3">
                                                     <label for="edit_golongan_darah" class="form-label">Golongan Darah</label>
                                                     <input type="text" class="form-control" id="edit_golongan_darah"
                                                         name="golongan_darah" value="{{ $a->golongan_darah }}" required>
-                                                </div>
+                                                </div> -->
                                                 <div class="mb-3">
                                                     <label for="edit_berat_lahir" class="form-label">Berat Lahir (kg)</label>
                                                     <input type="number" step="0.1" class="form-control" id="edit_berat_lahir"
@@ -98,20 +98,20 @@
                                                     <input type="number" step="0.1" class="form-control" id="edit_tinggi_lahir"
                                                         name="tinggi_lahir" value="{{ $a->tinggi_lahir }}" required>
                                                 </div>
-                                                <div class="mb-3">
+                                                <!-- <div class="mb-3">
                                                     <label for="edit_lingkar_kepala_lahir" class="form-label">Lingkar Kepala Lahir (cm)</label>
                                                     <input type="number" step="0.1" class="form-control" id="edit_lingkar_kepala_lahir"
                                                         name="lingkar_kepala_lahir" value="{{ $a->lingkar_kepala_lahir }}" required>
-                                                </div>
+                                                </div> -->
                                                 <div class="mb-3">
                                                     <label for="edit_anak_ke" class="form-label">Anak Ke-</label>
                                                     <input type="number" class="form-control" id="edit_anak_ke" name="anak_ke"
                                                         value="{{ $a->anak_ke }}" required>
                                                 </div>
-                                                <div class="mb-3">
+                                                <!-- <div class="mb-3">
                                                     <label for="edit_kondisi_kesehatan" class="form-label">Kondisi Kesehatan</label>
                                                     <textarea class="form-control" id="edit_kondisi_kesehatan" name="kondisi_kesehatan" required>{{ $a->kondisi_kesehatan }}</textarea>
-                                                </div>
+                                                </div> -->
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
@@ -155,10 +155,10 @@
                                 <option value="Perempuan">Perempuan</option>
                             </select>
                         </div>
-                        <div class="mb-3">
+                        <!-- <div class="mb-3">
                             <label for="golongan_darah" class="form-label">Golongan Darah</label>
                             <input type="text" class="form-control" id="golongan_darah" name="golongan_darah" required>
-                        </div>
+                        </div> -->
                         <div class="mb-3">
                             <label for="berat_lahir" class="form-label">Berat Lahir (kg)</label>
                             <input type="number" step="0.1" class="form-control" id="berat_lahir" name="berat_lahir" required>
@@ -167,18 +167,18 @@
                             <label for="tinggi_lahir" class="form-label">Tinggi Lahir (cm)</label>
                             <input type="number" step="0.1" class="form-control" id="tinggi_lahir" name="tinggi_lahir" required>
                         </div>
-                        <div class="mb-3">
+                        <!-- <div class="mb-3">
                             <label for="lingkar_kepala_lahir" class="form-label">Lingkar Kepala Lahir (cm)</label>
                             <input type="number" step="0.1" class="form-control" id="lingkar_kepala_lahir" name="lingkar_kepala_lahir" required>
-                        </div>
+                        </div> -->
                         <div class="mb-3">
                             <label for="anak_ke" class="form-label">Anak Ke-</label>
                             <input type="number" class="form-control" id="anak_ke" name="anak_ke" required>
                         </div>
-                        <div class="mb-3">
+                        <!-- <div class="mb-3">
                             <label for="kondisi_kesehatan" class="form-label">Kondisi Kesehatan</label>
                             <textarea class="form-control" id="kondisi_kesehatan" name="kondisi_kesehatan" required></textarea>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>

@@ -14,7 +14,22 @@
             </div>
         @else
             <div class="row">
-                <p><strong>Kebutuhan Kalori:</strong> {{ round($kalori) }} kkal</p>
+
+                <p><strong>Kebutuhan Kalori:</strong> {{ round($kalori) }} kkal
+            @if($kalori < 300)
+            <span>
+                (rendah)
+            </span>
+            @elseif($kalori >= 300 || $kalori <= 400)
+            <span>
+                (Sedang)
+            </span>
+            @else
+            <span>
+                (Tinggi)
+            </span>
+            @endif
+            </p>
                 @foreach ($makanan as $m)
                     <div class="col-md-12 my-4">
                         <div class="card shadow border-primary rounded-4">

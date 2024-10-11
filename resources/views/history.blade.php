@@ -6,6 +6,12 @@
     <div class="container py-5">
 
         <h3 class="fw-bold text-primary mb-3">Riwayat Rekomendasi</h3>
+        <div class="container py-5">
+    {!! $chart->container() !!}
+
+    <script src="{{ $chart->cdn() }}"></script>
+    {{ $chart->script() }}
+</div>
         @if ($riwayatRekomendasi->isEmpty())
             <p>Tidak ada rekomendasi.</p>
         @else

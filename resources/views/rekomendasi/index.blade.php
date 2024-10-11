@@ -45,6 +45,10 @@
                                     <label for="tinggi_badan" class="form-label">Tinggi Badan</label>
                                     <input type="number" id="tinggi_badan" class="form-control">
                                 </div>
+                                <!-- <div class="mb-3">
+                                    <label for="tanggal" class="form-label">Tanggal</label>
+                                    <input type="date" id="tanggal" class="form-control" required>
+                                </div> -->
                                 <div class="mb-3">
                                     <label for="aktivitas_fisik" class="form-label">Aktivitas Fisik</label>
                                     <select class="form-select" id="aktivitas_fisik" name="aktivitas_fisik" required>

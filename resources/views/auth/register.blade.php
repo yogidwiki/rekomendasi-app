@@ -53,7 +53,7 @@
                             <hr>
                             <h5 class="text-start fw-bold my-4">Data Orang Tua</h5>
                             <div class="d-flex gap-3">
-                                <div class="flex-grow-1">
+                                <!-- <div class="flex-grow-1">
                                     <div class="mb-3 form-group">
                                         <input id="nama_ayah" type="text" placeholder="Nama Lengkap Ayah" class="form-control @error('nama_ayah') is-invalid @enderror" name="nama_ayah" value="{{ old('nama_ayah') }}" required>
                                         @error('nama_ayah')
@@ -62,11 +62,21 @@
                                             </div>
                                         @enderror
                                     </div>
+                                </div> -->
+                                <div class="flex-grow-1">
+                                    <div class="mb-3 form-group">
+                                        <input id="nama_ibu" type="text" placeholder="Nama orang tua" class="form-control @error('nama_ibu') is-invalid @enderror" name="nama_ibu" value="{{ old('nama_ibu') }}" required>
+                                        @error('nama_ibu')
+                                            <div class="invalid-feedback">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                        @enderror
+                                    </div>
                                 </div>
                                 <div class="flex-grow-1">
                                     <div class="mb-3 form-group">
-                                        <input id="nama_ibu" type="text" placeholder="Nama Lengkap Ibu" class="form-control @error('nama_ibu') is-invalid @enderror" name="nama_ibu" value="{{ old('nama_ibu') }}" required>
-                                        @error('nama_ibu')
+                                        <input id="nomor_identitas" type="text" placeholder="Nomor Identitas" class="form-control @error('nomor_identitas') is-invalid @enderror" name="nomor_identitas" value="{{ old('nomor_identitas') }}" required>
+                                        @error('nomor_identitas')
                                             <div class="invalid-feedback">
                                                 <strong>{{ $message }}</strong>
                                             </div>
@@ -75,16 +85,6 @@
                                 </div>
                             </div>
                             <div class="d-flex gap-3">
-                                <div class="flex-grow-1">
-                                    <div class="mb-3 form-group">
-                                        <input id="nomor_identitas" type="text" placeholder="Nomor Identitas (KTP/SIM) Ayah/Ibu" class="form-control @error('nomor_identitas') is-invalid @enderror" name="nomor_identitas" value="{{ old('nomor_identitas') }}" required>
-                                        @error('nomor_identitas')
-                                            <div class="invalid-feedback">
-                                                <strong>{{ $message }}</strong>
-                                            </div>
-                                        @enderror
-                                    </div>
-                                </div>
                                 <div class="flex-grow-1">
                                     <div class="mb-3 form-group">
                                         <input id="alamat" type="text" placeholder="Alamat" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}" required>
@@ -95,11 +95,9 @@
                                         @enderror
                                     </div>
                                 </div>
-                            </div>
-                            <div class="d-flex gap-3">
                                 <div class="flex-grow-1">
                                     <div class="mb-3 form-group">
-                                        <input id="nomor_telepon" type="text" placeholder="Nomor Telepon Ayah/Ibu" class="form-control @error('nomor_telepon') is-invalid @enderror" name="nomor_telepon" value="{{ old('nomor_telepon') }}" required>
+                                        <input id="nomor_telepon" type="text" placeholder="Nomor Telepon" class="form-control @error('nomor_telepon') is-invalid @enderror" name="nomor_telepon" value="{{ old('nomor_telepon') }}" required>
                                         @error('nomor_telepon')
                                             <div class="invalid-feedback">
                                                 <strong>{{ $message }}</strong>
@@ -107,6 +105,8 @@
                                         @enderror
                                     </div>
                                 </div>
+                            </div>
+                            <!-- <div class="d-flex gap-3">
                                 <div class="flex-grow-1">
                                     <div class="mb-3 form-group">
                                         <input id="pekerjaan_ayah" type="text" placeholder="pekerjaan Ayah" class="form-control @error('pekerjaan_ayah') is-invalid @enderror" name="pekerjaan_ayah" value="{{ old('pekerjaan_ayah') }}" required>
@@ -124,10 +124,9 @@
                                             </div>
                                         @enderror
                                     </div>
-                                    
                                 </div>
-                            </div>
-                            <div class="d-flex gap-3">
+                            </div> -->
+                            <!-- <div class="d-flex gap-3">
                                 <div class="flex-grow-1">
                                     <div class="mb-3 form-group">
                                         <input id="pendidikan_terakhir_ayah" type="text" placeholder="Pendidikan Terakhir Ayah" class="form-control @error('pendidikan_terakhir_ayah') is-invalid @enderror" name="pendidikan_terakhir_ayah" value="{{ old('pendidikan_terakhir_ayah') }}" required>
@@ -148,7 +147,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="mb-2 mt-4">
                                 <button type="submit" class="btn btn-login btn-secondary px-3 d-block w-100">
                                     {{ __('Register') }}

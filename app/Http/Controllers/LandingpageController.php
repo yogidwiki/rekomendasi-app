@@ -10,8 +10,7 @@ use App\Models\RekamMedis;
 use App\Models\RiwayatRekomendasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-
+use ArielMejiaDev\LarapexCharts\LarapexChart;
 class LandingpageController extends Controller
 {
     public function index()
@@ -22,11 +21,47 @@ class LandingpageController extends Controller
     }
 
     public function history()
-    {
-        $riwayatRekomendasi = RiwayatRekomendasi::where('orang_tua_id', Auth::user()->orangTua->id)->get();
+{
+    // Mengambil data riwayat rekomendasi dari database
+    $riwayatRekomendasi = RiwayatRekomendasi::where('orang_tua_id', Auth::user()->orangTua->id)->get();
 
-        return view('history', compact('riwayatRekomendasi'));
+    // Menghitung jumlah makanan berdasarkan kategori kalori
+    $rendah = 0;
+    $sedang = 0;
+    $tinggi = 0;
+
+    foreach ($riwayatRekomendasi as $rekomendasi) {
+        // Memastikan rekomendasi dalam bentuk array
+        if (is_string($rekomendasi->rekomendasi)) {
+            $rekomendasiMakanan = json_decode($rekomendasi->rekomendasi, true); // Dekode hanya jika masih berupa string
+        } else {
+            $rekomendasiMakanan = $rekomendasi->rekomendasi; // Ambil langsung jika sudah array
+        }
+
+        foreach ($rekomendasiMakanan as $item) {
+            $kalori = $item['kalori'] ?? 0; // Mengambil nilai kalori, default 0 jika tidak ada
+            if ($kalori < 300) {
+                $rendah++;
+            } elseif ($kalori >= 300 && $kalori <= 400) {
+                $sedang++;
+            } else {
+                $tinggi++;
+            }
+        }
     }
+
+    // Membuat grafik distribusi kalori makanan
+    $chart = (new LarapexChart)
+        ->setTitle('Distribusi Kalori Makanan')
+        ->setLabels(['Rendah', 'Sedang', 'Tinggi']) // Label untuk sumbu x
+        ->setDataset([$rendah, $sedang, $tinggi]); // Dataset untuk grafik
+
+    // Mengirimkan data riwayat dan chart ke view
+    return view('history', compact('riwayatRekomendasi', 'chart'));
+}
+
+
+
 
     public function about()
     {
@@ -83,12 +118,12 @@ class LandingpageController extends Controller
             'nama_lengkap' => 'required|string|max:255',
             'tanggal_lahir' => 'required|date',
             'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
-            'golongan_darah' => 'required|string|max:5',
+            // 'golongan_darah' => 'required|string|max:5',
             'berat_lahir' => 'required|numeric',
             'tinggi_lahir' => 'required|numeric',
-            'lingkar_kepala_lahir' => 'required|numeric',
+            // 'lingkar_kepala_lahir' => 'required|numeric',
             'anak_ke' => 'required|integer',
-            'kondisi_kesehatan' => 'required|string',
+            // 'kondisi_kesehatan' => 'required|string',
         ]);
 
         $request->merge(['orang_tua_id' => auth()->user()->orangTua->id]);
@@ -103,12 +138,12 @@ class LandingpageController extends Controller
             'nama_lengkap' => 'required|string|max:255',
             'tanggal_lahir' => 'required|date',
             'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
-            'golongan_darah' => 'required|string|max:10',
+            // 'golongan_darah' => 'required|string|max:10',
             'berat_lahir' => 'required|numeric',
             'tinggi_lahir' => 'required|numeric',
-            'lingkar_kepala_lahir' => 'required|numeric',
+            // 'lingkar_kepala_lahir' => 'required|numeric',
             'anak_ke' => 'required|integer',
-            'kondisi_kesehatan' => 'required|string',
+            // 'kondisi_kesehatan' => 'required|string',
         ]);
 
         $anak = Anak::findOrFail($id);
