@@ -149,9 +149,6 @@ class UserController extends Controller
         $user->password = Hash::make($request->new_password);
         $user->save();
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Password berhasil direset.',
-        ]);
+        return redirect()->route('users.index')->with('success', 'Berhasil reset password');
     }
 }

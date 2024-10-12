@@ -151,6 +151,49 @@
                             </div>
                             <!-- end modal update -->
 
+{{-- Modal reset password --}}
+<div class="modal fade" id="modalReset{{$item->id}}" tabindex="-999" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalCenterTitle">Reset Password</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="{{ route('reset-password', $item->id) }}" method="POST" id="resetPasswordForm">
+                @csrf
+                <div class="modal-body">
+                    <div class="form-password-toggle mb-3">
+                        <label class="form-label" for="newPassword">Password baru</label>
+                        <div class="input-group input-group-merge">
+                            <input type="password" class="form-control" id="newPassword" name="new_password"
+                                placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                aria-describedby="basic-default-password" required>
+                            <span class="input-group-text cursor-pointer" id="basic-default-password"><i
+                                    class="bx bx-hide"></i></span>
+                        </div>
+                    </div>
+                    <div class="form-password-toggle mb-3">
+                        <label class="form-label" for="confirmPassword">Konfirmasi Password</label>
+                        <div class="input-group input-group-merge">
+                            <input type="password" class="form-control" id="confirmPassword" name="confirm_password"
+                                placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                aria-describedby="basic-default-password" required>
+                            <span class="input-group-text cursor-pointer" id="basic-default-password"><i
+                                    class="bx bx-hide"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
                         @endforeach
 
                     </tbody>
@@ -248,49 +291,6 @@
     </div>
 </div>
 <!-- end modal add -->
-
-{{-- Modal reset password --}}
-<div class="modal fade" id="modalReset{{$item->id}}" tabindex="-999" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalCenterTitle">Reset Password</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form action="{{ route('reset-password', $item->id) }}" method="POST" id="resetPasswordForm">
-                @csrf
-                <div class="modal-body">
-                    <div class="form-password-toggle mb-3">
-                        <label class="form-label" for="newPassword">Password baru</label>
-                        <div class="input-group input-group-merge">
-                            <input type="password" class="form-control" id="newPassword" name="new_password"
-                                placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                aria-describedby="basic-default-password" required>
-                            <span class="input-group-text cursor-pointer" id="basic-default-password"><i
-                                    class="bx bx-hide"></i></span>
-                        </div>
-                    </div>
-                    <div class="form-password-toggle mb-3">
-                        <label class="form-label" for="confirmPassword">Konfirmasi Password</label>
-                        <div class="input-group input-group-merge">
-                            <input type="password" class="form-control" id="confirmPassword" name="confirm_password"
-                                placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                aria-describedby="basic-default-password" required>
-                            <span class="input-group-text cursor-pointer" id="basic-default-password"><i
-                                    class="bx bx-hide"></i></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-                        Close
-                    </button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 
 @endsection
 
