@@ -20,24 +20,33 @@ class LandingpageController extends Controller
         $articles = Article::all();
         return view('welcome', compact('articles'));
     }
-
     public function history()
 {
     $riwayatRekomendasi = RiwayatRekomendasi::where('orang_tua_id', Auth::user()->orangTua->id)->get();
 
-    $rendah = 0;
-    $sedang = 0;
-    $tinggi = 0;
+    $dataRendah = [];
+    $dataSedang = [];
+    $dataTinggi = [];
+    $labels = [];
 
     foreach ($riwayatRekomendasi as $rekomendasi) {
-        if (is_string($rekomendasi->rekomendasi)) {
-            $rekomendasiMakanan = json_decode($rekomendasi->rekomendasi, true); 
-        } else {
-            $rekomendasiMakanan = $rekomendasi->rekomendasi; 
-        }
+        $tanggal = $rekomendasi->created_at->format('Y-m-d');
+        $labels[] = $tanggal;
+
+        // Initialize counts for each category
+        $rendah = 0;
+        $sedang = 0;
+        $tinggi = 0;
+
+        // Decode rekomendasi if it is a JSON string
+        $rekomendasiMakanan = is_string($rekomendasi->rekomendasi) 
+            ? json_decode($rekomendasi->rekomendasi, true) 
+            : $rekomendasi->rekomendasi;
 
         foreach ($rekomendasiMakanan as $item) {
             $kalori = $item['kalori'] ?? 0;
+
+            // Categorize based on caloric content
             if ($kalori < 300) {
                 $rendah++;
             } elseif ($kalori >= 300 && $kalori <= 400) {
@@ -46,16 +55,38 @@ class LandingpageController extends Controller
                 $tinggi++;
             }
         }
+
+        // Store the counts for each category
+        $dataRendah[] = $rendah;
+        $dataSedang[] = $sedang;
+        $dataTinggi[] = $tinggi;
     }
 
-    $chart = (new LarapexChart)->barChart()
+    // Combine data into a single dataset in the desired order
+    $dataChart = [];
+    foreach ($dataRendah as $index => $value) {
+        $dataChart[] = [
+            'label' => $labels[$index],
+            'Rendah' => $value,
+            'Sedang' => $dataSedang[$index],
+            'Tinggi' => $dataTinggi[$index],
+        ];
+    }           
+
+    // Create the line chart
+    $chart = (new LarapexChart)->lineChart()
         ->setTitle('Perkembangan Balita')
-        ->setXAxis(['Rendah', 'Sedang', 'Tinggi'])
-        ->addData('Jumlah', [$rendah, $sedang, $tinggi])
+        ->setXAxis($labels)
+        ->addData('Rendah', array_column($dataChart, 'Rendah'))
+        ->addData('Sedang', array_column($dataChart, 'Sedang'))
+        ->addData('Tinggi', array_column($dataChart, 'Tinggi'))
         ->setColors(['#00bfff', '#ffa500', '#ff4500']);
 
     return view('history', compact('riwayatRekomendasi', 'chart'));
 }
+
+    
+
 
 
 

@@ -4,14 +4,29 @@
 
     <div style="height: 90px"></div>
     <div class="container py-5">
-
         <h3 class="fw-bold text-primary mb-3">Riwayat Rekomendasi</h3>
-        <div class="container py-5">
-    {!! $chart->container() !!}
 
-    <script src="{{ $chart->cdn() }}"></script>
-    {{ $chart->script() }}
-</div>
+        <!-- Grafik Perkembangan Rekomendasi Makanan -->
+        <div class="container py-5">
+            <h3>Grafik Perkembangan Rekomendasi Makanan</h3>
+            <p>
+                Sumbu Y menunjukkan tingkat kalori:
+                <ul>
+                    <li>1 = Rendah</li>
+                    <li>2 = Sedang</li>
+                    <li>3 = Tinggi</li>
+                </ul>
+            </p>
+
+            <!-- Render grafik -->
+            {!! $chart->container() !!}
+        </div>
+
+        <!-- Script untuk grafik -->
+        <script src="{{ $chart->cdn() }}"></script>
+        {{ $chart->script() }}
+
+        <!-- Tabel Riwayat Rekomendasi -->
         @if ($riwayatRekomendasi->isEmpty())
             <p>Tidak ada rekomendasi.</p>
         @else
@@ -35,10 +50,10 @@
                                         <tr>
                                             <td>{{ $item['nama_makanan'] ?? 'Tidak diketahui' }}</td>
                                             <td>
-                                            @if (!empty($item['gambar']))
-                                             <img src="{{ asset('makanan-images/'.$item['gambar']) }}" alt="{{ $item['nama_makanan'] }}" style="width: 100px; height: auto;">
-                                            @else
-                                                Tidak ada gambar
+                                                @if (!empty($item['gambar']))
+                                                    <img src="{{ asset('makanan-images/'.$item['gambar']) }}" alt="{{ $item['nama_makanan'] }}" style="width: 100px; height: auto;">
+                                                @else
+                                                    Tidak ada gambar
                                                 @endif
                                             </td>
                                             <td>
@@ -47,7 +62,7 @@
                                             <td>{{ $item['kalori'] ?? 'Tidak diketahui' }}</td>
                                             <td>
                                                 <ul>
-                                                    <li>Umur(bulan): {{ $rekomendasi->kriteria['umur'] ?? 'Tidak diketahui' }}</li>
+                                                    <li>Umur (bulan): {{ $rekomendasi->kriteria['umur'] ?? 'Tidak diketahui' }}</li>
                                                     <li>Berat Badan: {{ $rekomendasi->kriteria['berat_badan'] ?? 'Tidak diketahui' }}</li>
                                                     <li>Tinggi Badan: {{ $rekomendasi->kriteria['tinggi_badan'] ?? 'Tidak diketahui' }}</li>
                                                     <li>Jenis Kelamin: {{ $rekomendasi->kriteria['jenis_kelamin'] ?? 'Tidak diketahui' }}</li>
@@ -57,7 +72,7 @@
                                             <td>{{ $rekomendasi['created_at']->format('d M Y H:i') }}</td>
                                         </tr>
 
-                                        <!-- Resep dan Bahan Modal -->
+                                        <!-- Modal Resep dan Bahan -->
                                         <div class="modal fade" id="resepModal{{ $loop->parent->iteration }}{{ $loop->iteration }}" tabindex="-1" aria-labelledby="resepModalLabel{{ $loop->parent->iteration }}{{ $loop->iteration }}" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
@@ -80,7 +95,7 @@
                                     @endforeach
                                 @else
                                     <tr>
-                                        <td colspan="7">Data tidak valid.</td>
+                                        <td colspan="6">Data tidak valid.</td>
                                     </tr>
                                 @endif
                             @endforeach

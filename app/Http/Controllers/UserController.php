@@ -45,7 +45,7 @@ class UserController extends Controller
         ]);
         $isAdmin = $request->input('role') === 'admin' ? true : false;
 
-        User::create([
+        $user = User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => bcrypt($request->input('password')),
@@ -56,6 +56,15 @@ class UserController extends Controller
             'nomor_telepon' => $request->input('nomor_telepon'),
             'is_admin' => $isAdmin,
         ]);
+
+        OrangTua::create([
+'user_id' => $user->id,
+'nomor_identitas' => $request->input('nomor_identitas'),
+'alamat' => $request->input('alamat'),
+'nomor_telepon' => $request->input('nomor_telepon'),
+        ]);
+
+
 
         return redirect()->route('users.index')->with('success', 'Berhasil menambahkan user');
     }
