@@ -11,6 +11,7 @@ use App\Models\RiwayatRekomendasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
+
 class LandingpageController extends Controller
 {
     public function index()
@@ -22,24 +23,21 @@ class LandingpageController extends Controller
 
     public function history()
 {
-    // Mengambil data riwayat rekomendasi dari database
     $riwayatRekomendasi = RiwayatRekomendasi::where('orang_tua_id', Auth::user()->orangTua->id)->get();
 
-    // Menghitung jumlah makanan berdasarkan kategori kalori
     $rendah = 0;
     $sedang = 0;
     $tinggi = 0;
 
     foreach ($riwayatRekomendasi as $rekomendasi) {
-        // Memastikan rekomendasi dalam bentuk array
         if (is_string($rekomendasi->rekomendasi)) {
-            $rekomendasiMakanan = json_decode($rekomendasi->rekomendasi, true); // Dekode hanya jika masih berupa string
+            $rekomendasiMakanan = json_decode($rekomendasi->rekomendasi, true); 
         } else {
-            $rekomendasiMakanan = $rekomendasi->rekomendasi; // Ambil langsung jika sudah array
+            $rekomendasiMakanan = $rekomendasi->rekomendasi; 
         }
 
         foreach ($rekomendasiMakanan as $item) {
-            $kalori = $item['kalori'] ?? 0; // Mengambil nilai kalori, default 0 jika tidak ada
+            $kalori = $item['kalori'] ?? 0;
             if ($kalori < 300) {
                 $rendah++;
             } elseif ($kalori >= 300 && $kalori <= 400) {
@@ -50,15 +48,15 @@ class LandingpageController extends Controller
         }
     }
 
-    // Membuat grafik distribusi kalori makanan
-    $chart = (new LarapexChart)
-        ->setTitle('Distribusi Kalori Makanan')
-        ->setLabels(['Rendah', 'Sedang', 'Tinggi']) // Label untuk sumbu x
-        ->setDataset([$rendah, $sedang, $tinggi]); // Dataset untuk grafik
+    $chart = (new LarapexChart)->barChart()
+        ->setTitle('Perkembangan Balita')
+        ->setXAxis(['Rendah', 'Sedang', 'Tinggi'])
+        ->addData('Jumlah', [$rendah, $sedang, $tinggi])
+        ->setColors(['#00bfff', '#ffa500', '#ff4500']);
 
-    // Mengirimkan data riwayat dan chart ke view
     return view('history', compact('riwayatRekomendasi', 'chart'));
 }
+
 
 
 
@@ -163,7 +161,8 @@ class LandingpageController extends Controller
         return view('jadwal-imunisasi.index', compact('imunisasi'));
     }
 
-    public function riwayatRekamMedis(){
+    public function riwayatRekamMedis()
+    {
 
         $orangTuaId = Auth::user()->orangTua->id;
         $rekamMedis = RekamMedis::where('orang_tua_id', $orangTuaId)->get();
@@ -174,5 +173,4 @@ class LandingpageController extends Controller
         }
         return view('riwayat-rekam-medis.index', compact('rekamMedis'));
     }
-    
 }
