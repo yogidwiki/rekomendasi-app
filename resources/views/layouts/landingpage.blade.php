@@ -17,6 +17,7 @@
 
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="{{ asset('./css/app.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     @yield('css')
 </head>
 

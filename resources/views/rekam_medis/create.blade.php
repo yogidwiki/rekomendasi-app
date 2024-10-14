@@ -53,11 +53,12 @@
                         <label for="alergi" class="form-label">Alergi</label>
                         <select class="form-select" id="alergi" name="alergi[]" multiple="multiple"
                             style="width: 100%;">
+                            <option value="Tidak ada">Tidak ada</option>
                             <option value="Daging">Daging</option>
                             <option value="Serbuk Sari">Serbuk Sari</option>
                             <option value="Kacang">Kacang</option>
                             <option value="Susu">Susu</option>
-                            <option value="Obat-obatan">Obat-obatan</option>
+                            <option value="Udang">Udang</option>
                         </select>
                     </div>
                 </div>

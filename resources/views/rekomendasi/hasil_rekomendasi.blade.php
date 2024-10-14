@@ -15,12 +15,12 @@
         @else
             <div class="row">
 
-                <p><strong>Kebutuhan Kalori:</strong> {{ round($kalori) }} kkal
-            @if($kalori < 300)
+                <p><strong>Kebutuhan Kalori persajian adalah:</strong> {{ round($kalori) }} kkal
+            @if($kalori < 200)
             <span>
                 (rendah)
             </span>
-            @elseif($kalori >= 300 || $kalori <= 400)
+            @elseif($kalori >= 200 && $kalori <= 300)
             <span>
                 (Sedang)
             </span>

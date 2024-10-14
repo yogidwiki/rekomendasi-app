@@ -10,7 +10,7 @@ use App\Models\RekamMedis;
 use App\Models\RiwayatRekomendasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use ArielMejiaDev\LarapexCharts\LarapexChart;
+
 
 class LandingpageController extends Controller
 {
@@ -20,79 +20,67 @@ class LandingpageController extends Controller
         $articles = Article::all();
         return view('welcome', compact('articles'));
     }
-    public function history()
+   
+    public function simpanRekomendasi($rekomendasi, $kalori)
 {
+    // Hitung kategori berdasarkan kalori
+    $kategori = 'rendah';
+    if ($kalori > 200 && $kalori <= 300) {
+        $kategori = 'sedang';
+    } elseif ($kalori > 300) {
+        $kategori = 'tinggi';
+    }
+
+    // Simpan ke dalam database
+    RiwayatRekomendasi::create([
+        'rekomendasi' => json_encode($rekomendasi),
+        'kalori' => $kalori,
+        'kategori_kalori' => $kategori,
+        'created_at' => now(),
+    ]);
+}
+
+public function history()
+{
+    // Ambil data dari tabel RiwayatRekomendasi
     $riwayatRekomendasi = RiwayatRekomendasi::where('orang_tua_id', Auth::user()->orangTua->id)->get();
 
-    $dataRendah = [];
-    $dataSedang = [];
-    $dataTinggi = [];
+    $dataKategori = [];
     $labels = [];
 
     foreach ($riwayatRekomendasi as $rekomendasi) {
         $tanggal = $rekomendasi->created_at->format('Y-m-d');
         $labels[] = $tanggal;
 
-        // Initialize counts for each category
-        $rendah = 0;
-        $sedang = 0;
-        $tinggi = 0;
-
-        // Decode rekomendasi if it is a JSON string
-        $rekomendasiMakanan = is_string($rekomendasi->rekomendasi) 
-            ? json_decode($rekomendasi->rekomendasi, true) 
-            : $rekomendasi->rekomendasi;
-
-        foreach ($rekomendasiMakanan as $item) {
-            $kalori = $item['kalori'] ?? 0;
-
-            // Categorize based on caloric content
-            if ($kalori < 300) {
-                $rendah++;
-            } elseif ($kalori >= 300 && $kalori <= 400) {
-                $sedang++;
-            } else {
-                $tinggi++;
-            }
+        // Tentukan nilai Y berdasarkan kategori kalori
+        if ($rekomendasi->kategori_kalori == 'rendah') {
+            $dataKategori[] = 1;
+        } elseif ($rekomendasi->kategori_kalori == 'sedang') {
+            $dataKategori[] = 2;
+        } else {
+            $dataKategori[] = 3;
         }
-
-        // Store the counts for each category
-        $dataRendah[] = $rendah;
-        $dataSedang[] = $sedang;
-        $dataTinggi[] = $tinggi;
     }
 
-    // Combine data into a single dataset in the desired order
-    $dataChart = [];
-    foreach ($dataRendah as $index => $value) {
-        $dataChart[] = [
-            'label' => $labels[$index],
-            'Rendah' => $value,
-            'Sedang' => $dataSedang[$index],
-            'Tinggi' => $dataTinggi[$index],
-        ];
-    }           
+    // Siapkan data untuk chart
+    $chartData = [
+        'labels' => $labels,
+        'datasets' => [
+            [
+                'label' => 'Kategori Kalori',
+                'data' => $dataKategori,
+                'borderColor' => '#ff4500',
+                'fill' => false,
+                'tension' => 0.4,
+            ]
+        ]
+    ];
 
-    // Create the line chart
-    $chart = (new LarapexChart)->lineChart()
-        ->setTitle('Perkembangan Balita')
-        ->setXAxis($labels)
-        ->addData('Rendah', array_column($dataChart, 'Rendah'))
-        ->addData('Sedang', array_column($dataChart, 'Sedang'))
-        ->addData('Tinggi', array_column($dataChart, 'Tinggi'))
-        ->setColors(['#00bfff', '#ffa500', '#ff4500']);
-
-    return view('history', compact('riwayatRekomendasi', 'chart'));
+    // Kirim data ke view
+    return view('history', compact('chartData', 'riwayatRekomendasi'));
 }
 
-    
-
-
-
-
-
-
-    public function about()
+        public function about()
     {
         return view('landingpage.about',);
     }
