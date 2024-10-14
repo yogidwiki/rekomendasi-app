@@ -11,7 +11,7 @@ class RiwayatRekomendasi extends Model
 
     protected $table = 'riwayat_rekomendasi';
 
-    protected $fillable = ['anak_id', 'orang_tua_id', 'kriteria', 'rekomendasi'];
+    protected $fillable = ['anak_id', 'orang_tua_id', 'kriteria', 'rekomendasi','kalori'];
 
     protected $casts = [
         'kriteria' => 'array',

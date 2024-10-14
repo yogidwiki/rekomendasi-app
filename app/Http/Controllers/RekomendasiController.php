@@ -83,6 +83,7 @@ class RekomendasiController extends Controller
                 'orang_tua_id' => Auth::user()->orangTua->id,
                 'kriteria' => $kriteria,
                 'rekomendasi' => $rekomendasi,
+                'kalori' => $kalori
             ]);
         }
 

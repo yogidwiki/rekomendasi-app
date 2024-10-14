@@ -21,24 +21,24 @@ class LandingpageController extends Controller
         return view('welcome', compact('articles'));
     }
    
-    public function simpanRekomendasi($rekomendasi, $kalori)
-{
-    // Hitung kategori berdasarkan kalori
-    $kategori = 'rendah';
-    if ($kalori > 200 && $kalori <= 300) {
-        $kategori = 'sedang';
-    } elseif ($kalori > 300) {
-        $kategori = 'tinggi';
-    }
+//     public function simpanRekomendasi($rekomendasi, $kalori)
+// {
+//     // Hitung kategori berdasarkan kalori
+//     $kategori = 'rendah';
+//     if ($kalori > 200 && $kalori <= 300) {
+//         $kategori = 'sedang';
+//     } elseif ($kalori > 300) {
+//         $kategori = 'tinggi';
+//     }
 
-    // Simpan ke dalam database
-    RiwayatRekomendasi::create([
-        'rekomendasi' => json_encode($rekomendasi),
-        'kalori' => $kalori,
-        'kategori_kalori' => $kategori,
-        'created_at' => now(),
-    ]);
-}
+//     // Simpan ke dalam database
+//     RiwayatRekomendasi::create([
+//         'rekomendasi' => json_encode($rekomendasi),
+//         'kalori' => $kalori,
+//         'kategori_kalori' => $kategori,
+//         'created_at' => now(),
+//     ]);
+// }
 
 public function history()
 {
@@ -51,14 +51,12 @@ public function history()
     foreach ($riwayatRekomendasi as $rekomendasi) {
         $tanggal = $rekomendasi->created_at->format('Y-m-d');
         $labels[] = $tanggal;
-
-        // Tentukan nilai Y berdasarkan kategori kalori
-        if ($rekomendasi->kategori_kalori == 'rendah') {
-            $dataKategori[] = 1;
-        } elseif ($rekomendasi->kategori_kalori == 'sedang') {
-            $dataKategori[] = 2;
+        if ($rekomendasi->kalori < 200) {
+            $dataKategori[] = 1 ; // rendah
+        } elseif ($rekomendasi->kalori >= 200 && $rekomendasi->kalori <= 400) {
+            $dataKategori[] = 2; // sedang
         } else {
-            $dataKategori[] = 3;
+            $dataKategori[] = 3; // tinggi
         }
     }
 
@@ -75,10 +73,12 @@ public function history()
             ]
         ]
     ];
+    
 
     // Kirim data ke view
     return view('history', compact('chartData', 'riwayatRekomendasi'));
 }
+
 
         public function about()
     {
