@@ -53,7 +53,7 @@ public function history()
         $labels[] = $tanggal;
         if ($rekomendasi->kalori < 200) {
             $dataKategori[] = 1 ; // rendah
-        } elseif ($rekomendasi->kalori >= 200 && $rekomendasi->kalori <= 400) {
+        } elseif ($rekomendasi->kalori >= 200 && $rekomendasi->kalori <= 399) {
             $dataKategori[] = 2; // sedang
         } else {
             $dataKategori[] = 3; // tinggi

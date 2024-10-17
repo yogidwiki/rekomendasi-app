@@ -20,7 +20,7 @@
             <span>
                 (rendah)
             </span>
-            @elseif($kalori >= 200 && $kalori <= 400)
+            @elseif($kalori >= 200 && $kalori <= 399)
             <span>
                 (Sedang)
             </span>

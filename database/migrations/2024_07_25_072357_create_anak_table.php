@@ -17,10 +17,8 @@ return new class extends Migration
             $table->string('nama_lengkap');
             $table->date('tanggal_lahir');
             $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan']);
-            $table->string('golongan_darah');
             $table->float('berat_lahir');
             $table->float('tinggi_lahir');
-            $table->float('lingkar_kepala_lahir');
             $table->integer('anak_ke');
             $table->string('kondisi_kesehatan');
             $table->timestamps();
