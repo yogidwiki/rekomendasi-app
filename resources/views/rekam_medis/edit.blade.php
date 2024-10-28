@@ -61,6 +61,7 @@
                     <div class="mb-3">
                         <label for="alergi" class="form-label">Alergi</label>
                         <select class="form-select" id="alergi" name="alergi[]" multiple="multiple" style="width: 100%;">
+                            <option value="Tidak ada" {{ in_array('Tidak ada', json_decode($rekamMedis->alergi, true)) ? 'selected' : '' }}>Tidak ada</option>
                             <option value="Daging" {{ in_array('Daging', json_decode($rekamMedis->alergi, true)) ? 'selected' : '' }}>Daging</option>
                             <option value="Serbuk Sari" {{ in_array('Serbuk Sari', json_decode($rekamMedis->alergi, true)) ? 'selected' : '' }}>Serbuk Sari</option>
                             <option value="Kacang" {{ in_array('Kacang', json_decode($rekamMedis->alergi, true)) ? 'selected' : '' }}>Kacang</option>

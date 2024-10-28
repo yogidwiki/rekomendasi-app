@@ -188,12 +188,6 @@
                             <div data-i18n="Boxicons">Rekam Medis</div>
                         </a>
                     </li>
-                    <li class="menu-item {{ request()->is('users') ? 'active' : '' }}">
-                        <a href="{{ route('users.index') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-user"></i> <!-- Ikon yang sesuai untuk User -->
-                            <div data-i18n="Boxicons">User</div>
-                        </a>
-                    </li>
                 </ul>
 
             </aside>
@@ -216,8 +210,8 @@
                         <div class="navbar-nav align-items-center">
                             <div class="nav-item d-flex align-items-center">
                                 <i class="bx bx-search fs-4 lh-0"></i>
-                                <input type="text" class="form-control border-0 shadow-none"
-                                    placeholder="Search..." aria-label="Search..." />
+                                <input type="text" class="form-control border-0 shadow-none" placeholder="Search..."
+                                    aria-label="Search..." />
                             </div>
                         </div>
                         <!-- /Search -->
@@ -254,7 +248,7 @@
                                     <li>
                                         <div class="dropdown-divider"></div>
                                     </li>
-                                   
+
                             </li>
                             <li>
                                 <div class="dropdown-divider"></div>
@@ -306,12 +300,12 @@
     <script src="{{ asset('sneat/assets') }}/vendor/libs/jquery/jquery.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#dataTables').DataTable();
         });
     </script>
     <script>
-        $('button.delete-button').click(function(event) {
+        $('button.delete-button').click(function (event) {
             event.preventDefault();
 
             const form = $(this).closest('form');
@@ -340,14 +334,14 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    
+
     @if ($errors->any())
         <script>
             let errorMessages = '';
             @foreach ($errors->all() as $error)
                 errorMessages += "{{ $error }}<br>";
             @endforeach
-    
+
             Toastify({
                 text: errorMessages,
                 duration: 5000,
@@ -361,13 +355,13 @@
             }).showToast();
         </script>
     @endif
-    
+
     @if (session('success') || session('error'))
         <script>
-            $(document).ready(function() {
+            $(document).ready(function () {
                 var successMessage = "{{ session('success') }}";
                 var errorMessage = "{{ session('error') }}";
-    
+
                 if (successMessage) {
                     Toastify({
                         text: successMessage,
@@ -381,7 +375,7 @@
                         close: true
                     }).showToast();
                 }
-    
+
                 if (errorMessage) {
                     Toastify({
                         text: errorMessage,

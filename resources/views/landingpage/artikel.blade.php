@@ -76,9 +76,8 @@
                       </a>
                       <span class="badge bg-aqua mb-2">{{ $item->category->name }}</span>
 
-                      <p>
-                          {{ $item->description }} Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo ipsam
-                          alias, eligendi fugiat expedita unde assumenda incidunt velit repudiandae aperiam.
+                      <p style="text-align: justify;">
+                          {{ $item->description }}
                       </p>
                       <div class="d-flex gap-3 align-items-center">
                           <img src="{{ asset('/image/profile.png') }}" style="width: 50px" alt="">

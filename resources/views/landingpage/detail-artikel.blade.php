@@ -47,7 +47,7 @@
                 </div>
                 <div class="col-md-9">
                     <h6 class="mb-3 fw-semibold">About this article</h6>
-                    <p>{{$artikel->description}} </p>
+                    <p style="text-align: justify;">{{$artikel->description}} </p>
                 </div>
                 
             </div>
@@ -60,7 +60,7 @@
                 <h2 class="text-center fw-bold text-aqua">New Articles</h2>
             </div>
             <div class="col-md-5 text-center">
-                <p>Artikel terbaru dari parent-app yang dapat memperluas pengetahuan anda!</p>
+                <p>Artikel terbaru dari monitoring-app yang dapat memperluas pengetahuan anda!</p>
             </div>
         </div>
         <div class="row d-flex-justify-content-center">

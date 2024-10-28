@@ -7,324 +7,60 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 @endif
-<h4 class="fw-bold py-3 mb-4">Tabel Users</h4>
+
+<h4 class="fw-bold py-3 mb-4">Profile</h4>
+
 <div class="row">
     <div class="col-md-12">
         <div class="card p-4">
-            <div class="col-md-2">
-                <button type="button" class="btn btn-primary mb-3 " data-bs-toggle="modal"
-                    data-bs-target="#modalCenter">
-                    Tambah
-                </button>
-            </div>
             <div class="table-responsive text-nowrap">
-                <table class="table table-hover" id="dataTables">
-                    <thead>
+                <table class="table table-striped">
+                    <tbody>
                         <tr>
-                            <th>No</th>
                             <th>Nama</th>
-                            <th>Email</th>
-                            <th>Role</th>
-                            <!-- <th>Tanggal Lahir</th>
-                                <th>Jenis Kelamin</th> -->
-                            <th>Nomer identitas</th>
-                            <th>alamat</th>
-                            <th>nomer telpon</th>
-                            <th>Aksi</th>
+                            <td>{{ "imam" }}</td>
                         </tr>
-                    </thead>
-                    <tbody class="table-border-bottom-0">
-                        @foreach ($users as $item)
-                            <tr>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
-                                    <strong>{{ $loop->iteration }}</strong>
-                                </td>
-                                <td>
-                                    {{ $item->name }}
-                                </td>
-                                <td>
-                                    {{ $item->email }}
-                                </td>
-                                <td>
-                                    {{ $item->is_admin ? 'Admin' : 'User' }}
-                                </td>
-                                <!-- <td>
-                                            {{ Carbon\Carbon::parse($item->birthday)->formatLocalized('%d %B %Y') }}
-                                        </td>
-                                        <td>
-                                            {{ $item->gender }}
-                                        </td> -->
-                                <td>
-                                    {{ $item->orangTua->nomor_identitas ?? 'Tidak ada data' }}
-                                </td>
-                                <td>
-                                    {{ $item->orangTua->alamat ?? 'Tidak ada data' }}
-                                </td>
-                                <td>
-                                    {{ $item->orangTua->nomor_telepon ?? 'Tidak ada data' }}
-                                </td>
-                                <td>
-                                    <div class="d-flex gap-2">
-                                        <a href="{{ route('users.edit', $item->id) }}" class="btn btn-warning btn-sm"
-                                            data-bs-toggle="modal" data-bs-target="#modalEdit{{ $item->id }}">Edit</a>
-                                        <form method="POST" action="{{ route('users.destroy', $item->id) }}">
-                                            @csrf
-                                            @method('delete')
-                                            <button type="submit" class="btn btn-danger delete-button btn-sm"
-                                                data-name="{{ $item->name }}" data-id="{{ $item->id }}">Hapus</button>
-                                        </form>
-                                        <button class="btn btn-info btn-sm" data-bs-toggle="modal"
-                                            data-bs-target="#modalReset{{$item->id}}">Reset Password</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <!-- Modal Update -->
-                            <div class="modal fade" id="modalEdit{{ $item->id }}" tabindex="-1" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="modalCenterTitle">Update item</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <form action="{{ route('users.update', $item->id) }}" method="POST">
-                                            @csrf
-                                            @method('PUT')
-                                            <div class="modal-body">
-                                                <div class="row">
-                                                    <div class="col mb-3">
-                                                        <label for="nameWithTitle" class="form-label">Name</label>
-                                                        <input type="text" id="nameWithTitle" name="name"
-                                                            class="form-control" value="{{ $item->name }}" required />
-                                                    </div>
-                                                </div>
-                                                <div class="row g-2 mb-3">
-                                                    <div class="col mb-0">
-                                                        <label for="emailWithTitle" class="form-label">Email</label>
-                                                        <input type="email" id="emailWithTitle" name="email"
-                                                            class="form-control" value="{{ $item->email }}" required />
-                                                    </div>
-                                                    <div class="col mb-0">
-                                                        <label for="html5-date-input" class="form-label">Nomor
-                                                            Identitas</label>
-                                                        <input class="form-control" name="nomor_identitas" type="number"
-                                                            value="{{ optional($item->orangTua)->nomor_identitas ?? '' }}"
-                                                            required />
-                                                    </div>
-                                                </div>
-                                                <div class="col mb-0">
-                                                    <label for="html5-date-input" class="form-label">Alamat</label>
-                                                    <input class="form-control" name="alamat" type="text"
-                                                        value="{{ optional($item->orangTua)->alamat ?? '' }}" required />
-                                                </div>
-                                                <div class="col mb-0">
-                                                    <label for="html5-date-input" class="form-label">Nomor Telepon</label>
-                                                    <input class="form-control" name="nomor_telepon" type="text"
-                                                        value="{{ optional($item->orangTua)->nomor_telepon ?? '' }}"
-                                                        required />
-                                                </div>
-
-                                                <div class="mb-3">
-                                                    <label for="exampleFormControlSelect1" class="form-label">Role</label>
-                                                    <div class="d-flex gap-3">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="radio" name="role"
-                                                                id="adminRadio" value="admin" {{ $item->is_admin ? 'checked' : '' }}>
-                                                            <label class="form-check-label" for="adminRadio">Admin</label>
-                                                        </div>
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="radio" name="role"
-                                                                id="userRadio" value="user" {{ !$item->is_admin ? 'checked' : '' }}>
-                                                            <label class="form-check-label" for="userRadio">User</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-outline-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Save changes</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end modal update -->
-
-{{-- Modal reset password --}}
-<div class="modal fade" id="modalReset{{$item->id}}" tabindex="-999" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalCenterTitle">Reset Password</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form action="{{ route('reset-password', $item->id) }}" method="POST" id="resetPasswordForm">
-                @csrf
-                <div class="modal-body">
-                    <div class="form-password-toggle mb-3">
-                        <label class="form-label" for="newPassword">Password baru</label>
-                        <div class="input-group input-group-merge">
-                            <input type="password" class="form-control" id="newPassword" name="new_password"
-                                placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                aria-describedby="basic-default-password" required>
-                            <span class="input-group-text cursor-pointer" id="basic-default-password"><i
-                                    class="bx bx-hide"></i></span>
-                        </div>
-                    </div>
-                    <div class="form-password-toggle mb-3">
-                        <label class="form-label" for="confirmPassword">Konfirmasi Password</label>
-                        <div class="input-group input-group-merge">
-                            <input type="password" class="form-control" id="confirmPassword" name="confirm_password"
-                                placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                aria-describedby="basic-default-password" required>
-                            <span class="input-group-text cursor-pointer" id="basic-default-password"><i
-                                    class="bx bx-hide"></i></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-                        Close
-                    </button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-                        @endforeach
-
+                        <tr>
+                            <th>Email</th>
+                            <td>{{ "IMAM@gmail.com" }}</td>
+                        </tr>
+                        <tr>
+                            <th>Nomor Telepon</th>
+                            <td>{{ "0852312313" }}</td>
+                        </tr>
+                        <tr>
+                            <th>Alamat</th>
+                            <td>{{ "jl.kkadadad" }}</td>
+                        </tr>
+                        <tr>
+                            <th>nama anak</th>
+                            <td>{{ "indah" }}</td>
+                        </tr>
+                        <tr>
+                            <th>tanggal lahir</th>
+                            <td>{{ "12/01/2023" }}</td>
+                        </tr>
+                        <tr>
+                            <th>Jenis kelamin</th>
+                            <td>{{ "laki-laki" }}</td>
+                        </tr>
+                        <tr>
+                            <th>berat lahir</th>
+                            <td>{{ "2,9" }}</td>
+                        </tr>
+                        <tr>
+                            <th>tinggi lahir</th>
+                            <td>{{ "49" }}</td>
+                        </tr>
+                        <tr>
+                            <th>Anak ke</th>
+                            <td>{{ "1" }}</td>
+                        </tr>
+                        <!-- Tambahkan data lain sesuai kebutuhan -->
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
-<!-- Modal add-->
-<div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalCenterTitle">Tambah User</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form action="{{ route('users.store', $item->id) }}" method="POST">
-                @csrf
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col mb-3">
-                            <label for="nameWithTitle" class="form-label">Name</label>
-                            <input type="text" id="nameWithTitle" name="name" class="form-control"
-                                placeholder="Enter Name" required />
-                        </div>
-                    </div>
-                    <div class="row g-2 mb-3">
-                        <div class="col mb-0">
-                            <label for="emailWithTitle" class="form-label">Email</label>
-                            <input type="email" id="emailWithTitle" name="email" class="form-control"
-                                placeholder="email@example.com" required />
-                        </div>
-                        <div class="form-password-toggle">
-                            <label class="form-label" for="basic-default-password32">Password</label>
-                            <div class="input-group input-group-merge">
-                                <input type="password" class="form-control" id="basic-default-password32"
-                                    placeholder="enter password" aria-describedby="basic-default-password"
-                                    name="password" required />
-                                <span class="input-group-text cursor-pointer" id="basic-default-password"><i
-                                        class="bx bx-hide"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row g-2 mb-3">
-                        <!-- <div class="col mb-0">
-                    <label for="exampleFormControlSelect1" class="form-label">Jenis Kelamin</label>
-                    <select class="form-select" id="exampleFormControlSelect1" name="gender" aria-label="Default select example" required>
-                      <option disabled selected>Pilih jenis kelamin</option>
-                      <option value="1">Laki-Laki</option>
-                      <option value="2">Perempuan</option>
-                    </select>
-                  </div>
-                  <div class="col mb-0">
-                    <label for="html5-date-input" class="form-label">Tanggal Lahir</label>
-                    <input class="form-control" name="birthday" type="date" id="html5-date-input" required />
-                  </div> -->
-                        <div class="col mb-3">
-                            <label for="nomor_identitas" class="form-label">Nomor Identitas</label>
-                            <input type="text" id="nomor_identitas" name="nomor_identitas" class="form-control"
-                                placeholder="Masukkan Nomor Identitas" required />
-                        </div>
-                        <div class="col mb-3">
-                            <label for="nomor_telepon" class="form-label">Nomor Telepon</label>
-                            <input type="tel" id="nomor_telepon" name="nomor_telepon" class="form-control"
-                                placeholder="Masukkan Nomor Telepon" required />
-                        </div>
-
-                        <div class="mb-3">
-                            <div class="col mb-3">
-                                <label for="alamat" class="form-label">Alamat</label>
-                                <textarea id="alamat" name="alamat" class="form-control" placeholder="Masukkan Alamat"
-                                    required></textarea>
-                            </div>
-                            <label for="exampleFormControlSelect1" class="form-label">Role</label>
-                            <div class="d-flex gap-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="role" id="adminRadio"
-                                        value="admin" />
-                                    <label class="form-check-label" for="adminRadio">Admin</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="role" id="userRadio" value="user"
-                                        checked />
-                                    <label class="form-check-label" for="userRadio">User</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
-                    </div>
-            </form>
-        </div>
-    </div>
-</div>
-<!-- end modal add -->
-
-@endsection
-
-@section('script')
-<script>
-    $(document).ready(function () {
-        $('#resetPasswordForm').submit(function (e) {
-            e.preventDefault();
-
-            var url = $(this).attr('action');
-            var formData = $(this).serialize();
-
-            $.ajax({
-                type: 'POST',
-                url: url,
-                data: formData,
-                success: function (response) {
-                    // Tambahkan aksi yang ingin Anda lakukan setelah sukses
-                    // Misalnya, tampilkan pesan sukses menggunakan alert biasa
-                    toastr.success('Reset password berhasil!');
-                    location.reload();
-                },
-                error: function (xhr) {
-                    var errors = xhr.responseJSON.errors;
-                    var errorMessage = '';
-                    $.each(errors, function (key, value) {
-                        errorMessage += value[0] + '\n';
-                    });
-
-                    // Tampilkan pesan error menggunakan alert biasa
-                    toastr.error('Terjadi kesalahan:\n' + errorMessage);
-                }
-            });
-        });
-    });
-</script>
 @endsection
