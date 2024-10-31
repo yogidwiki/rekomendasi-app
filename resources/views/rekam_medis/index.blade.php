@@ -24,10 +24,11 @@
                         <td>{{ $loop->iteration }}</td>
 
                         <td>
-                            <a href="{{ route('users.index') }}" class="menu-link">
+                            <a href="{{ route('users.show', $item->orangTua->user_id) }}" class="menu-link">
                                 {{ $item->orangTua->nama_ibu }}
                             </a>
                         </td>
+
 
                         <td>{{ $item->anak->nama_lengkap }}</td>
                         <td>
@@ -76,7 +77,7 @@
                             @endif
                         </td>
                         <td>
-                            <div class="d-flex">
+                            <div class="">
                                 <a href="{{ route('rekam-medis.edit', $item->id) }}" class="btn btn-warning btn-sm">
                                     Edit
                                 </a>

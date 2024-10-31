@@ -74,8 +74,16 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // Fetch the User data based on ID
+        $user = User::findOrFail($id);
+
+        // Fetch related OrangTua and Anak data
+        $orangTua = OrangTua::with('anak')->where('user_id', $id)->first();
+
+        // Return the view with the data
+        return view('user.index', compact('user', 'orangTua'));
     }
+
 
     /**
      * Show the form for editing the specified resource.

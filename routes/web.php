@@ -53,7 +53,10 @@ Route::post('/notifications/read-all', [NotificationController::class, 'markAllA
 
 
 Route::group(['middleware' => 'admin'], function () {
-    Route::resource('users', UserController::class);
+    Route::resource('users', UserController::class)->except('show');
+    // routes/web.php
+    Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
+
     Route::resource('articles',ArticleController::class);
     Route::post('users/{id}/reset-password', [UserController::class, 'resetPassword'])->name('reset-password');
     Route::get('/home', [HomeController::class, 'index'])->name('home');

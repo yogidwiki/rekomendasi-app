@@ -16,51 +16,31 @@
             <div class="table-responsive text-nowrap">
                 <table class="table table-striped">
                     <tbody>
-                        <tr>
-                            <th>Nama</th>
-                            <td>{{ "imam" }}</td>
-                        </tr>
-                        <tr>
-                            <th>Email</th>
-                            <td>{{ "IMAM@gmail.com" }}</td>
-                        </tr>
-                        <tr>
-                            <th>Nomor Telepon</th>
-                            <td>{{ "0852312313" }}</td>
-                        </tr>
-                        <tr>
-                            <th>Alamat</th>
-                            <td>{{ "jl.kkadadad" }}</td>
-                        </tr>
-                        <tr>
-                            <th>nama anak</th>
-                            <td>{{ "indah" }}</td>
-                        </tr>
-                        <tr>
-                            <th>tanggal lahir</th>
-                            <td>{{ "12/01/2023" }}</td>
-                        </tr>
-                        <tr>
-                            <th>Jenis kelamin</th>
-                            <td>{{ "laki-laki" }}</td>
-                        </tr>
-                        <tr>
-                            <th>berat lahir</th>
-                            <td>{{ "2,9" }}</td>
-                        </tr>
-                        <tr>
-                            <th>tinggi lahir</th>
-                            <td>{{ "49" }}</td>
-                        </tr>
-                        <tr>
-                            <th>Anak ke</th>
-                            <td>{{ "1" }}</td>
-                        </tr>
-                        <!-- Tambahkan data lain sesuai kebutuhan -->
+                        <tr><th>Nama</th><td>{{ $user->name }}</td></tr>
+                        <tr><th>Email</th><td>{{ $user->email }}</td></tr>
+                        <tr><th>Nomor Telepon</th><td>{{ $orangTua->nomor_telepon }}</td></tr>
+                        <tr><th>Alamat</th><td>{{ $orangTua->alamat }}</td></tr>
+
+                        {{-- Loop through each child in the 'anak' collection --}}
+                        @if ($orangTua->anak && $orangTua->anak->isNotEmpty())
+                            @foreach ($orangTua->anak as $anak)
+                                <tr><th>Nama Anak</th><td>{{ $anak->nama_lengkap }}</td></tr>
+                                <tr><th>Tanggal Lahir</th><td>{{ $anak->tanggal_lahir }}</td></tr>
+                                <tr><th>Jenis Kelamin</th><td>{{ $anak->jenis_kelamin }}</td></tr>
+                                <tr><th>Berat Lahir</th><td>{{ $anak->berat_lahir }}</td></tr>
+                                <tr><th>Tinggi Lahir</th><td>{{ $anak->tinggi_lahir }}</td></tr>
+                                <tr><th>Anak Ke</th><td>{{ $anak->anak_ke }}</td></tr>
+                            @endforeach
+                        @else
+                            <tr><td colspan="2">Tidak Ada Data Anak</td></tr>
+                        @endif
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
+
+
+
 @endsection

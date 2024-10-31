@@ -182,7 +182,7 @@
                             <div data-i18n="Boxicons">Aturan</div>
                         </a>
                     </li>
-                    <li class="menu-item {{ request()->is('rekam-medis') ? 'active' : '' }}">
+                    <li class="menu-item {{ request()->is('rekam-medis') || request()->is('users/*') ? 'active' : '' }}">
                         <a href="{{ route('rekam-medis.index') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-folder"></i> <!-- Ikon yang sesuai untuk Rekam Medis -->
                             <div data-i18n="Boxicons">Rekam Medis</div>
