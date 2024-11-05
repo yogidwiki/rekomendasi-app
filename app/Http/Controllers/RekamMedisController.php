@@ -20,10 +20,14 @@ class RekamMedisController extends Controller
             $item->riwayat_penyakit = is_string($item->riwayat_penyakit) ? json_decode($item->riwayat_penyakit, true) : [];
             $item->alergi = is_string($item->alergi) ? json_decode($item->alergi, true) : [];
         }
-        $orangTua = OrangTua::all();
-        $anak = Anak::all();
-        return view('rekam_medis.index', compact('rekamMedis', 'orangTua', 'anak'));
+        
+        // Ambil rekam medis dengan anak unik berdasarkan ID anak
+        $rekamMedisUnik = $rekamMedis->unique('anak.id');
+        
+        return view('rekam_medis.index', compact('rekamMedisUnik', 'rekamMedis'));
     }
+    
+
 
     /**
      * Show the form for creating a new resource.

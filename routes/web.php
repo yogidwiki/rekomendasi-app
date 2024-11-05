@@ -31,6 +31,7 @@ Route::get('/', [LandingpageController::class, 'index'])->name('welcome');
 Route::get('/about', [LandingpageController::class, 'about'])->name('about');
 Route::get('/artikel', [LandingpageController::class, 'artikel'])->name('artikel');
 Route::get('/history', [LandingpageController::class, 'history'])->name('history');
+Route::delete('/history/{id}', [LandingpageController::class, 'deleteHistory'])->name('history.delete');
 Route::get('/detail-artikel', [LandingpageController::class, 'detailArtikel'])->name('detail-artikel');
 Route::get('/detail-kategori/{id}', [LandingPageController::class, 'detailKategori'])->name('detail-kategori');
 

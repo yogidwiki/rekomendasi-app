@@ -78,6 +78,25 @@ public function history()
     // Kirim data ke view
     return view('history', compact('chartData', 'riwayatRekomendasi'));
 }
+public function deleteHistory($id)
+{
+    // Cari riwayat rekomendasi berdasarkan ID dan milik pengguna yang sedang login
+    $riwayatRekomendasi = RiwayatRekomendasi::where('id', $id)
+        ->where('orang_tua_id', Auth::user()->orangTua->id)
+        ->first();
+
+    // Periksa apakah data ditemukan
+    if ($riwayatRekomendasi) {
+        // Hapus riwayat rekomendasi
+        $riwayatRekomendasi->delete();
+
+        // Redirect atau kirim pesan sukses
+        return redirect()->route('history')->with('success', 'Riwayat berhasil dihapus.');
+    } else {
+        // Kirim pesan error jika data tidak ditemukan
+        return redirect()->route('history')->with('error', 'Riwayat tidak ditemukan.');
+    }
+}
 
 
         public function about()
@@ -91,6 +110,7 @@ public function history()
             ->paginate(4);;
         return view('landingpage.artikel', compact('articles', 'categories'));
     }
+    
 
 
 
